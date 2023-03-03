@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<main class="container">
+	<section class="row  justify-content-center">
+		<div class="col-12 text-center">
+			<h1>Bienvenue Au Quai Antique</h1>
+			<p>Chambéry</p>
+		</div>
+		<div class="col-6">
+			<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+				<div class="carousel-indicators">
+					{# {% for iteration in 1..dish.images|length %}
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration - 1 }}" {{ (loop.first ) ?'class="active" aria-current="true"' : '' }} aria-label="Slide {{ iteration }}"></button>
+                    {% endfor %} #}
+				</div>
+				<div class="carousel-inner">
+					<img src="{{ asset('assets/images/facebook.svg') }}" alt="">
+                        {# {% for image in dish.images %}
+                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
+                                <img src="{{ asset('assets/uploads/dishes/mini/200x200-') ~ image.name }}" class="d-block w-100" alt="{{ dish.name }}">
+                            </div>
+                        {% endfor %} #}
+				</div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+			</div>
+		</div>
+	</section>
+	<section class="text-center">
+				<button class="btn-beige btn-custom my-3" href="#" type="button" aria-expanded="false">Réserver</button>
+	</section>
+
+	<section>
+		<table class="table-mobile table-accueil table border-3 justify-content-center">
+			<tbody>
+				<tr>
+					<th scope="row"><img src="{{ asset('assets/images/mountain_brown.svg') }}" class="icon-table-custom"></img></th>
+					<td>Terrasse couverte<br>Vue sur la montagne</td>
+				</tr>
+				<tr>
+					<th scope="row"><img src="{{ asset('assets/images/restaurant-table-and-chairs-svgrepo-com.svg') }}" class="icon-table-custom"></img></th>
+					<td>200 Places<br>Salle privative pour évènement</td>
+				</tr>
+				<tr>
+					<th scope="row"><img src="{{ asset('assets/images/wheelchair_brown.svg') }}" class="icon-table-custom"></img></th>
+					<td>Parking et accès handicapé<br>Dans tout l'établissement</td>
+				</tr>
+				<tr>
+					<th scope="row"><img src="{{ asset('assets/images/parking_brown.svg') }}" class="icon-table-custom"></img></th>
+					<td>Parking 80 places<br>Privatisé et sécurisé</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section>
+		<div class="container d-flex justify-content-center align-items-center table-desktop">
+			<div class="row table-desktop">
+				<div class="col-5">
+					<table  class="table-accueil table border-3">
+						<tbody>
+							<tr>
+								<th scope="row"><img src="{{ asset('assets/images/mountain_brown.svg') }}" class="icon-table-custom"></img></th>
+								<td>Terrasse couverte<br>Vue sur la montagne</td>
+							</tr>
+							<tr>
+								<th scope="row"><img src="{{ asset('assets/images/restaurant-table-and-chairs-svgrepo-com.svg') }}" class="icon-table-custom"></img></th>
+								<td>200 Places<br>Salle privative pour évènement</td>
+							</tr>
+						</tbody>	
+					</table>
+				</div>
+
+				<div class="col-2 img-home">
+					<img class="img-home" src="{{ asset('assets/images/resto-int-2.jpg') }}" alt="">
+				</div>
+
+				<div class="col-5">
+					<table class="table-desktop table-accueil table border-3">
+						<tbody>
+							<tr>
+								<th scope="row"><img src="{{ asset('assets/images/wheelchair_brown.svg') }}" class="icon-table-custom"></img></th>
+								<td>Parking et accès handicapé<br>Dans tout l'établissement</td>
+							</tr>
+							<tr>
+								<th scope="row"><img src="{{ asset('assets/images/parking_brown.svg') }}" class="icon-table-custom"></img></th>
+								<td>Parking 80 places<br>Privatisé et sécurisé</td>
+							</tr>
+						</tbody>	
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+{% endblock %}

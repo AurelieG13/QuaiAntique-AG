@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #414754;
+    --font-body: 'Source Sans Pro', sans-serif;
+    --font-title: 'Montserrat', sans-serif;
+    --font-size-body: 16px;
+    --font-size-title: 32px;
+    --font-size-btn: 28px;
+    --font-size-btn-menu: 22px;
+    --color-bluelight: #E3E8F0;
+    --color-brown: #82807F;
+    --color-gray: #414754;
+    --color-beige: #E5D7BE;
+    --color-bg: rgba(233, 241, 242, 0.8);
+    --border-color: #82807F;
+}
+
+.btn-custom {
+    font-size: var(--font-size-btn);
+}
+
+/* Mise en forme navbar */
+.nav-custom {
+    background-color: var(--color-bg);
+}
+
+.logo-nav {
+    width: 250px;
+}
+.title-desktop-custom{
+    font-size: var(--font-size-title);
+}
+
+/* Mise en forme footer */
+.footer-custom {
+    background-color: var(--color-bg);
+}
+
+.border-top-custom {
+    border-top: 2px solid var(--border-color);
+}
+
+/*Icons*/
+.icon-connect {
+    color: var(--color-brown);
+    font-size: 40px;
+}
+
+.icon-custom {
+    color: var(--color-brown);
+    font-size: 30px;
+}
+.icon-table-custom {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-beige);
+    background-color: var(--color-bg);
+    margin: auto;
+    padding: 2px;
+}
+
+.icon-profile-custom {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-beige);
+    background-color: var(--color-gray);
+    margin: auto;
+    padding: 2px;
+}
+
+.icon-privacy-custom {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-beige);
+    margin: auto;
+    padding: 2px;
+}
+
+.icon-connect-text {
+    font-size: 14px;
+}
+
+/*Mise en forme desktop accueil*/
+
+.img-home {
+    max-width: 100%;
+    align-self: center; 
+}
+
+/*Media Query pour mobile*/
+@media screen and (width < 900px)  {
+    .table-desktop, .profile-desktop{
+        display: none;
+    }
+}
+
+/*Media Query pour desktop*/
+
+@media screen and (width >= 900px)  {
+    * {
+        --font-size-body: 22px;
+        --font-size-title: 42px;
+        --font-size-btn: 28px;
+        --font-size-btn-menu: 22px;
+    }
+    .title-desktop-custom{
+        font-size: var(--font-size-title);
+    }
+    .logo-nav {
+        width: 250px;
+    }
+    .icon-connect {
+        font-size: 46px;
+    }
+    .table-mobile, .profile-mobile {
+        display: none;
+    }
+
+}

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+	<div class="container-fluid nav-custom dropdown-center">
+		<a class="navbar-brand " href="{{ path('home')}}"><img class="logo-nav d-flex" src="{{ asset('assets/images/Logo.png') }}" alt="Logo Entreprise"></a>
+		<div class="dropdown">
+			<a class="navbar-toggler dropdown-toggle" href="{{ path('register')}}" role="button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<span class="navbar-text">
+					<i class="bi bi-person-circle icon-connect"></i>
+				</span>
+			</a>
+			<ul class="dropdown-menu">
+			{% if app.user %}
+				<li><a class="dropdown-item" href="#">Mon compte</a></li>
+				<li><a class="dropdown-item" href="{{ path('register')}}">Se déconnecter</a></li>
+
+			{% else %}
+				<li><a class="dropdown-item" href="{{ path('login')}}">Se connecter</a></li>
+				<li><a class="dropdown-item" href="{{ path('register')}}">S'inscrire</a></li>
+			{% endif %}
+			</ul>
+		</div>
+		
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="container-fluid align-item-center">
+			<div class="row">
+				<div class="col-8">
+					<span class="navbar-text collapse navbar-collapse justify-content-center title-desktop-custom">Le Quai Antique</span>
+				</div>
+				{% if app.user %}
+					<div class="col-2 my-auto">
+						<div class="navbar-text collapse navbar-collapse">
+							<span class="text-center">Bienvenue {{app.user.firstname}} {{app.user.name}}</span>
+						</div>
+					</div>
+					<div class="col-1 dropdown navbar-text collapse navbar-collapse">
+						<a class="dropdown-toggle" href="#" role="button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<span class="navbar-text">
+								<i class="bi bi-person-circle icon-connect"></i>
+							</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="{{ path('home') }}">Mon compte</a></li>
+							<li><a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a></li>
+						</ul>
+					</div>
+				{% else %}
+					<div class="col-2 my-auto">
+						<a href="{{ path('login') }}" class="navbar-text collapse navbar-collapse justify-content-end">
+							<span class="icon-connect-text">Identifiez-vous</span>
+						</a>
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="d-flex flex-row p-2">
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav w-100 justify-content-around">
+								<li class="nav-item">
+									<a class="nav-link btn-menu-custom btn-gray text-center" aria-current="page" href="{{ path('home')}}">Accueil</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link btn-menu-custom btn-beige text-center" href="#">Réserver</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link btn-menu-custom btn-gray text-center" href="#">Carte</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link btn-menu-custom btn-gray text-center" href="#">Menus</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link  btn-menu-custom btn-gray text-center" href="#">A propos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<div class="navbar navbar-expand-lg navbar-light bg-light container-fluid justify-content-center border-bottom-custom">
+	<button class="navbar-toggler btn-beige btn-custom" href="#" type="button" aria-expanded="false">
+		<span class="navbar-text">Réserver</span>
+	</button>
+</div>
+

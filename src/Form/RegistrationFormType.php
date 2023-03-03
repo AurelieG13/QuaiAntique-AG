@@ -5,6 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,12 +20,39 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('name', TypeTextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Nom'
+            ])
+            ->add('firstname', TypeTextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Prénom'
+            ])
+            ->add('phoneNumber', TypeTextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Téléphone'
+            ])
+            ->add('guestBooking', IntegerType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Nombre de convives par défaut'
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Adresse email',
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'label' => 'J\'accepte les conditions d\'utilisation',
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Veuillez cocher la case : J\'accepte les conditions d\'utilisation',
                     ]),
                 ],
             ])
