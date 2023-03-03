@@ -40,6 +40,13 @@
 .border-top-custom {
     border-top: 2px solid var(--border-color);
 }
+/*Sidebar Profile*/
+
+.sidebar-custom{
+    background-color: #82807F;
+    color: white;
+}
+
 
 /*Icons*/
 .icon-connect {

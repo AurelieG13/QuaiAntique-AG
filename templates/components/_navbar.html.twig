@@ -9,7 +9,7 @@
 			</a>
 			<ul class="dropdown-menu">
 			{% if app.user %}
-				<li><a class="dropdown-item" href="#">Mon compte</a></li>
+				<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 				<li><a class="dropdown-item" href="{{ path('register')}}">Se déconnecter</a></li>
 
 			{% else %}
@@ -40,7 +40,7 @@
 							</span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="{{ path('home') }}">Mon compte</a></li>
+							<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 							<li><a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a></li>
 						</ul>
 					</div>
@@ -48,6 +48,11 @@
 					<div class="col-2 my-auto">
 						<a href="{{ path('login') }}" class="navbar-text collapse navbar-collapse justify-content-end">
 							<span class="icon-connect-text">Identifiez-vous</span>
+						</a>
+					</div>
+					<div class="col-2 my-auto">
+						<a href="{{ path('register') }}" class="navbar-text collapse navbar-collapse justify-content-end">
+							<span class="icon-connect-text">S'inscrire</span>
 						</a>
 					</div>
 				{% endif %}
