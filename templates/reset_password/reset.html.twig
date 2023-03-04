@@ -1,12 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}Réinitialiser mon mot de passe{% endblock %}
 
 {% block body %}
-    <h1>Reset your password</h1>
-
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+    <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">Réinitialiser mon mot de passe par email</h5>
+    <p class="card-text">
+        <ol>
+            <li>Entrez l’adresse e-mail associée à votre compte ci-dessous.</li>
+            <li>Vous allez recevoir un email, cliquez sur le lien pour choisir un nouveau mot de passe.</li>
+            <li>Après la validation de votre nouveau mot de passe, vous êtes connecté(e) à votre compte !</li>
+        </ol>
+        {{ form_start(requestForm) }}
+        {{ form_row(requestForm.email) }}
+                <button class="btn btn-primary">Envoyer le mail</button>
+    {{ form_end(requestForm) }}
+    </p>
+    </div>
+</div>
 {% endblock %}
+
