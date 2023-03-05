@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello admin_category_controller{% endblock %}
+
+{% block body %}
+
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des categories</h1>
+
+            <a href="{{ path('admin_category_add') }}" type="button" class="btn btn-primary">
+                Ajouter une catégorie
+            </a>
+
+<h3>Tableau des categories avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td colspan="2" class="text-center"></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for category in categories %}
+        <tr>
+            <td>{{ category.name }}</td>
+            <td>
+            <a href="{{ path('admin_category_edit', {id: category.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-category" data-bs-toggle="modal" data-bs-target="#modal-delete-category" data-id="{{ category.id }}" data-titre = "{{ category.name }}">
+                Supprimer
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-category" tabindex="-1" aria-labelledby="modal-delete-categoryLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-categoryLabel">Supprimer une catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-category modal-content-category">
+        
+      </div>
+      <div class="modal-footer modal-footer-category">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-category">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

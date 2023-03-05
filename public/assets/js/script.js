@@ -17,3 +17,13 @@ window.onload = () => {
         })
     }
 }
+
+window.onload = () => {
+    let deleteCategory = document.querySelectorAll(".modal-trigger-category")
+    for(let button of deleteCategory) {
+        button.addEventListener("click", function(){
+            document.querySelector(".modal-footer-category a").href=`/admin/category/delete/${this.dataset.id}`
+            document.querySelector(".modal-body-category").innerText = `Etes-vous sûr de vouloir supprimer cette catégorie"${this.dataset.id}"`
+        })
+    }
+}

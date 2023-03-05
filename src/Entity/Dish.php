@@ -23,6 +23,10 @@ class Dish
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\ManyToOne(inversedBy: 'dishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $categorie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +64,18 @@ class Dish
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Category
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Category $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
