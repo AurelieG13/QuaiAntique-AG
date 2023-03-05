@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier le plat{% endblock %}
+{% block title %}Page de Profil{% endblock %}
 
 {% block body %}
 <div class="container-fluid overflow-hidden">
@@ -9,9 +9,9 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                 
-                    {{ form_start(form_edit)}}
+                    {{ form_start(form)}}
                     <input class="btn btn-success" type="submit" value="Valider">
-                    {{ form_end(form_edit)}}
+                    {{ form_end(form)}}
                 </div>
             </main>
         </div>
