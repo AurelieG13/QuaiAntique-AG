@@ -62,38 +62,4 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    // #[Route('/editpassword/{id}', name: 'editpassword_user', methods:['GET', 'POST'])]
-    // public function editPasswordUser(
-    //     Request $request,
-    //     ManagerRegistry $doctrine,
-    //     User $user,
-    //     UserPasswordHasherInterface $hasher
-    //     ): Response
-    // {
-    //     $form = $this->createForm(UserPasswordType::class, $user);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         if($hasher->isPasswordValid($user, $form->getData()['plainPassword'])){
-    //             $user->setPassword(
-    //                 $hasher->hashPassword(
-    //                     $user,
-    //                     $form->getData()['newPassword']
-    //                 )
-    //             );
-    //         $em = $doctrine->getManager();
-    //         $em->persist($user);
-    //         $em->flush();
-
-    //         $this->addFlash('success','votre mot de passe a été modifié avec succès');
-    //         return $this->redirectToRoute('profile_home');
-    //     } else {
-    //         $this->addFlash('warning','Mot de passe incorrect');
-    //     }
-    // }
-
-    //     return $this->render('profile/edit.html.twig', [
-    //         'form' => $form->createView(),
-    //     ]);
-    // }
 }

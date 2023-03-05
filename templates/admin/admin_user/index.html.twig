@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminUserController!{% endblock %}
+
+{% block body %}
+
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des utilisateurs</h1>
+
+<h3>Tableau des utilisateurs avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Email</td>
+            <td colspan="2" class="text-center"></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+            <a href="{{ path('admin_user_edit', {id: user.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            {# {{ path('admin_user_delete', {id: user.id}) }} #}
+            <a href="#" type="button" class="btn btn-danger modal-trigger" data-bs-toggle="modal" data-bs-target="#modal-delete" data-id="{{ user.id }}" data-titre = "{{ user.name }}">
+                Supprimer
+            </a>
+            {# <a href="#" type="button" data-bs-toggle="modal" class="btn btn-danger modal-trigger" data-bs-target="modal-delete" data-bs-id="{{ user.id }}" data-bs-titre = "{{ user.id }}">
+                Supprimer
+            </a> #}
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-deleteLabel">Supprimer un utilisateur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-content">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
