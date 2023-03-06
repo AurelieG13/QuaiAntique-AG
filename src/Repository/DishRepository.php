@@ -39,6 +39,45 @@ class DishRepository extends ServiceEntityRepository
         }
     }
 
+    // public function search($words)
+    // {
+    //     $query = $this->createQueryBuilder('dish');
+    //     if($words !== null) {
+    //         $query->andWhere('MATCH_AGAINST(dish.name) AGAINST (:words boolean)>0')
+    //         ->setParameter('words', $words);
+    //     }
+
+    //     return $query->getQuery()->getResult();
+    // }
+
+    public function search($words = null, $categorie = null)
+    {
+        $query = $this->createQueryBuilder('dish');
+        if($words !== null) {
+            $query->andWhere('MATCH_AGAINST(dish.name) AGAINST (:words boolean)>0')
+            ->setParameter('words', $words);
+        }
+
+        if($categorie !== null) {
+            $query->leftJoin('dish.categorie', 'c');
+            $query->andWhere('c.id = :id')
+                ->setParameter('id', $categorie);
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findBySearch($search): array
+    {
+        return $this->createQueryBuilder('dish')
+            ->andWhere('dish.name LIKE :search')
+            ->setParameter('search', '%'.$search.'%')
+            ->orderBy('dish.name', 'DESC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Dish[] Returns an array of Dish objects
 //     */

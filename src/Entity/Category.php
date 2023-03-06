@@ -21,6 +21,11 @@ class Category
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Dish::class, orphanRemoval: true)]
     private Collection $dishes;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->dishes = new ArrayCollection();

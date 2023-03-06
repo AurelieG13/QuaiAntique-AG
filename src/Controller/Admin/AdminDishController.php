@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Dish;
 use App\Form\DishType;
+use App\Form\SearchDishType;
 use App\Repository\DishRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,11 +16,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminDishController extends AbstractController
 {
     #[Route('/', name: 'list')]
-    public function index(DishRepository $dishRepository): Response
+    public function index(DishRepository $dishRepository, Request $request): Response
     {
-        $dishes = $dishRepository->findAll();
+        $dishes = $dishRepository->findBy([], ['name' => 'desc']);
+
+        $form = $this->createForm(SearchDishType::class);
+        $chercher = $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $dishes = $dishRepository->search(
+                $chercher->get('words')->getData(),
+                $chercher->get('categorie')->getData()
+            );
+        }
+
         return $this->render('admin/admin_dish/index.html.twig', [
             'dishes' => $dishes,
+            'form' => $form->createView()
         ]);
     }
 

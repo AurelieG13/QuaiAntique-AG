@@ -6,6 +6,7 @@ use App\Repository\DishRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Index(name: 'dish', columns: ['name'], flags: ['fulltext'])]
 #[ORM\Entity(repositoryClass: DishRepository::class)]
 class Dish
 {

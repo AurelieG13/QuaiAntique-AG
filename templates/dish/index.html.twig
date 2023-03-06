@@ -5,6 +5,8 @@
 {% block body %}
     <h1>Carte</h1>
 
+{{ form(form) }}
+
     <table class="table">
         <tbody>
         {% for dish in dishes %}
@@ -12,7 +14,7 @@
                 <td>{{dish.name}}</td>
                 <td>{{ dish.description }}</td>
                 <td>{{ dish.price }} €</td>
-                <td>{{ dish.category }}</td>
+                <td>{{ dish.categorie.name }}</td>
             </tr>
         {% endfor %}
         </tbody>
