@@ -33,13 +33,9 @@
             </a>
             </td>
             <td>
-            {# {{ path('admin_user_delete', {id: user.id}) }} #}
-            <a href="#" type="button" class="btn btn-danger modal-trigger" data-bs-toggle="modal" data-bs-target="#modal-delete" data-id="{{ user.id }}" data-titre = "{{ user.name }}">
-                Supprimer
-            </a>
-            {# <a href="#" type="button" data-bs-toggle="modal" class="btn btn-danger modal-trigger" data-bs-target="modal-delete" data-bs-id="{{ user.id }}" data-bs-titre = "{{ user.id }}">
-                Supprimer
-            </a> #}
+              <a href="#" type="button" class="btn btn-danger modal-trigger-user" data-bs-toggle="modal" data-bs-target="#modal-delete-user" data-id="{{ user.id }}" data-titre = "{{ user.id }}">
+                  Supprimer
+              </a>
             </td>
         </tr>
     {% endfor %}
@@ -49,18 +45,18 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+<div class="modal fade" id="modal-delete-user" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modal-deleteLabel">Supprimer un utilisateur</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body modal-content">
+      <div class="modal-body modal-body-user">
         
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete">Fermer</button>
+      <div class="modal-footer modal-footer-user">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-user">Fermer</button>
         <a href="#" type="button" class="btn btn-primary">Valider</a>
       </div>
     </div>

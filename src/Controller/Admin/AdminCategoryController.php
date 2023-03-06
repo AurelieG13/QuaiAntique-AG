@@ -3,9 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
-use App\Entity\Dish;
 use App\Form\CategoryType;
-use App\Form\DishType;
 use App\Repository\CategoryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

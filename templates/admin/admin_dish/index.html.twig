@@ -19,6 +19,7 @@
 <table class="table">
     <thead>
         <tr>
+            <td>Catégorie</td>
             <td>Nom</td>
             <td>Description</td>
             <td>Prix</td>
@@ -28,6 +29,7 @@
     <tbody>
     {% for dish in dishes %}
         <tr>
+            <td>{{ dish.categorie.name }}</td>
             <td>{{ dish.name }}</td>
             <td>{{ dish.description }}</td>
             <td>{{ dish.price }} €</td>
@@ -37,7 +39,7 @@
             </a>
             </td>
             <td>
-            <a href="#" type="button" class="btn btn-danger modal-trigger-dish" data-bs-toggle="modal" data-bs-target="#modal-delete-dish" data-id="{{ dish.id }}" data-titre = "{{ dish.name }}">
+            <a href="#" type="button" class="btn btn-danger modal-trigger-dish" data-bs-toggle="modal" data-bs-target="#modal-delete-dish" data-id="{{ dish.id }}" data-titre = "{{ dish.id }}">
                 Supprimer
             </a>
             </td>
@@ -49,14 +51,14 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modal-delete-dish" tabindex="-1" aria-labelledby="modal-delete-dishLabel" aria-hidden="true">
+<div class="modal fade" id="modal-delete-dish" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-delete-dishLabel">Supprimer un plat</h5>
+        <h5 class="modal-title" id="modal-deleteLabel">Supprimer un plat</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body modal-body-dish modal-content-dish">
+      <div class="modal-body modal-body-dish">
         
       </div>
       <div class="modal-footer modal-footer-dish">
