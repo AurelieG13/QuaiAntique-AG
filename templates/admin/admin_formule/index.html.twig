@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello admin_formule_controller{% endblock %}
+
+{% block body %}
+
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des formules</h1>
+
+            <a href="{{ path('admin_formule_add') }}" type="button" class="btn btn-primary">
+                Ajouter une formule
+            </a>
+
+<h3>Tableau des formules avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td colspan="2" class="text-center"></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for formule in formules %}
+        <tr>
+            <td>{{ formule.name }}</td>
+            <td>
+            <a href="{{ path('admin_formule_edit', {id: formule.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-formule" data-bs-toggle="modal" data-bs-target="#modal-delete-formule" data-id="{{ formule.id }}" data-titre = "{{ formule.id }}">
+                Supprimer
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-formule" tabindex="-1" aria-labelledby="modal-delete-formuleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-formuleLabel">Supprimer une catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-formule">
+        
+      </div>
+      <div class="modal-footer modal-footer-formule">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-formule">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

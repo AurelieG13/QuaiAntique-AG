@@ -25,4 +25,13 @@ window.onload = () => {
             document.querySelector(".modal-body-category").innerText = `Confirmez-vous la suppression de la catégorie? `
         })
     }
+
+    let deleteFormule = document.querySelectorAll(".modal-trigger-formule")
+    
+    for(let button4 of deleteFormule) {
+        button4.addEventListener("click", function(){
+            document.querySelector(".modal-footer-formule a").href=`/admin/formule/delete/${this.dataset.id}`
+            document.querySelector(".modal-body-formule").innerText = `Confirmez-vous la suppression de la formule? `
+        })
+    }
 }
