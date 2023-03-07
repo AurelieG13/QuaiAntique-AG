@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello admin_horaires_controller{% endblock %}
+
+{% block body %}
+
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des horaires</h1>
+
+            <a href="{{ path('admin_hours_add') }}" type="button" class="btn btn-primary">
+                Ajouter un horaire
+            </a>
+
+<h3>Tableau des horaires avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Jour</td>
+            <td>Midi début</td>
+            <td>Midi fin</td>
+            <td>Soir début</td>
+            <td>Soir fin</td>
+            <td colspan="2" class="text-center"></td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for hour in hours %}
+        <tr>
+            <td>{{ hour.dayOfWeek }}</td>
+            <td>{{ hour.openedLunchHour|date("H:i") }}</td>
+            <td>{{ hour.closedLunchHour|date("H:i")  }}</td>
+            <td>{{ hour.openedDinnerHour|date("H:i")  }}</td>
+            <td>{{ hour.closedDinnerHour|date("H:i")  }}</td>
+
+            <td>
+            <a href="{{ path('admin_hours_edit', {id: hour.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-hour" data-bs-toggle="modal" data-bs-target="#modal-delete-hour" data-id="{{ hour.id }}" data-titre = "{{ hour.id }}">
+                Supprimer
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-hour" tabindex="-1" aria-labelledby="modal-delete-hourLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-hourLabel">Supprimer un horaire</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-hour">
+        
+      </div>
+      <div class="modal-footer modal-footer-hour">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-hour">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -52,4 +52,13 @@ window.onload = () => {
             document.querySelector(".modal-body-allergy").innerText = `Confirmez-vous la suppression de cette allergie? `
         })
     }
+
+    let deleteHour = document.querySelectorAll(".modal-trigger-hour")
+    
+    for(let button6 of deleteHour) {
+        button6.addEventListener("click", function(){
+            document.querySelector(".modal-footer-hour a").href=`/admin/hours/delete/${this.dataset.id}`
+            document.querySelector(".modal-body-hour").innerText = `Confirmez-vous la suppression de cet horaire? `
+        })
+    }
 }

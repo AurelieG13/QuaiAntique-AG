@@ -25,40 +25,13 @@
 					<table class="table-footer table caption-top table-sm table-bordered text-start">
 						<caption class="text-center">Horaires de Service</caption>
 						<tbody>
+						{# {% for hour in hours %}
 							<tr>
-								<th scope="row">Lundi</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
+								<th scope="row">{{ hour.dayOfWeek}}</th>
+								<td>{{ hour.openedLunchHour|date("H:i") }} - {{ hour.closedLunchHour|date("H:i") }}</td>
+								<td>{{ hour.openedDinnerHour|date("H:i") }} - {{ hour.closedDinnerHour|date("H:i") }}</td>
 							</tr>
-							<tr>
-								<th scope="row">Mardi</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
-							</tr>
-							<tr>
-								<th scope="row">Mercredi</th>
-								<td class=" text-center" colspan="2">Fermé</td>
-							</tr>
-							<tr>
-								<th scope="row">Jeudi</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
-							</tr>
-							<tr>
-								<th scope="row">Vendredi</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
-							</tr>
-							<tr>
-								<th scope="row">Samedi</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
-							</tr>
-							<tr>
-								<th scope="row">Dimanche</th>
-								<td>12h00 - 14h30</td>
-								<td>19h00 - 22h30</td>
-							</tr>
+						{% endfor %} #}
 						</tbody>
 					</table>
 				</div>

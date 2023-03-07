@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminRestaurantController!{% endblock %}
+
+{% block body %}
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des restaurants</h1>
+
+            <a href="{{ path('admin_restaurant_add') }}" type="button" class="btn btn-primary">
+                Ajouter un restaurant
+            </a>
+
+<h3>Tableau des restaurants avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Nombre de convives</td>
+            <td>Actions</td>
+            <td colspan="2" class="text-center">Formules</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for restaurant in restaurants %}
+        <tr>
+            <td>{{ restaurant.name }}</td>
+            <td>{{ restaurant.guestMax }}</td>
+            <td>
+            <a href="{{ path('admin_restaurant_edit', {id: restaurant.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-restaurant" data-bs-toggle="modal" data-bs-target="#modal-delete-restaurant" data-id="{{ restaurant.id }}" data-titre = "{{ restaurant.id }}">
+                Supprimer
+            </a>
+            </td>
+            {# <td>
+            {% for formule in restaurant.formules %}
+                <td>{{ formule.name }}</td>
+            {% endfor %}
+            </td> #}
+            
+
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-restaurant" tabindex="-1" aria-labelledby="modal-delete-restaurantLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-restaurantLabel">Supprimer une catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-restaurant">
+        
+      </div>
+      <div class="modal-footer modal-footer-restaurant">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-restaurant">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
