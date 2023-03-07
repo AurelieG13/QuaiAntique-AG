@@ -39,28 +39,31 @@ class MenuRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Menu[] Returns an array of Menu objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    // public function search($words = null, $formule = null)
+    // {
+    //     $query = $this->createQueryBuilder('menu');
+    //     if($words !== null) {
+    //         $query->andWhere('MATCH_AGAINST(menu.name) AGAINST (:words boolean)>0')
+    //         ->setParameter('words', $words);
+    //     }
 
-//    public function findOneBySomeField($value): ?Menu
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //     if($formule !== null) {
+    //         $query->leftJoin('menu.formule', 'f');
+    //         $query->andWhere('f.id = :id')
+    //             ->setParameter('id', $formule);
+    //     }
+
+    //     return $query->getQuery()->getResult();
+    // }
+
+    // public function findBySearch($search): array
+    // {
+    //     return $this->createQueryBuilder('menu')
+    //         ->andWhere('menu.name LIKE :search')
+    //         ->setParameter('search', '%'.$search.'%')
+    //         ->orderBy('menu.name', 'DESC')
+    //         // ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 }

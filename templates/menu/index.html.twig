@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MenuController!{% endblock %}
+
+{% block body %}
+    <h1>Menus</h1>
+
+{{ form(form) }}
+
+    <table class="table">
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td>{{menu.name}}</td>
+                <td>{{ menu.description }}</td>
+                <td>{{ menu.price }} €</td>
+                <td>{{ menu.formule.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -15,11 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminFormuleController extends AbstractController
 {
     #[Route('/', name: 'list')]
-    public function index(FormuleRepository $formuleRepository): Response
+    public function listFormule(FormuleRepository $formuleRepository): Response
     {
-        $formules = $formuleRepository->findAll();
         return $this->render('admin/admin_formule/index.html.twig', [
-            'formules' => $formules,
+            'formules' => $formuleRepository->findAll(),
         ]);
     }
 
@@ -29,16 +28,17 @@ class AdminFormuleController extends AbstractController
         $formule = new Formule();
 
         $form = $this->createForm(FormuleType::class, $formule);
-
         $form->handleRequest($request);
 
-        if($form->isSubmitted()&&$form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()) {
+            $formule = $form->getData();
             $em = $doctrine->getManager();
             $em->persist($formule);
             $em->flush();
 
-            return $this->redirectToRoute('formule_list');
+            return $this->redirectToRoute('admin_formule_list');
         }
+
 
         return $this->render('admin/admin_formule/addFormule.html.twig', [
             'form' => $form->createView()
@@ -52,7 +52,7 @@ class AdminFormuleController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()&&$form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
             $em->persist($formule);
             $em->flush();

@@ -18,8 +18,14 @@ class Menu
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Formule::class)]
+    #[ORM\ManyToMany(targetEntity: Formule::class, inversedBy:'menus')]
+    #[ORM\JoinTable(name: 'formules_menus')]
     private Collection $formules;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function __construct()
     {
@@ -54,8 +60,8 @@ class Menu
     public function addFormule(Formule $formule): self
     {
         if (!$this->formules->contains($formule)) {
-            $this->formules->add($formule);
-            $formule->setMenu($this);
+            // $this->formules->add($formule);
+            $this->formules[] = $formule;
         }
 
         return $this;
@@ -63,13 +69,9 @@ class Menu
 
     public function removeFormule(Formule $formule): self
     {
-        if ($this->formules->removeElement($formule)) {
-            // set the owning side to null (unless already changed)
-            if ($formule->getMenu() === $this) {
-                $formule->setMenu(null);
-            }
-        }
+        $this->formules->removeElement($formule);
 
         return $this;
     }
+
 }

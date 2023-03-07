@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminMenuController!{% endblock %}
+
+{% block body %}
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des menus</h1>
+
+            <a href="{{ path('admin_menu_add') }}" type="button" class="btn btn-primary">
+                Ajouter un menu
+            </a>
+
+<h3>Tableau des menus avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Actions</td>
+            <td colspan="2" class="text-center">Formules</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for menu in menus %}
+        <tr>
+            <td>{{ menu.name }}</td>
+            <td>
+            <a href="{{ path('admin_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-menu" data-bs-toggle="modal" data-bs-target="#modal-delete-menu" data-id="{{ menu.id }}" data-titre = "{{ menu.id }}">
+                Supprimer
+            </a>
+            </td>
+            <td>
+            {% for formule in menu.formules %}
+                <td>{{ formule.name }}</td>
+            {% endfor %}
+            </td>
+            
+
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-menu" tabindex="-1" aria-labelledby="modal-delete-menuLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-menuLabel">Supprimer une catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-menu">
+        
+      </div>
+      <div class="modal-footer modal-footer-menu">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-menu">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

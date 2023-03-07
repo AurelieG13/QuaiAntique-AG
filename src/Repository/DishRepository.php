@@ -39,16 +39,6 @@ class DishRepository extends ServiceEntityRepository
         }
     }
 
-    // public function search($words)
-    // {
-    //     $query = $this->createQueryBuilder('dish');
-    //     if($words !== null) {
-    //         $query->andWhere('MATCH_AGAINST(dish.name) AGAINST (:words boolean)>0')
-    //         ->setParameter('words', $words);
-    //     }
-
-    //     return $query->getQuery()->getResult();
-    // }
 
     public function search($words = null, $categorie = null)
     {
@@ -78,28 +68,4 @@ class DishRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-//    /**
-//     * @return Dish[] Returns an array of Dish objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('d.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Dish
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }

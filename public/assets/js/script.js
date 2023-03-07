@@ -34,4 +34,13 @@ window.onload = () => {
             document.querySelector(".modal-body-formule").innerText = `Confirmez-vous la suppression de la formule? `
         })
     }
+
+    let deleteMenu = document.querySelectorAll(".modal-trigger-menu")
+    
+    for(let button5 of deleteMenu) {
+        button5.addEventListener("click", function(){
+            document.querySelector(".modal-footer-menu a").href=`/admin/menu/delete/${this.dataset.id}`
+            document.querySelector(".modal-body-menu").innerText = `Confirmez-vous la suppression du menu? `
+        })
+    }
 }

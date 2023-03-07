@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\FormuleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: FormuleRepository::class)]
+#[UniqueEntity('name')]
 class Formule
 {
     #[ORM\Id]
@@ -16,15 +20,21 @@ class Formule
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description = null;
 
-    #[ORM\Column]
-    private ?float $price = null;
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy:'formules')]
+    private Collection $menus;
 
-    #[ORM\ManyToOne(inversedBy: 'formules')]
-    #[ORM\JoinColumn(nullable: true)]
-    private ?Menu $menu = null;
+
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -43,39 +53,28 @@ class Formule
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getMenus(): Collection
     {
-        return $this->description;
+        return $this->menus;
     }
 
-    public function setDescription(string $description): self
+    public function addMenus(Menu $menu): self
     {
-        $this->description = $description;
+        if(!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+            $menu->addFormule($this);
+        }
 
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function removeMenus(Menu $menu): self
     {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
+        if(!$this->menus->contains($menu)) {
+            $menu->removeFormule($this);
+        }
 
         return $this;
     }
 
-    public function getMenu(): ?Menu
-    {
-        return $this->menu;
-    }
-
-    public function setMenu(?Menu $menu): self
-    {
-        $this->menu = $menu;
-
-        return $this;
-    }
 }
