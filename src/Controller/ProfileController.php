@@ -82,7 +82,7 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('profile_home');
         }
 
-        return $this->render('profile/edit.html.twig', [
+        return $this->render('profile/editAllergy.html.twig', [
             'form' => $form->createView(),
         ]);
     }

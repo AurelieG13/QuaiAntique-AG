@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FormuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -23,6 +24,12 @@ class Formule
 
     #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy:'formules')]
     private Collection $menus;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
+
+    #[ORM\Column]
+    private ?float $price = null;
 
 
     public function __construct()
@@ -73,6 +80,30 @@ class Formule
         if(!$this->menus->contains($menu)) {
             $menu->removeFormule($this);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

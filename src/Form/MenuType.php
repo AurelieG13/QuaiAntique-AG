@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Formule;
 use App\Entity\Menu;
 use App\Repository\FormuleRepository;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,6 +17,7 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description')
             ->add('formules', EntityType::class, [
                 'class' => Formule::class,
                 'multiple' =>true,

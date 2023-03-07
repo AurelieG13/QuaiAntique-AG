@@ -7,16 +7,15 @@
 
 {{ form(form) }}
 
-    <table class="table">
-        <tbody>
         {% for menu in menus %}
-            <tr>
-                <td>{{menu.name}}</td>
-                <td>{{ menu.description }}</td>
-                <td>{{ menu.price }} €</td>
-                <td>{{ menu.formule.name }}</td>
-            </tr>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{menu.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">{{ menu.description }}</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}

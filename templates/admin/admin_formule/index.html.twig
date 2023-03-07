@@ -19,6 +19,8 @@
     <thead>
         <tr>
             <td>Nom</td>
+            <td>Description</td>
+            <td>Prix</td>
             {# <td colspan="2" class="text-center"></td> #}
         </tr>
     </thead>
@@ -26,6 +28,8 @@
     {% for formule in formules %}
         <tr>
             <td>{{ formule.name }}</td>
+            <td>{{ formule.description }}</td>
+            <td>{{ formule.price }} €</td>
             <td>
             <a href="{{ path('admin_formule_edit', {id: formule.id}) }}" type="button" class="btn btn-primary">
                 Modifier

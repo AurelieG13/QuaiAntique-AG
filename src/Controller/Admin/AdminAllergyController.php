@@ -23,7 +23,7 @@ class AdminAllergyController extends AbstractController
     }
 
     #[Route('/add', name: 'add')]
-    public function addFormule(Request $request, ManagerRegistry $doctrine): Response
+    public function addAllergy(Request $request, ManagerRegistry $doctrine): Response
     {
         $allergie = new Allergy();
 
