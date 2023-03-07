@@ -10,7 +10,7 @@
 <h1>liste des formules</h1>
 
             <a href="{{ path('admin_formule_add') }}" type="button" class="btn btn-primary">
-                Ajouter une catégorie
+                Ajouter une formule
             </a>
 
 <h3>Tableau des formules avec actions edit & delete</h3>
@@ -27,7 +27,7 @@
         <tr>
             <td>{{ formule.name }}</td>
             <td>
-            <a href="{{ path('admin_category_edit', {id: formule.id}) }}" type="button" class="btn btn-primary">
+            <a href="{{ path('admin_formule_edit', {id: formule.id}) }}" type="button" class="btn btn-primary">
                 Modifier
             </a>
             </td>

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditAllergyFormType;
 use App\Form\EditProfileFormType;
 use App\Form\UserPasswordType;
 use App\Repository\UserRepository;
@@ -62,4 +63,27 @@ class ProfileController extends AbstractController
         ]);
     }
 
+    #[Route('/editallergy/{id}', name: 'edit_user_allergy')]
+    public function editUserAllergy(
+        Request $request,
+        ManagerRegistry $doctrine
+        ): Response
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(EditAllergyFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $doctrine->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash('success','votre profil a été modifié avec succès');
+            return $this->redirectToRoute('profile_home');
+        }
+
+        return $this->render('profile/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 }

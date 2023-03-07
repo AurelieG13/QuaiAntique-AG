@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Allergy;
 use App\Entity\User;
+use App\Repository\AllergyRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
@@ -43,6 +46,17 @@ class RegistrationFormType extends AbstractType
                     'class' => 'form-control'
                 ],
                 'label' => 'Nombre de convives par défaut'
+            ])
+            ->add('allergies', EntityType::class, [
+                'class' => Allergy::class,
+                'multiple' =>true,
+                'expanded' => true,
+                'choice_label' => 'name',
+                'query_builder' => function(AllergyRepository $er) {
+                    return $er->createQueryBuilder('a')
+                        ->orderBy('a.name', 'ASC');
+                },
+                'label' => 'Allergies',
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',

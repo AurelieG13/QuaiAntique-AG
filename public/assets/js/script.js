@@ -43,4 +43,13 @@ window.onload = () => {
             document.querySelector(".modal-body-menu").innerText = `Confirmez-vous la suppression du menu? `
         })
     }
+
+    let deleteAllergy = document.querySelectorAll(".modal-trigger-allergy")
+    
+    for(let button6 of deleteAllergy) {
+        button6.addEventListener("click", function(){
+            document.querySelector(".modal-footer-allergy a").href=`/admin/allergy/delete/${this.dataset.id}`
+            document.querySelector(".modal-body-allergy").innerText = `Confirmez-vous la suppression de cette allergie? `
+        })
+    }
 }

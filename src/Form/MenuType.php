@@ -18,7 +18,6 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('name')
-            // ->add('formules')
             ->add('formules', EntityType::class, [
                 'class' => Formule::class,
                 'multiple' =>true,

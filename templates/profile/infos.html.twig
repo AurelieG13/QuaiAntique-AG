@@ -43,7 +43,7 @@
                     <span class="align-middle">Modifier/Ajouter des allergies</span>
                 </div>
                 <div class="col-1">
-                    <a type="button" href="#"><img src="{{ asset('assets/images/arrow-right-circle.svg') }}" class="icon-table-custom"></img></a>
+                    <a type="button" href="{{ path('profile_edit_user_allergy', {id: user.id}) }}"><img src="{{ asset('assets/images/arrow-right-circle.svg') }}" class="icon-table-custom"></img></a>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
                                 <span class="align-middle">Modifier/Ajouter des allergies</span>
                             </div>
                             <div class="col-1">
-                                <a type="button" href="#"><img src="{{ asset('assets/images/arrow-right-circle.svg') }}" class="icon-table-custom"></img></a>
+                                <a type="button" href="{{ path('profile_edit_user_allergy', {id: user.id}) }}"><img src="{{ asset('assets/images/arrow-right-circle.svg') }}" class="icon-table-custom"></img></a>
                             </div>
                         </div>
                     </div>

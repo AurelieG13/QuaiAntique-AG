@@ -17,7 +17,6 @@ class FormuleType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('Valider', SubmitType::class)
         ;
     }
 

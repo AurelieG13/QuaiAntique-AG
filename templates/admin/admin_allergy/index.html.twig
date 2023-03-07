@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminAllergyController!{% endblock %}
+
+{% block body %}
+<div class="mb-4">
+    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+</div>
+
+<h1>liste des allergies</h1>
+
+            <a href="{{ path('admin_allergy_add') }}" type="button" class="btn btn-primary">
+                Ajouter une allergie
+            </a>
+
+<h3>Tableau des allergies avec actions edit & delete</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            {# <td colspan="2" class="text-center"></td> #}
+        </tr>
+    </thead>
+    <tbody>
+    {% for allergy in allergies %}
+        <tr>
+            <td>{{ allergy.name }}</td>
+            <td>
+            <a href="{{ path('admin_allergy_edit', {id: allergy.id}) }}" type="button" class="btn btn-primary">
+                Modifier
+            </a>
+            </td>
+            <td>
+            <a href="#" type="button" class="btn btn-danger modal-trigger-allergy" data-bs-toggle="modal" data-bs-target="#modal-delete-allergy" data-id="{{ allergy.id }}" data-titre = "{{ allergy.id }}">
+                Supprimer
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-delete-allergy" tabindex="-1" aria-labelledby="modal-delete-allergyLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-delete-allergyLabel">Supprimer une allergie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-allergy">
+        
+      </div>
+      <div class="modal-footer modal-footer-allergy">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-allergy">Fermer</button>
+        <a href="#" type="button" class="btn btn-primary">Valider</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

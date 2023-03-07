@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -45,6 +47,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isVerified = false;
 
     private ?string $plainPassword = null;
+
+    #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'users')]
+    private Collection $allergies;
+
+    public function __construct()
+    {
+        $this->allergies = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -191,6 +201,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPlainPassword($plainPassword)
     {
         $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Allergy>
+     */
+    public function getAllergies(): Collection
+    {
+        return $this->allergies;
+    }
+
+    public function addAllergy(Allergy $allergy): self
+    {
+        if (!$this->allergies->contains($allergy)) {
+            $this->allergies->add($allergy);
+        }
+
+        return $this;
+    }
+
+    public function removeAllergy(Allergy $allergy): self
+    {
+        $this->allergies->removeElement($allergy);
 
         return $this;
     }
