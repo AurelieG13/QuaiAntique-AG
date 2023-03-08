@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[ORM\EntityListeners(['App\EntityListener\UserListener'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -47,6 +48,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isVerified = false;
 
     private ?string $plainPassword = null;
+
+    private $passwordHasher;
 
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'users')]
     private Collection $allergies;
@@ -228,4 +231,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * Get the value of passwordHasher
+     */ 
+    public function getPasswordHasher()
+    {
+        return $this->passwordHasher;
+    }
+
+    /**
+     * Set the value of passwordHasher
+     *
+     * @return  self
+     */ 
+    public function setPasswordHasher($passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+
+        return $this;
+    }
+
 }

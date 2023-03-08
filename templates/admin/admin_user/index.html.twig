@@ -8,6 +8,14 @@
     <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
 </div>
 
+<a href="{{ path('admin_user_addManager') }}" type="button" class="btn btn-primary">
+  Ajouter un manager
+</a>
+
+<a href="{{ path('admin_user_addAdmin') }}" type="button" class="btn btn-primary">
+  Ajouter un administrateur
+</a>
+
 <h1>liste des utilisateurs</h1>
 
 <h3>Tableau des utilisateurs avec actions edit & delete</h3>
@@ -18,6 +26,7 @@
             <td>Nom</td>
             <td>Prénom</td>
             <td>Email</td>
+            <td>Rôle(s)</td>
             <td colspan="2" class="text-center"></td>
         </tr>
     </thead>
@@ -27,6 +36,21 @@
             <td>{{ user.name }}</td>
             <td>{{ user.firstname }}</td>
             <td>{{ user.email }}</td>
+            <td>
+                {% for role in user.roles %}
+                    {% if role == "ROLE_ADMIN" %}
+                        {% set name = "Administrateur" %}
+                        {% set color = "danger" %}
+                    {% elseif role == "ROLE_MANAGER"  %}
+                        {% set name = "Manager" %}
+                        {% set color = "warning" %}
+                    {% else %}
+                        {% set name = "Membre" %}
+                        {% set color = "success" %}
+                    {% endif %}
+                    <span class="badge bg-{{ color }}"> {{ name }} </span>
+                {% endfor %}
+            </td>
             <td>
             <a href="{{ path('admin_user_edit', {id: user.id}) }}" type="button" class="btn btn-primary">
                 Modifier

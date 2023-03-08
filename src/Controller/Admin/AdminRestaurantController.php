@@ -28,6 +28,8 @@ class AdminRestaurantController extends AbstractController
         ]);
     }
 
+    
+
     #[Route('/add', name: 'add')]
     public function addRestaurant(Request $request, ManagerRegistry $doctrine): Response
     {

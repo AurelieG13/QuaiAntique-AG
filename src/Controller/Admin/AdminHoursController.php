@@ -23,6 +23,16 @@ class AdminHoursController extends AbstractController
         ]);
     }
 
+    // #[Route('/footer', name: 'listfooter')]
+    // public function footer(OpeningHoursRepository $openingHoursRepository): Response
+    // {
+    //     $hours = $openingHoursRepository->findAll();
+    //     return $this->render('admin/admin_hours/_footer.html.twig', [
+    //         'hours' => $hours,
+    //     ]);
+    // }
+
+
     #[Route('/add', name: 'add')]
     public function addHours(Request $request, ManagerRegistry $doctrine): Response
     {

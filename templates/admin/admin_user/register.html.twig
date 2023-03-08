@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RegisterAdmin{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>RegisterAdmin</h1>
+
+    {{ form_start(admin_register_form) }}
+        {{ form_row(admin_register_form.email) }}
+        {{ form_row(admin_register_form.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(admin_register_form.agreeTerms) }}
+
+        <button type="submit" class="btn btn-succes">Enregistrer</button>
+    {{ form_end(admin_register_form) }}
+{% endblock %}
