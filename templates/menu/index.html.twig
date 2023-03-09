@@ -6,16 +6,25 @@
     <h1>Menus</h1>
 
 {{ form(form) }}
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
         {% for menu in menus %}
             <div class="card" style="width: 18rem;">
+            {% for image in menu.images %}
+              {# <img src=" {{ asset('assets/uploads/menu/mini/30x30-'~ menu.images[0].name)}} "  alt=" {{menu.name}} "> #}
+              <img src=" {{ asset('assets/uploads/menu/mini/30x30-' ~ image.name ) }} " alt="{{menu.name}}" width="30" class="mt-2">
+            {% endfor %}
+                {# <img src="..." class="card-img-top" alt="..."> #}
                 <div class="card-body">
                     <h5 class="card-title">{{menu.name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">{{ menu.description }}</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         {% endfor %}
+        </div>
+    </div>
+</div>
+        
 {% endblock %}

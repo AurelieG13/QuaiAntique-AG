@@ -10,6 +10,17 @@
                 <div class="col pt-4">
                 
                     {{ form_start(form)}}
+                    {# on affiche les images si on est en edition #}
+                    {% if app.request.attributes.get('_route') == 'admin_dish_edit' %}
+                        <h2>Images</h2>
+                        {% for image in dish.images %}
+                            <div>
+                                <img src=" {{ asset('assets/uploads/dish/mini/30x30-' ~ image.name ) }} " alt="Image" width="150" class="mt-2">
+                                <a href=" {{ path('admin_dish_delete_image', { id: image.id } ) }} " data-delete data-token=" {{ csrf_token('delete' ~ image.id) }} " >Supprimer</a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                        {{ form_row(form.images)}}
                     <input class="btn btn-success" type="submit" value="Valider">
                     {{ form_end(form)}}
                 </div>
@@ -17,6 +28,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}

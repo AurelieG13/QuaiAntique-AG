@@ -2,12 +2,16 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Images;
 use App\Entity\Menu;
 use App\Form\MenuType;
 use App\Form\SearchMenuType;
 use App\Repository\MenuRepository;
+use App\Service\PictureService;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +28,7 @@ class AdminMenuController extends AbstractController
     }
 
     #[Route('/add', name: 'add')]
-    public function addMenu(Request $request, ManagerRegistry $doctrine): Response
+    public function addMenu(Request $request, ManagerRegistry $doctrine, PictureService $pictureService): Response
     {
         $menu = new Menu();
 
@@ -32,14 +36,25 @@ class AdminMenuController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $menu = $form->getData();
-            $em = $doctrine->getManager();
-            $em->persist($menu);
-            $em->flush();
+            //on récupère les images
+            $images = $form->get('images')->getData();
+            //on boucle sur les img et on appelle le service d'ajout
+            foreach($images as $image){
+                //on défini le dossier de destination
+                $folder = 'menu';
+                //on appelle le service d'ajout
+                $fichier = $pictureService->add($image, $folder, 30, 30);
 
+                $img = new Images();
+                $img->setName($fichier);
+                $menu->addImage($img);
+
+                $em = $doctrine->getManager();
+                $em->persist($menu);
+                $em->flush();
+            }
             return $this->redirectToRoute('admin_menu_list');
         }
-
 
         return $this->render('admin/admin_menu/addMenu.html.twig', [
             'form' => $form->createView()
@@ -47,13 +62,26 @@ class AdminMenuController extends AbstractController
     }
 
     #[Route('/edit/{id}', name: 'edit')]
-    public function editMenu(Menu $menu, Request $request, ManagerRegistry $doctrine): Response
+    public function editMenu(Menu $menu, Request $request, ManagerRegistry $doctrine, PictureService $pictureService): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            //on récupère les images
+            $images = $form->get('images')->getData();
+            //on boucle sur les img et on appelle le service d'ajout
+            foreach($images as $image){
+                //on défini le dossier de destination
+                $folder = 'menu';
+                //on appelle le service d'ajout
+                $fichier = $pictureService->add($image, $folder, 30, 30);
+
+                $img = new Images();
+                $img->setName($fichier);
+                $menu->addImage($img);
+            }
             $em = $doctrine->getManager();
             $em->persist($menu);
             $em->flush();
@@ -62,7 +90,8 @@ class AdminMenuController extends AbstractController
         }
 
         return $this->render('admin/admin_menu/editMenu.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'menu' => $menu,
         ]);
     }
 
@@ -76,5 +105,23 @@ class AdminMenuController extends AbstractController
 
         $this->addFlash('success', 'menu supprimé avec succes');
         return $this->redirectToRoute('admin_menu_list');
+    }
+
+    #[Route('/delete/image/{id}', name: 'delete_image', methods: ['DELETE'])]
+    public function deleteImage(Images $image, Request $request, PictureService $pictureService, EntityManagerInterface $em): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if($this->isCsrfTokenValid('delete'. $image->getId(), $data['_token'])){
+            $name = $image->getName();
+
+            if($pictureService->delete($name, 'menu', 30, 30)) {
+                $em->remove($image);
+                $em->flush();
+
+                return new JsonResponse(['success' => 'ok'], 200) ;
+            }
+        }
+        return new JsonResponse(['error' => 'token invalide'], 400) ;
     }
 }

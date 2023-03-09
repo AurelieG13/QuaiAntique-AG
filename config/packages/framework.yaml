@@ -17,6 +17,8 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    
+    fragments: { path: /_fragment }
 
 when@test:
     framework:

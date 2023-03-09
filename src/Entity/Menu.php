@@ -23,6 +23,10 @@ class Menu
     #[ORM\JoinTable(name: 'formules_menus')]
     private Collection $formules;
 
+    #[ORM\OneToMany(mappedBy: 'menus', targetEntity: Images::class, orphanRemoval: true, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true)]
+    private Collection $images;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
@@ -34,6 +38,7 @@ class Menu
     public function __construct()
     {
         $this->formules = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,6 +91,36 @@ class Menu
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setMenus($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getMenus() === $this) {
+                $image->setMenus(null);
+            }
+        }
 
         return $this;
     }

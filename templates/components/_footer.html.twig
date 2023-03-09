@@ -2,7 +2,7 @@
 	<footer class=" py-1 my-1  border-top-custom">
 		<div class="row">
 			<div class="col nav text-center justify-content-center">
-				<button href="#" class="btn-custom btn-gray" type="button">Contact</button>
+				<a href="{{ path('contact_form') }} " class="btn-custom btn-gray" type="button">Contact</a>
 			</div>
 			<div class="col nav justify-content-center">
 				<span>
@@ -22,19 +22,7 @@
 		<div class="row">
 			<div class="col nav text-center justify-content-center ">
 				<div>
-					<table class="table-footer table caption-top table-sm table-bordered text-start">
-						<caption class="text-center">Horaires de Service</caption>
-						<tbody>
-						{# {% for hour in hours %}
-							<tr>
-								<th scope="row">{{ hour.dayOfWeek}}</th>
-								<td>{{ hour.openedLunchHour|date("H:i") }} - {{ hour.closedLunchHour|date("H:i") }}</td>
-								<td>{{ hour.openedDinnerHour|date("H:i") }} - {{ hour.closedDinnerHour|date("H:i") }}</td>
-							</tr>
-						{% endfor %} #}
-						{# {% include "admin/admin_hours/_footer.html.twig" %} #}
-						</tbody>
-					</table>
+					{{ component('HoursComponent') }}
 				</div>
 			</div>
 		</div>
@@ -62,6 +50,5 @@
 	</div>
 	<span class="text-center text-muted">© 2022 Company, Inc</span>
 </div></footer></div>
-
 
 

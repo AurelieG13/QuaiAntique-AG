@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DishRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,6 +29,18 @@ class Dish
     #[ORM\ManyToOne(inversedBy: 'dishes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $categorie = null;
+
+    #[ORM\OneToMany(mappedBy: 'dishes', targetEntity: Images::class, orphanRemoval: true, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true)]
+    private Collection $images;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $activeHome = null;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -80,4 +94,47 @@ class Dish
 
         return $this;
     }
+
+/**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setDishes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getDishes() === $this) {
+                $image->setDishes(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function isActiveHome(): ?bool
+    {
+        return $this->activeHome;
+    }
+
+    public function setActiveHome(?bool $activeHome): self
+    {
+        $this->activeHome = $activeHome;
+
+        return $this;
+    }
+
 }

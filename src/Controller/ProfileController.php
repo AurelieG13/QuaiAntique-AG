@@ -2,18 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Form\EditAllergyFormType;
 use App\Form\EditProfileFormType;
-use App\Form\UserPasswordType;
-use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\PictureService;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/profile', name: 'profile_')]
@@ -42,7 +37,8 @@ class ProfileController extends AbstractController
     #[Route('/edit/{id}', name: 'edit_user')]
     public function editUser(
         Request $request,
-        ManagerRegistry $doctrine
+        ManagerRegistry $doctrine,
+        PictureService $pictureService
         ): Response
     {
         $user = $this->getUser();
@@ -50,14 +46,14 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $doctrine->getManager();
-            $em->persist($user);
-            $em->flush();
+                $em = $doctrine->getManager();
+                $em->persist($user);
+                $em->flush();
+            
 
             $this->addFlash('success','votre profil a été modifié avec succès');
             return $this->redirectToRoute('profile_home');
         }
-
         return $this->render('profile/edit.html.twig', [
             'form' => $form->createView(),
         ]);

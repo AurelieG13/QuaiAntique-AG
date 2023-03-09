@@ -19,7 +19,9 @@
     <thead>
         <tr>
             <td>Nom</td>
-            <td>Actions</td>
+            <td>Description</td>
+            <td>Image</td>
+            <td olspan="2" class="text-center">Actions</td>
             <td colspan="2" class="text-center">Formules</td>
             
         </tr>
@@ -29,6 +31,12 @@
         <tr>
             <td>{{ menu.name }}</td>
             <td>{{ menu.description }}</td>
+            <td>
+            {% for image in menu.images %}
+              {# <img src=" {{ asset('assets/uploads/menu/mini/30x30-'~ menu.images[0].name)}} "  alt=" {{menu.name}} "> #}
+              <img src=" {{ asset('assets/uploads/menu/mini/30x30-' ~ image.name ) }} " alt="{{menu.name}}" width="30" class="mt-2">
+            {% endfor %}
+            </td>
             <td>
             <a href="{{ path('admin_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-primary">
                 Modifier

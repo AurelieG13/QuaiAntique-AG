@@ -54,6 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'users')]
     private Collection $allergies;
 
+
     public function __construct()
     {
         $this->allergies = new ArrayCollection();
@@ -251,5 +252,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 
 }

@@ -4,37 +4,23 @@
 
 {% block body %}
 <main class="container">
-	<section class="row  justify-content-center">
-		<div class="col-12 text-center">
-			<h1>Bienvenue Au Quai Antique</h1>
-			<p>Chambéry</p>
-		</div>
-		<div class="col-6">
-			<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
-				<div class="carousel-indicators">
-					{# {% for iteration in 1..dish.images|length %}
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration - 1 }}" {{ (loop.first ) ?'class="active" aria-current="true"' : '' }} aria-label="Slide {{ iteration }}"></button>
-                    {% endfor %} #}
+	<section class="row">
+        <div class="col">
+		
+		
+        {% for dish in dishes %}
+			{% if dish.activeHome == true %}
+				<div class="card" style="width: 18rem;">
+				{% for image in dish.images %}
+					<img src=" {{ asset('assets/uploads/dish/mini/30x30-' ~ image.name ) }} " alt="{{dish.name}}" width="30" class="mt-2" title="{{dish.name}}">
+				{% endfor %}
 				</div>
-				<div class="carousel-inner">
-					<img src="{{ asset('assets/images/facebook.svg') }}" alt="">
-                        {# {% for image in dish.images %}
-                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
-                                <img src="{{ asset('assets/uploads/dishes/mini/200x200-') ~ image.name }}" class="d-block w-100" alt="{{ dish.name }}">
-                            </div>
-                        {% endfor %} #}
-				</div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-			</div>
-		</div>
-	</section>
+			{% endif %}
+        {% endfor %}
+        </div>
+    </section>
+
+
 	<section class="text-center">
 				<button class="btn-beige btn-custom my-3" href="#" type="button" aria-expanded="false">Réserver</button>
 	</section>
@@ -101,6 +87,7 @@
 			</div>
 		</div>
 	</section>
-
 </main>
+
+
 {% endblock %}
