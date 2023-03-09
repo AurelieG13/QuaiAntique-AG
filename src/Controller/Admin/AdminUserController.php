@@ -2,27 +2,42 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\PropertySearch;
 use App\Entity\User;
 use App\Form\EditProfileFormType;
+use App\Form\PropertySearchType;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/admin/user', name: 'admin_user_')]
 class AdminUserController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $users = $userRepository->findBy([], ['name' => 'asc']);
+        // $users = $userRepository->findBy([], ['name' => 'asc']);
+
+        $users = $paginator->paginate(
+            
+            // $userRepository->findBy(['roles' => 'ROLE_ADMIN']),
+            // $userRepository->findBy(['roles' => ['ROLE_USER']]),
+            $userRepository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
+// dd($users);
         return $this->render('admin/admin_user/index.html.twig', [
             'users' => $users,
+
         ]);
     }
 

@@ -8,6 +8,13 @@
     <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
 </div>
 
+            {# display navigation
+    <div class="navigation">
+        {{ knp_pagination_filter(users, {
+        'user.name': 'name',
+    }) }}
+    </div> #}
+
 <a href="{{ path('admin_user_addManager') }}" type="button" class="btn btn-primary">
   Ajouter un manager
 </a>
@@ -86,5 +93,19 @@
     </div>
   </div>
 </div>
+
+
+        {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(users) }}
+    </div>
+
+
+{# 
+    
+        {{ knp_pagination_filter(users, {
+        'user.firstname': 'Firstname',
+    }) }} #}
+
 
 {% endblock %}
