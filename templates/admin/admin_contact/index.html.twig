@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Administration - Contacts{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -13,7 +13,7 @@
         </div>
         
         <h1>Liste des contacts reçus</h1>
-            <section class="d-flex justify-content-around flex-wrap">
+            <section class="d-flex justify-content-around flex-wrap mt-3">
                 {% for contact in contacts %}
                     <div class="card mt-2" style="width: 18rem;">
                         <div class="card-body text-align">

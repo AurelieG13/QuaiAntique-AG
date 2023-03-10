@@ -20,7 +20,6 @@
     <thead>
         <tr class="text-center">
             <td>Nom</td>
-            <td>Logo</td>
             <td colspan="2">Actions</td>
         </tr>
     </thead>
@@ -28,7 +27,6 @@
     {% for allergy in allergies %}
         <tr class="text-center">
             <td>{{ allergy.name }}</td>
-            <td>logo</td>
             <td>
             <a href="{{ path('admin_allergy_edit', {id: allergy.id}) }}" type="button" class="btn btn-success">
                 Modifier

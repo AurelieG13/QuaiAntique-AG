@@ -14,6 +14,8 @@ class RestaurantType extends AbstractType
         $builder
             ->add('name')
             ->add('guestMax')
+            ->add('address')
+            ->add('phoneNumber')
         ;
     }
 

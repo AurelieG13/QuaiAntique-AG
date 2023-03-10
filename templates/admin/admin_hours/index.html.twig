@@ -1,82 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello admin_horaires_controller{% endblock %}
+{% block title %}Administration - Horaires{% endblock %}
 
 {% block body %}
 
-<div class="mb-4">
-    <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> panel d'administration</a>
-</div>
+  <div class="mb-4">
+      <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> panel d'administration</a>
+  </div>
 
-<h1>Liste des horaires</h1>
+  <h1>Liste des horaires</h1>
+  <div class="mb-4 mt-4">
+    <a href="{{ path('admin_hours_add') }}" type="button" class="btn btn-custom">
+    Ajouter un horaire
+    </a>
+  </div>
 
-            <a href="{{ path('admin_hours_add') }}" type="button" class="btn btn-custom">
-                Ajouter un horaire
-            </a>
+  <table class="table table-bordered">
+      <thead>
+          <tr class="text-center">
+              <td>Jour</td>
+              <td>Placement Semaine</td>
+              <td>Midi début</td>
+              <td>Midi fin</td>
+              <td>Soir début</td>
+              <td>Soir fin</td>
+              <td colspan="3">Actions</td>
+          </tr>
+      </thead>
+      <tbody>
+      {% for hour in hours %}
+          <tr class="text-center">
+              <td>{{ hour.dayOfWeek }}</td>
+              <td>{{ hour.sortWeek }}</td>
+              <td>{{ hour.openedLunchHour|date("H:i") }}</td>
+              <td>{{ hour.closedLunchHour|date("H:i")  }}</td>
+              <td>{{ hour.openedDinnerHour|date("H:i")  }}</td>
+              <td>{{ hour.closedDinnerHour|date("H:i")  }}</td>
 
-
-
-<table class="table table-bordered">
-    <thead>
-        <tr class="text-center">
-            <td>Jour</td>
-            <td>Placement Semaine</td>
-            <td>Midi début</td>
-            <td>Midi fin</td>
-            <td>Soir début</td>
-            <td>Soir fin</td>
-            <td colspan="3">Actions</td>
-        </tr>
-    </thead>
-    <tbody>
-    {% for hour in hours %}
-        <tr class="text-center">
-            <td>{{ hour.dayOfWeek }}</td>
-            <td>{{ hour.sortWeek }}</td>
-            <td>{{ hour.openedLunchHour|date("H:i") }}</td>
-            <td>{{ hour.closedLunchHour|date("H:i")  }}</td>
-            <td>{{ hour.openedDinnerHour|date("H:i")  }}</td>
-            <td>{{ hour.closedDinnerHour|date("H:i")  }}</td>
-
-            <td>
-            <a href="{{ path('admin_hours_edit', {id: hour.id}) }}" type="button" class="btn btn-custom">
-                Modifier
-            </a>
-            </td>
-            <td>
-              <a href="{{ path('admin_hours_duplicate', {id: hour.id}) }}" type="button" class="btn btn-warning">
-                  Dupliquer
+              <td>
+              <a href="{{ path('admin_hours_edit', {id: hour.id}) }}" type="button" class="btn btn-success">
+                  Modifier
               </a>
-            </td>
-            <td>
-            <a href="#" type="button" class="btn btn-danger modal-trigger-hour" data-bs-toggle="modal" data-bs-target="#modal-delete-hour" data-id="{{ hour.id }}" data-titre = "{{ hour.id }}">
-                Supprimer
-            </a>
-            </td>
-        </tr>
-    {% endfor %}
-        
-    </tbody>
-</table>
+              </td>
+              <td>
+                <a href="{{ path('admin_hours_duplicate', {id: hour.id}) }}" type="button" class="btn btn-warning">
+                    Dupliquer
+                </a>
+              </td>
+              <td>
+              <a href="#" type="button" class="btn btn-danger modal-trigger-hour" data-bs-toggle="modal" data-bs-target="#modal-delete-hour" data-id="{{ hour.id }}" data-titre = "{{ hour.id }}">
+                  Supprimer
+              </a>
+              </td>
+          </tr>
+      {% endfor %}
+          
+      </tbody>
+  </table>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modal-delete-hour" tabindex="-1" aria-labelledby="modal-delete-hourLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-delete-hourLabel">Supprimer un horaire</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body modal-body-hour">
-        
-      </div>
-      <div class="modal-footer modal-footer-hour">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-hour">Fermer</button>
-        <a href="#" type="button" class="btn btn-custom">Valider</a>
+  <!-- Modal -->
+  <div class="modal fade" id="modal-delete-hour" tabindex="-1" aria-labelledby="modal-delete-hourLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-delete-hourLabel">Supprimer un horaire</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-hour">
+          
+        </div>
+        <div class="modal-footer modal-footer-hour">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-hour">Fermer</button>
+          <a href="#" type="button" class="btn btn-custom">Valider</a>
+        </div>
       </div>
     </div>
-  </div>
 </div>
 
 {% endblock %}

@@ -1,19 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminMenuController!{% endblock %}
+{% block title %}Administration - Menus{% endblock %}
 
 {% block body %}
   <div class="mb-4">
-      <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+    <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
   </div>
 
   <h1>Liste des menus</h1>
-
-  <a href="{{ path('admin_menu_add') }}" type="button" class="btn btn-custom">
+  <div class="mb-4 mt-4">
+    <a href="{{ path('admin_menu_add') }}" type="button" class="btn btn-custom">
       Ajouter un menu
-  </a>
-
-
+    </a>
+  </div>
 
   <table class="table table-bordered">
       <thead>
@@ -23,6 +22,7 @@
               <td>Image</td>
               <td colspan="2">Actions</td>
               <td colspan="3">Formules</td>
+              
               
           </tr>
       </thead>
@@ -38,7 +38,7 @@
               {% endfor %}
               </td>
               <td>
-              <a href="{{ path('admin_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-custom">
+              <a href="{{ path('admin_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-success">
                   Modifier
               </a>
               </td>
@@ -47,13 +47,9 @@
                   Supprimer
               </a>
               </td>
-              
-              {% for formule in menu.formules %}
-                  <td>{{ formule.name }}</td>
-              {% endfor %}
-              
-              
-
+                {% for formule in menu.formules %}
+                    <td>{{ formule.name }}</td>
+                {% endfor %}
           </tr>
       {% endfor %}
           

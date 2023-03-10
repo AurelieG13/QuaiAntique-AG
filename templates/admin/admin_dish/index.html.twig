@@ -1,92 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello admindishcontroller{% endblock %}
+{% block title %}Administration - Carte{% endblock %}
 
 {% block body %}
 
-<div class="mb-4">
+  <div class="mb-4">
     <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
-</div>
+  </div>
 
-<h1>Liste des plats</h1>
+  <h1>Liste des plats</h1>
 
-
-
-
-
-{{ form_start(form) }}
-
-{{ form_end(form) }}
-
-<a href="{{ path('admin_dish_add') }}" type="button" class="btn btn-custom">
+  <div class="mb-4 mt-4">
+    <a href="{{ path('admin_dish_add') }}" type="button" class="btn btn-custom">
       Ajouter un plat
-  </a>
-<table class="table">
-    <thead>
-        <tr>
-            <td>Catégorie</td>
-            <td>Nom</td>
-            <td>Description</td>
-            <td>Image</td>
-            <td>Prix</td>
-            <td>Présent sur Accueil</td>
-            <td colspan="2" class="text-center"></td>
-        </tr>
-    </thead>
-    <tbody>
-    {% for dish in dishes %}
-        <tr>
-            <td>{{ dish.categorie.name }}</td>
-            <td>{{ dish.name }}</td>
-            <td>{{ dish.description }}</td>
-            
-            <td>
-            {% for image in dish.images %}
-              <img src=" {{ asset('assets/uploads/dish/mini/30x30-' ~ image.name ) }} " alt="{{dish.name}}" width="30" class="mt-2">
-            {% endfor %}
-            </td>
-            <td>{{ dish.price }} €</td>
-            <td>
-            <div class="form-check form-switch ">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" {{ (dish.activeHome) ? 'checked':''}} data-id="{{ dish.id }}">
-              <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-            </div>
-            
-            </td>
-            <td>
-            <a href="{{ path('admin_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-custom">
-                Modifier
-            </a>
-            </td>
-            <td>
-            <a href="#" type="button" class="btn btn-danger modal-trigger-dish" data-bs-toggle="modal" data-bs-target="#modal-delete-dish" data-id="{{ dish.id }}" data-titre = "{{ dish.id }}">
-                Supprimer
-            </a>
-            </td>
-        </tr>
-    {% endfor %}
-        
-    </tbody>
-</table>
+    </a>
+  </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modal-delete-dish" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-deleteLabel">Supprimer un plat</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body modal-body-dish">
-        
-      </div>
-      <div class="modal-footer modal-footer-dish">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-dish">Fermer</button>
-        <a href="#" type="button" class="btn btn-custom">Valider</a>
+
+  {{ form_start(form) }}
+
+  {{ form_end(form) }}
+  <table class="table">
+      <thead>
+          <tr>
+              <td>Catégorie</td>
+              <td>Nom</td>
+              <td>Description</td>
+              <td>Image</td>
+              <td>Prix</td>
+              <td>Présent sur Accueil</td>
+              <td colspan="2" class="text-center"></td>
+          </tr>
+      </thead>
+      <tbody>
+      {% for dish in dishes %}
+          <tr>
+              <td>{{ dish.categorie.name }}</td>
+              <td>{{ dish.name }}</td>
+              <td>{{ dish.description }}</td>
+              
+              <td>
+              {% for image in dish.images %}
+                <img src=" {{ asset('assets/uploads/dish/mini/30x30-' ~ image.name ) }} " alt="{{dish.name}}" width="30" class="mt-2">
+              {% endfor %}
+              </td>
+              <td>{{ dish.price }} €</td>
+              <td>
+              <div class="form-check form-switch ">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" {{ (dish.activeHome) ? 'checked':''}} data-id="{{ dish.id }}">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+              
+              </td>
+              <td>
+              <a href="{{ path('admin_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-success">
+                  Modifier
+              </a>
+              </td>
+              <td>
+              <a href="#" type="button" class="btn btn-danger modal-trigger-dish" data-bs-toggle="modal" data-bs-target="#modal-delete-dish" data-id="{{ dish.id }}" data-titre = "{{ dish.id }}">
+                  Supprimer
+              </a>
+              </td>
+          </tr>
+      {% endfor %}
+          
+      </tbody>
+  </table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-delete-dish" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-deleteLabel">Supprimer un plat</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-dish">
+          
+        </div>
+        <div class="modal-footer modal-footer-dish">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-dish">Fermer</button>
+          <a href="#" type="button" class="btn btn-custom">Valider</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 {% endblock %}
