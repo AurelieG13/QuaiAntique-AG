@@ -3,15 +3,18 @@
 {% block title %}Email Récupération mot de passe{% endblock %}
 
 {% block body %}
-<div class="card">
-    <div class="card-body">
-    <h5 class="card-title">Réinitialiser mon mot de passe par email</h5>
-    <p class="card-text">
-    Si un compte existe avec cet email, un mail vous sera envoyé avec un lien vous permettant de réinitialiser votre mot de pass.
-    Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si vous ne recevez pas ce mail, vérifier votre dossier Spam ou <a href="{{ path('app_forgot_password_request') }}">essayer de nouveau</a>.</p>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Réinitialiser mon mot de passe par email</h5>
+            <p class="card-text">
+            Si un compte existe avec cet email, un mail vous sera envoyé avec un lien vous permettant de réinitialiser votre mot de pass. <br>
+            Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+            </p>
+            <p>Si vous ne recevez pas ce mail, vérifier votre dossier Spam ou <a href="{{ path('app_forgot_password_request') }}">essayer de nouveau</a>.</p>
 
-    </div>
+            </div>
+        </div>
+    
 </div>
 {% endblock %}

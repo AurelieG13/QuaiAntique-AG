@@ -14,12 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/restaurant', name: 'admin_restaurant_')]
 class AdminRestaurantController extends AbstractController
 {
-    // #[Route('/', name: 'home')]
-    // public function index(): Response
-    // {
-    //     return $this->render('admin/admin_restaurant/index.html.twig');
-    // }
-
     #[Route('/', name: 'list')]
     public function listRestaurant(RestaurantRepository $restaurantRepository): Response
     {

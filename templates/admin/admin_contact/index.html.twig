@@ -3,27 +3,29 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-
-<div class="container">
-{% for message in app.flashes('success') %}
-        <div class="alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %}
-<h1>Liste des contacts reçus</h1>
-
-</div>
-
-        {% for contact in contacts %}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Message de : {{contact.firstname}} {{contact.name}} </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Sujet : {{contact.subject}} </h6>
-                    <p class="card-text">Message : {{ contact.message }}</p>
-                    <p class="card-text">Envoyé le : {{ contact.createdAt|date('d/m/Y') }}</p>
-                    {# <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a> #}
-                </div>
-            </div>
+    <div class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
         {% endfor %}
 
+        <div class="mb-4">
+            <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt="">panel d'administration</a>
+        </div>
+        
+        <h1>Liste des contacts reçus</h1>
+            <section class="d-flex justify-content-around flex-wrap">
+                {% for contact in contacts %}
+                    <div class="card mt-2" style="width: 18rem;">
+                        <div class="card-body text-align">
+                            <h5 class="card-title text-center card-custom">Message de : <br>{{contact.firstname}} {{contact.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Sujet : {{contact.subject}} </h6>
+                            <p class="card-text">Message : {{ contact.message }}</p>
+                            <p class="card-text">Email : {{ contact.email }}</p>
+                            <p class="card-text"><i>Envoyé le : {{ contact.createdAt|date('d/m/Y') }}</i> </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+    </div>
 {% endblock %}
 

@@ -23,8 +23,7 @@ class EditAllergyFormType extends AbstractType
                 'query_builder' => function(AllergyRepository $er) {
                     return $er->createQueryBuilder('a')
                         ->orderBy('a.name', 'ASC');
-                },
-                'label' => 'Allergies',
+                }
             ])
         ;
     }

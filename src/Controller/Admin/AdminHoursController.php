@@ -17,21 +17,11 @@ class AdminHoursController extends AbstractController
     #[Route('/', name: 'list')]
     public function index(OpeningHoursRepository $openingHoursRepository): Response
     {
-        $hours = $openingHoursRepository->findAll();
+        $hours = $openingHoursRepository->findBy([], ['sortWeek' => 'asc']);
         return $this->render('admin/admin_hours/index.html.twig', [
             'hours' => $hours,
         ]);
     }
-
-
-    public function footerHours(OpeningHoursRepository $openingHoursRepository): Response
-    {
-        $hours = $openingHoursRepository->findAll();
-        return $this->render('components/_footer.html.twig', [
-            'hours' => $hours,
-        ]);
-    }
-
 
     #[Route('/add', name: 'add')]
     public function addHours(Request $request, ManagerRegistry $doctrine): Response
@@ -73,6 +63,18 @@ class AdminHoursController extends AbstractController
         return $this->render('admin/admin_hours/editHours.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    #[Route('/duplicate/{id}', name: 'duplicate')]
+    public function duplicateHours(OpeningHours $hour, ManagerRegistry $doctrine)
+    {
+        $copyHours = clone $hour;
+
+        $em = $doctrine->getManager();
+        $em->persist($copyHours);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_hours_list');
     }
 
     #[Route('/delete/{id}', name: 'delete')]

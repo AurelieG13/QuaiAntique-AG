@@ -25,6 +25,7 @@ class SearchDishType extends AbstractType
             ])
             ->add('categorie', EntityType::class, [
                 'class' => Category::class,
+                'choice_label' => 'name',
                 'label' => false, 
                 'attr' => [
                     'class' => 'form-control'

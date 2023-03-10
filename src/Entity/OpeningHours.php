@@ -29,6 +29,9 @@ class OpeningHours
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $closedDinnerHour = null;
 
+    #[ORM\Column]
+    private ?int $sortWeek = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class OpeningHours
     public function setClosedDinnerHour(\DateTimeInterface $closedDinnerHour): self
     {
         $this->closedDinnerHour = $closedDinnerHour;
+
+        return $this;
+    }
+
+    public function getSortWeek(): ?int
+    {
+        return $this->sortWeek;
+    }
+
+    public function setSortWeek(int $sortWeek): self
+    {
+        $this->sortWeek = $sortWeek;
 
         return $this;
     }

@@ -20,6 +20,9 @@ class FormuleType extends AbstractType
             ->add('description', TextType::class, [
                 'label' => 'Description'
             ])
+            ->add('subtitle', TextType::class, [
+                'label' => 'Sous-titre'
+            ])
             ->add('price', TextType::class, [
                 'label' => 'Prix'
             ])

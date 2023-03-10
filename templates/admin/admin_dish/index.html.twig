@@ -5,18 +5,22 @@
 {% block body %}
 
 <div class="mb-4">
-    <a type="button" class="btn btn-primary" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+    <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
 </div>
 
-<h1>liste des plats</h1>
+<h1>Liste des plats</h1>
 
-            <a href="{{ path('admin_dish_add') }}" type="button" class="btn btn-primary">
-                Ajouter un plat
-            </a>
 
-<h3>Tableau des plats avec actions edit & delete</h3>
 
-{{ form(form) }}
+
+
+{{ form_start(form) }}
+
+{{ form_end(form) }}
+
+<a href="{{ path('admin_dish_add') }}" type="button" class="btn btn-custom">
+      Ajouter un plat
+  </a>
 <table class="table">
     <thead>
         <tr>
@@ -43,14 +47,14 @@
             </td>
             <td>{{ dish.price }} €</td>
             <td>
-            <div class="form-check form-switch">
+            <div class="form-check form-switch ">
               <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" {{ (dish.activeHome) ? 'checked':''}} data-id="{{ dish.id }}">
               <label class="form-check-label" for="flexSwitchCheckDefault"></label>
             </div>
             
             </td>
             <td>
-            <a href="{{ path('admin_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-primary">
+            <a href="{{ path('admin_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-custom">
                 Modifier
             </a>
             </td>
@@ -79,7 +83,7 @@
       </div>
       <div class="modal-footer modal-footer-dish">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-dish">Fermer</button>
-        <a href="#" type="button" class="btn btn-primary">Valider</a>
+        <a href="#" type="button" class="btn btn-custom">Valider</a>
       </div>
     </div>
   </div>

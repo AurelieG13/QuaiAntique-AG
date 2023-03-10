@@ -6,6 +6,7 @@ use App\Entity\PropertySearch;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\Query;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -70,10 +71,38 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
 
-    public function myFindAll()
-    {
-        return $this->createQueryBuilder('u')
-            ->getQuery()
-            ->getResult();
-    }
+    // public function myFindAll()
+    // {
+    //     return $this->createQueryBuilder('user')
+    //         ->select('user.roles')
+    //         ->andWhere('user.roles = :roles')
+    //         // ->andWhere('user.id = :id')
+    //         // ->setParameter('id', $user)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
+
+    // public function myFindRole($roles)
+    // {
+    //     $qb = $this->createQueryBuilder('u');
+    //     $qb->where('u.roles = :roles')
+    //     ->setParameter('roles', $roles);
+        
+    //     return $qb->getQuery()
+    //         ->getResult();
+    // }
+
+    // public function countUser($user)
+    //  {
+    //     $queryBuilder = $this->createQueryBuilder();
+
+    //     $queryBuilder->select('COUNT(u.id)')
+    //         ->from(User::class, 'u');
+
+    //     $query = $queryBuilder->getQuery();
+
+    //     echo $query->getDQL(), "\n";
+    //     echo $query->getSingleScalarResult();
+    //  }
 }

@@ -20,12 +20,4 @@ class MainController extends AbstractController
             'dishes' => $dishes,
         ]);
     }
-
-    // public function footerHours(OpeningHoursRepository $openingHoursRepository): Response
-    // {
-    //     $hours = $openingHoursRepository->findAll();
-    //     return $this->render('components/_footer.html.twig', [
-    //         'hours' => $hours,
-    //     ]);
-    // }
 }

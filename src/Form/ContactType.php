@@ -87,16 +87,6 @@ class ContactType extends AbstractType
                     new Assert\NotBlank()
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-primary mt-4'
-                ],
-                'label' => 'Soumettre ma demande'
-            ])
-            // ->add('captcha', Recaptcha3Type::class, [
-            //     'constraints' => new Recaptcha3(),
-            //     'action_name' => 'contact'
-            // ])
         ;
     }
 

@@ -5,18 +5,69 @@
 {% block body %}
     <h1>Carte</h1>
 
-{{ form(form) }}
 
-    <table class="table">
-        <tbody>
-        {% for dish in dishes %}
-            <tr>
-                <td>{{dish.name}}</td>
-                <td>{{ dish.description }}</td>
-                <td>{{ dish.price }} €</td>
-                <td>{{ dish.categorie.name }}</td>
-            </tr>
+{# {{ form(form) }} #}
+    <section class="mt-5 container">
+    <a class="btn category-custom p-2 m-1" type="button" href="#entree">ENTREES</a>
+    <a class="btn category-custom" type="button" href="#plat">PLATS</a>
+    <a class="btn category-custom" type="button" href="#dessert">DESSERTS</a>
+
+        <div class="category-custom mt-5">
+            <h2 id="entree" class="text-center">Entrées</h2>
+        </div>
+        
+        {% for categoryEntree in categoryEntree %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <strong>{{categoryEntree.name}}</strong>
+                    <br>
+                    <span>{{categoryEntree.description}}</span>
+                </div>
+                <div class="col align-self-center">
+                    <strong>{{categoryEntree.price}} €</strong>
+                </div>
+            </div>
+        </div>
+        <div class="category-custom-separator"></div>
         {% endfor %}
-        </tbody>
-    </table>
+
+        <div class="category-custom mt-5">
+            <h2 id="plat" class="text-center">Plats</h2>
+        </div>
+        {% for categoryPlat in categoryPlat %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <strong>{{categoryPlat.name}}</strong>
+                    <br>
+                    <span>{{categoryPlat.description}}</span>
+                </div>
+                <div class="col align-self-center">
+                    <strong>{{categoryPlat.price}} €</strong>
+                </div>
+            </div>
+        </div>
+        <div class="category-custom-separator"></div>
+        {% endfor %}
+
+        <div class="category-custom mt-5">
+            <h2 id="dessert" class="text-center">Desserts</h2>
+        </div>
+        {% for categoryDessert in categoryDessert %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <strong>{{categoryDessert.name}}</strong>
+                    <br>
+                    <span>{{categoryDessert.description}}</span>
+                </div>
+                <div class="col align-self-center">
+                    <strong>{{categoryDessert.price}} €</strong>
+                </div>
+            </div>
+        </div>
+        <div class="category-custom-separator"></div>
+        {% endfor %}
+    </section>
 {% endblock %}

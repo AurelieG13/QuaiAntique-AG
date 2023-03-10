@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\OpeningHours;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +14,12 @@ class HoursType extends AbstractType
     {
         $builder
             ->add('dayOfWeek')
+            ->add('sortWeek', IntegerType::class, [
+                'label' => 'Placement dans la semaine',
+                'attr' => [
+                    'placeholder' => 'Lundi = 1....Dimanche = 7'
+                ]
+            ])
             ->add('openedLunchHour')
             ->add('closedLunchHour')
             ->add('openedDinnerHour')

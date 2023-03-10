@@ -31,6 +31,9 @@ class Formule
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $subtitle = null;
+
 
     public function __construct()
     {
@@ -104,6 +107,18 @@ class Formule
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(?string $subtitle): self
+    {
+        $this->subtitle = $subtitle;
 
         return $this;
     }

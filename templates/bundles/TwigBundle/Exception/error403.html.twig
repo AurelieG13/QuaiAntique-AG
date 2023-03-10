@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 403{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <h5>Vous n'êtes pas autorisé à acceder à cette page</h5>
+            <a href="{{ path('home') }}">Retour à l'accueil</a>
+        </div>
+    </section>
+</main>
+{% endblock %}

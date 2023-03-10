@@ -1,0 +1,18 @@
+<h4>Horaires de Service</h4>
+<table class="table-footer table caption-top table-sm table-bordered text-start">
+    <tbody>
+    {% for hour in this.hours %}
+        <tr>
+            <td>{{ hour.dayOfWeek }}</td>
+            {% if hour.openedLunchHour|date("H:i") != '00:00' %}
+                <td>{{ hour.openedLunchHour|date("H:i") }} -{{ hour.closedLunchHour|date("H:i")  }}</td>
+                <td></td>
+                <td>{{ hour.openedDinnerHour|date("H:i")  }} - {{ hour.closedDinnerHour|date("H:i")  }}</td>
+            {% else %}
+                <td colspan="3">Fermé</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>

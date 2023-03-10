@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="mb-4">
-    <a type="button" class="btn btn-primary" href="{{ path('profile_home', {id: user.id}) }}">Retour à votre profil</a>
+    <a type="button" class="btn btn-custom" href="{{ path('profile_home', {id: user.id}) }}">Retour à votre profil</a>
 </div>
 
 
@@ -18,7 +18,7 @@
         <div class="container profile-custom-container">
             <div class="row align-items-center">
                 <div class="col-1">
-                    <img src="{{ asset('assets/images/person-check-fill_beige.svg') }}" class="icon-profile-custom"></img>
+                    <img src="{{ asset('assets/images/usersBeige.svg') }}" class="icon-profile-custom"></img>
                 </div>
                 <div class="col-9 text-center">
                     <span class="align-middle ">Modifier vos informations personnelles</span>
@@ -102,7 +102,7 @@
         </div>
     </section>
     <section class="text-center">
-        <button class="btn btn-warning my-3" href="{{ path('logout')}}" type="button" aria-expanded="false">Me déconnecter</button>
+        <a class="btn btn-custom my-3" href="{{ path('logout') }}" type="button" aria-expanded="false">Me déconnecter</a>
     </section>
 </main>
 
@@ -118,7 +118,7 @@
                     <div class="card-body container profile-custom-container">
                         <div class="row align-items-center">
                             <div class="col-1">
-                                <img src="{{ asset('assets/images/person-check-fill_beige.svg') }}" class="icon-profile-custom"></img>
+                                <img src="{{ asset('assets/images/usersBeige.svg') }}" class="icon-profile-custom"></img>
                             </div>
                             <div class="col-9 text-center">
                                 <span class="align-middle ">Modifier vos informations personnelles</span>
@@ -149,7 +149,7 @@
                     </div>
                 </section>
                 <section class="text-center">
-                    <button class="btn btn-warning my-3" href="{{ path('logout')}}" type="button" aria-expanded="false">Me déconnecter</button>
+                    <a class="btn btn-custom my-3" href="{{ path('logout')}}" type="button" aria-expanded="false">Me déconnecter</a>
                 </section>
             </div>
             <div class="col-6">

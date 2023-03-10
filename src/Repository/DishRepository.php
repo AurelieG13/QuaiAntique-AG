@@ -45,7 +45,7 @@ class DishRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('dish');
         if($words !== null) {
             $query->andWhere('MATCH_AGAINST(dish.name) AGAINST (:words boolean)>0')
-            ->setParameter('words', $words);
+                ->setParameter('words', $words);
         }
 
         if($categorie !== null) {

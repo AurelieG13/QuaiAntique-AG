@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 401{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <h5>Vous devez vous identifiez pour acceder à cette page</h5>
+            <a href="{{ path('login') }}">Se connecter</a>
+        </div>
+    </section>
+</main>
+{% endblock %}

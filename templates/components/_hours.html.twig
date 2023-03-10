@@ -1,8 +1,0 @@
-{% for hour in hours %}
-	<tr>
-		<th scope="row">{{ hour.dayOfWeek}}</th>
-		<td>{{ hour.openedLunchHour|date("H:i") }} - {{ hour.closedLunchHour|date("H:i") }}</td>
-		<td>{{ hour.openedDinnerHour|date("H:i") }} - {{ hour.closedDinnerHour|date("H:i") }}</td>
-	</tr>
-{% endfor %}
-

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page de Profil{% endblock %}
+{% block title %}Page de Profil - Allergies{% endblock %}
 
 {% block body %}
 <div class="container-fluid overflow-hidden">
@@ -10,11 +10,11 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                     <h3>Modification de vos allergies</h3>
-                    <section  class="text-center">
-                            <a href="{{ path('profile_home') }}" type="button" class="btn btn-primary btn-lg my-3">Retour</a>
-                    </section>
+                    <a href="{{ path('profile_home') }}" type="button" class="btn btn-custom my-3">Retour</a>
+
                     {{ form_start(form)}}
-                    <input class="btn btn-success" type="submit" value="Valider">
+                        {{ form_row(form.allergies)}}
+                        <button class="btn btn-custom">Modifier</button>
                     {{ form_end(form)}}
                 </div>
             </main>

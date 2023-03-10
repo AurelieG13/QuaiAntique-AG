@@ -4,14 +4,15 @@
 
 {% block body %}
 
-                    <section  class="text-center">
-                            <a href="{{ path('profile_home') }}" type="button" class="btn btn-primary btn-lg my-3">Retour</a>
-                    </section>
+        <section  class="text-center">
+                <a href="{{ path('admin_allergy_list') }}" type="button" class="btn btn-custom btn-lg my-3">Retour</a>
+        </section>
 {{ form_start(form)}}
 
-    <section  class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg my-3">Ajouter</button>
-    </section>
+<section class="text-center">
+	<button type="submit" class="btn btn-custom btn-lg my-3">Ajouter</button>
+</section>
+
 
 {{ form_end(form)}}
 

@@ -4,27 +4,24 @@
 
 {% block body %}
     <h1>Menus</h1>
-
-{{ form(form) }}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
+    <div class="d-flex justify-content-around flex-wrap">
         {% for menu in menus %}
-            <div class="card" style="width: 18rem;">
-            {% for image in menu.images %}
-              {# <img src=" {{ asset('assets/uploads/menu/mini/30x30-'~ menu.images[0].name)}} "  alt=" {{menu.name}} "> #}
-              <img src=" {{ asset('assets/uploads/menu/mini/30x30-' ~ image.name ) }} " alt="{{menu.name}}" width="30" class="mt-2">
-            {% endfor %}
-                {# <img src="..." class="card-img-top" alt="..."> #}
+            <div class="card text-center m-3" style="width: 22rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{menu.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">{{ menu.description }}</p>
+                    <h2 class="card-title">{{ menu.name }}</h2>
+                    <hr>
+                    {% for formule in menu.formules %}
+                        <div>{{ formule.name }}</div>
+                        <div><small>({{ formule.subtitle }})</small></div>
+                        <div>{{ formule.description }}</div>
+                        <div><strong>{{ formule.price }} €</strong></div>
+                        <hr>
+                    {% endfor %}
+                    {% for image in menu.images %}
+                    <img class="img-fluid rounded mx-auto d-block" src=" {{ asset('assets/uploads/menu/' ~ image.name ) }} " alt="{{menu.name}}" width="100" class="mt-2">
+                    {% endfor %}		
                 </div>
             </div>
         {% endfor %}
-        </div>
     </div>
-</div>
-        
 {% endblock %}
