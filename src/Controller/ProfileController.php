@@ -33,7 +33,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit_user')]
+    #[Route('/edit/{id<\d+>}', name: 'edit_user')]
     public function editUser(
         Request $request,
         ManagerRegistry $doctrine,
@@ -58,7 +58,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/editallergy/{id}', name: 'edit_user_allergy')]
+    #[Route('/editallergy/{id<\d+>}', name: 'edit_user_allergy')]
     public function editUserAllergy(
         Request $request,
         ManagerRegistry $doctrine

@@ -12,7 +12,7 @@
 				<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 				<li><a class="dropdown-item" href="{{ path('register')}}">Se déconnecter</a></li>
 				{% if is_granted('ROLE_ADMIN')  %}
-					<li><a class="dropdown-item" href="{{ path('admin_home')}}">Panel d'administration</a></li>
+					<li><a class="dropdown-item" href="{{ path('admin_home')}}">panneau d'administration</a></li>
 				{% endif %}
 				
 			{% else %}
@@ -46,7 +46,7 @@
 							<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 							<li><a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a></li>
 						{% if is_granted('ROLE_ADMIN')  %}
-							<li><a class="dropdown-item" href="{{ path('admin_home')}}">Panel d'administration</a></li>
+							<li><a class="dropdown-item" href="{{ path('admin_home')}}">panneau d'administration</a></li>
 						{% endif %}
 						</ul>
 					</div>

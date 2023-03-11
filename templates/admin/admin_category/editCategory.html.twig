@@ -1,22 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page de cat{% endblock %}
+{% block title %}Admin - Modifier Catégorie{% endblock %}
 
 {% block body %}
-<div class="container-fluid overflow-hidden">
-    <div class="row vh-100 overflow-auto">
-        <div class="col d-flex flex-column h-sm-100">
-            <main class="row overflow-auto">
-                <div class="col pt-4">
-                
-                    {{ form_start(form)}}
-                    <input class="btn btn-success" type="submit" value="Valider">
-                    {{ form_end(form)}}
-                </div>
-            </main>
-        </div>
-    </div>
-</div>
+    <main class="container">
+    <h1>Modification d'une catégorie</h1>
+            <section>
+                    <a href="{{ path('admin_category_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+            </section>
+            {{ form_start(form)}}
 
-
+            {{ form_row(form.name) }}
+            <section>
+                    <button type="submit" class="btn btn-custom my-3">Modifier</button>
+            </section>
+            {{ form_end(form)}}
+    </main>
 {% endblock %}

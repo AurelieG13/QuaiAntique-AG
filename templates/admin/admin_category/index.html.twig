@@ -4,7 +4,7 @@
 
 {% block body %}
   <div class="mb-4">
-      <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt="">panel d'administration</a>
+      <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> panneau d'administration</a>
   </div>
 
   <h1>Liste des categories</h1>
@@ -34,7 +34,7 @@
             </a>
             </td>
             <td>
-            <a href="#" type="button" class="btn btn-danger modal-trigger-category" data-bs-toggle="modal" data-bs-target="#modal-delete-category" data-id="{{ category.id }}" data-titre = "{{ category.id }}">
+            <a href="{{ path('admin_category_delete', {id: category.id}) }}" type="button" class="btn btn-danger">
                 Supprimer
             </a>
             </td>
@@ -43,25 +43,4 @@
         
     </tbody>
 </table>
-
-
-<!-- Modal -->
-<div class="modal fade" id="modal-delete-category" tabindex="-1" aria-labelledby="modal-delete-categoryLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-delete-categoryLabel">Supprimer une catégorie</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body modal-body-category">
-        
-      </div>
-      <div class="modal-footer modal-footer-category">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-category">Fermer</button>
-        <a href="#" type="button" class="btn btn-custom">Valider</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 {% endblock %}

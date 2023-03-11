@@ -3,7 +3,6 @@
 namespace App\Components;
 
 use App\Repository\OpeningHoursRepository;
-use App\Repository\ProductRepository;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('_hoursComponent')]
@@ -21,4 +20,5 @@ class HoursComponent
         // an example method that returns an array of Products
         return $this->hoursRepo->findBy([], ['sortWeek' => 'asc']);
     }
+
 }

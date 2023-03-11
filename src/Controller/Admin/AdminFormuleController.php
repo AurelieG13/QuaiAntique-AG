@@ -45,7 +45,7 @@ class AdminFormuleController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editFormule(Formule $formule, Request $request, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(FormuleType::class, $formule);
@@ -65,7 +65,7 @@ class AdminFormuleController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteFormule(Formule $formule, ManagerRegistry $doctrine)
     {
         

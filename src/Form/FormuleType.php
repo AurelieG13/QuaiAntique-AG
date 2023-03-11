@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Formule;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,13 +18,13 @@ class FormuleType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('description', TextType::class, [
-                'label' => 'Description'
-            ])
             ->add('subtitle', TextType::class, [
                 'label' => 'Sous-titre'
             ])
-            ->add('price', TextType::class, [
+            ->add('description', TextType::class, [
+                'label' => 'Description'
+            ])
+            ->add('price', MoneyType::class, [
                 'label' => 'Prix'
             ])
         ;

@@ -2,7 +2,7 @@
 <table class="table-footer table caption-top table-sm table-bordered text-start">
     <tbody>
     {% for hour in this.hours %}
-        <tr>
+        <tr class="text-center">
             <td>{{ hour.dayOfWeek }}</td>
             {% if hour.openedLunchHour|date("H:i") != '00:00' %}
                 <td>{{ hour.openedLunchHour|date("H:i") }} -{{ hour.closedLunchHour|date("H:i")  }}</td>

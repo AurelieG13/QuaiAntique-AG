@@ -61,7 +61,7 @@ class AdminMenuController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editMenu(Menu $menu, Request $request, ManagerRegistry $doctrine, PictureService $pictureService): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
@@ -95,7 +95,7 @@ class AdminMenuController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteMenu(Menu $menu, ManagerRegistry $doctrine)
     {
         
@@ -107,7 +107,7 @@ class AdminMenuController extends AbstractController
         return $this->redirectToRoute('admin_menu_list');
     }
 
-    #[Route('/delete/image/{id}', name: 'delete_image', methods: ['DELETE'])]
+    #[Route('/delete/image/{id<\d+>}', name: 'delete_image', methods: ['DELETE'])]
     public function deleteImage(Images $image, Request $request, PictureService $pictureService, EntityManagerInterface $em): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

@@ -1,16 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello admindishcontroller{% endblock %}
+{% block title %}Administration - Plats - Ajouter{% endblock %}
 
 {% block body %}
+<main class="container">
+<h1>Ajout d'un plat</h1>
+        <section>
+                <a href="{{ path('admin_dish_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+        </section>
+        {{ form_start(form)}}
 
-<h1>ajout d'un plat</h1>
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.categorie) }}
+        {{ form_row(form.images) }}
 
-{{ form_start(form)}}
-
-    <section  class="text-center">
-            <button type="submit" class="btn btn-custom btn-lg my-3">Ajouter</button>
-    </section>
-
-{{ form_end(form)}}
+        <section>
+                <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+        </section>
+        {{ form_end(form)}}
+</main>
 {% endblock %}

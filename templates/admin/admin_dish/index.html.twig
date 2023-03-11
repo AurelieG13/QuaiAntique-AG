@@ -5,7 +5,7 @@
 {% block body %}
 
   <div class="mb-4">
-    <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}">Retour au panel d'administration</a>
+    <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> panneau d'administration</a>
   </div>
 
   <h1>Liste des plats</h1>
@@ -15,15 +15,16 @@
       Ajouter un plat
     </a>
   </div>
-
-
-
   {{ form_start(form) }}
-
+    {{ form_row(form.words)}}
+        <section>
+            <button type="submit" class="btn btn-custom btn-lg my-3">Rechercher</button>
+    </section>
+    {{ form_row(form.categorie)}}
   {{ form_end(form) }}
-  <table class="table">
+  <table class="table table-bordered">
       <thead>
-          <tr>
+          <tr class="text-center">
               <td>Catégorie</td>
               <td>Nom</td>
               <td>Description</td>
@@ -35,7 +36,7 @@
       </thead>
       <tbody>
       {% for dish in dishes %}
-          <tr>
+          <tr class="text-center">
               <td>{{ dish.categorie.name }}</td>
               <td>{{ dish.name }}</td>
               <td>{{ dish.description }}</td>
@@ -59,34 +60,13 @@
               </a>
               </td>
               <td>
-              <a href="#" type="button" class="btn btn-danger modal-trigger-dish" data-bs-toggle="modal" data-bs-target="#modal-delete-dish" data-id="{{ dish.id }}" data-titre = "{{ dish.id }}">
-                  Supprimer
-              </a>
+            <a href="{{ path('admin_dish_delete', {id: dish.id}) }}" type="button" class="btn btn-danger">
+                Supprimer
+            </a>
               </td>
           </tr>
       {% endfor %}
-          
       </tbody>
   </table>
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="modal-delete-dish" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal-deleteLabel">Supprimer un plat</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body modal-body-dish">
-          
-        </div>
-        <div class="modal-footer modal-footer-dish">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-dish">Fermer</button>
-          <a href="#" type="button" class="btn btn-custom">Valider</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
 {% endblock %}

@@ -45,7 +45,7 @@ class AdminHoursController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editHours(OpeningHours $hour, Request $request, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(HoursType::class, $hour);
@@ -65,7 +65,7 @@ class AdminHoursController extends AbstractController
         ]);
     }
 
-    #[Route('/duplicate/{id}', name: 'duplicate')]
+    #[Route('/duplicate/{id<\d+>}', name: 'duplicate')]
     public function duplicateHours(OpeningHours $hour, ManagerRegistry $doctrine)
     {
         $copyHours = clone $hour;
@@ -77,7 +77,7 @@ class AdminHoursController extends AbstractController
         return $this->redirectToRoute('admin_hours_list');
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteHours(OpeningHours $hour, ManagerRegistry $doctrine)
     {
         

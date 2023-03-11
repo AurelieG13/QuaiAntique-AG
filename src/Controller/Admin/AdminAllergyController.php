@@ -45,7 +45,7 @@ class AdminAllergyController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editAllergy(Allergy $allergy, Request $request, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(AllergyType::class, $allergy);
@@ -65,7 +65,7 @@ class AdminAllergyController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteAllergy(Allergy $allergy, ManagerRegistry $doctrine)
     {
         

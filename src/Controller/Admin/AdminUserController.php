@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\EditProfileFormType;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
+use App\Security\UserAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 #[Route('/admin/user', name: 'admin_user_')]
 class AdminUserController extends AbstractController
@@ -38,7 +40,7 @@ class AdminUserController extends AbstractController
     }
 
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editUserAdmin(
         Request $request,
         ManagerRegistry $doctrine,
@@ -62,7 +64,7 @@ class AdminUserController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function delete(User $user, ManagerRegistry $doctrine): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

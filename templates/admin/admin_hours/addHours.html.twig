@@ -1,16 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello adminhourscontroller{% endblock %}
+{% block title %}Administration - Horaires - Ajouter{% endblock %}
 
 {% block body %}
+<main class="container">
+<h1>Ajout d'un horaire</h1>
+        <section>
+                <a href="{{ path('admin_hours_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+        </section>
+        {{ form_start(form)}}
 
-<h1>ajout d'un horaire</h1>
-
-{{ form_start(form)}}
-
-    <section  class="text-center">
-            <button type="submit" class="btn btn-custom btn-lg my-3">Ajouter</button>
-    </section>
-
-{{ form_end(form)}}
+        {{ form_row(form.dayOfWeek) }}
+        {{ form_row(form.sortWeek) }}
+        {{ form_row(form.openedLunchHour) }}
+        {{ form_row(form.closedLunchHour) }}
+        {{ form_row(form.openedDinnerHour) }}
+        {{ form_row(form.closedDinnerHour) }}
+        <section>
+                <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+        </section>
+        {{ form_end(form)}}
+</main>
 {% endblock %}

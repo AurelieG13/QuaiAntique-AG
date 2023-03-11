@@ -3,20 +3,36 @@
 namespace App\Controller;
 
 use App\Repository\OpeningHoursRepository;
+use App\Repository\RestaurantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/footer', name: 'footer')]
 class FooterController extends AbstractController
 {
 
-    #[Route('/footer', name: 'footer')]
-    public function opening(OpeningHoursRepository $hoursRepository): Response
+    #[Route('/', name: 'home')]
+    public function opening(OpeningHoursRepository $hoursRepository, RestaurantRepository $restoRepository): Response
     {
-        $hours = $hoursRepository->findAll();
+        // $hours = $hoursRepository->findAll();
+        $restos = $restoRepository->findAll();
+        // dd($restos);
         return $this->render('components/_footer.html.twig', [
-            'hours' => $hours,
+            // 'hours' => $hours,
+            'restos' => $restos
         ]);
 
     }
+
+    // #[Route('/address', name: 'address')]
+    // public function address(RestaurantRepository $restoRepository): Response
+    // {
+    //     $restos = $restoRepository->findAll();
+    //     return $this->render('components/_footer.html.twig', [
+    //         'restos' => $restos
+    //     ]);
+
+    // }
+
 }

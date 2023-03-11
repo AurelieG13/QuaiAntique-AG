@@ -74,7 +74,7 @@ class AdminDishController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editDish(Dish $dish, Request $request, ManagerRegistry $doctrine, PictureService $pictureService): Response
     {
         $form = $this->createForm(DishType::class, $dish);
@@ -108,7 +108,7 @@ class AdminDishController extends AbstractController
         ]);
     }
 
-    #[Route('/activeHome/{id}', name: 'activeHome')]
+    #[Route('/activeHome/{id<\d+>}', name: 'activeHome')]
     public function activeHome(Dish $dish, ManagerRegistry $doctrine): Response
     {
         $dish->setActiveHome(($dish->isActiveHome())?false:true);
@@ -120,10 +120,9 @@ class AdminDishController extends AbstractController
         return new Response("true");
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{{id<\d+>}}', name: 'delete')]
     public function deleteDish(Dish $dish, ManagerRegistry $doctrine)
     {
-        
         $em = $doctrine->getManager();
         $em->remove($dish);
         $em->flush(); 
@@ -132,7 +131,7 @@ class AdminDishController extends AbstractController
         return $this->redirectToRoute('admin_dish_list');
     }
 
-    #[Route('/delete/image/{id}', name: 'delete_image', methods: ['DELETE'])]
+    #[Route('/delete/image/{id<\d+>}', name: 'delete_image', methods: ['DELETE'])]
     public function deleteImage(Images $image, Request $request, PictureService $pictureService, EntityManagerInterface $em): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

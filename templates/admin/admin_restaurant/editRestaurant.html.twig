@@ -1,22 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page de restaurant{% endblock %}
+{% block title %}Admin - Modifier restaurant{% endblock %}
 
 {% block body %}
-<div class="container-fluid overflow-hidden">
-    <div class="row vh-100 overflow-auto">
-        <div class="col d-flex flex-column h-sm-100">
-            <main class="row overflow-auto">
-                <div class="col pt-4">
-                
-                    {{ form_start(form)}}
-                    <input class="btn btn-success" type="submit" value="Valider">
-                    {{ form_end(form)}}
-                </div>
-            </main>
-        </div>
-    </div>
-</div>
+<main class="container">
+<h1>Modification d'un restaurant</h1>
+        <section>
+                <a href="{{ path('admin_restaurant_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+        </section>
+        {{ form_start(form)}}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.guestMax) }}
+        {{ form_row(form.address) }}
+        {{ form_row(form.phoneNumber) }}
+        <section>
+                <button type="submit" class="btn btn-custom my-3">Modifier</button>
+        </section>
+        {{ form_end(form)}}
+</main>
 
 
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="mb-4">
-        <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt="">panel d'administration</a>
+        <a type="button" class="btn btn-custom" href="{{ path('admin_home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> panneau d'administration</a>
     </div>
 
     <h1>Liste des utilisateurs</h1>
@@ -56,35 +56,15 @@
             </a>
             </td>
             <td>
-              <a href="#" type="button" class="btn btn-danger modal-trigger-user" data-bs-toggle="modal" data-bs-target="#modal-delete-user" data-id="{{ user.id }}" data-titre = "{{ user.id }}">
-                  Supprimer
-              </a>
+                <a href="{{ path('admin_user_delete', {id: user.id}) }}" type="button" class="btn btn-danger">
+                Supprimer
+            </a>
             </td>
         </tr>
     {% endfor %}
         
     </tbody>
 </table>
-
-
-<!-- Modal -->
-<div class="modal fade" id="modal-delete-user" tabindex="-1" aria-labelledby="modal-deleteLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-deleteLabel">Supprimer un utilisateur</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body modal-body-user">
-        
-      </div>
-      <div class="modal-footer modal-footer-user">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="modal-delete-user">Fermer</button>
-        <a href="#" type="button" class="btn btn-custom">Valider</a>
-      </div>
-    </div>
-  </div>
-</div>
 
     {# display navigation #}
     <div class="navigation">

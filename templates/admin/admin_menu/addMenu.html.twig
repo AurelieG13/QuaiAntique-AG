@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminMenuController!{% endblock %}
+{% block title %}Administration - Menu - Ajouter{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Creation d'un menu</h1>
-    {{ form(form)}}
-</div>
+<main class="container">
+<h1>Ajout d'un menu</h1>
+        <section>
+                <a href="{{ path('admin_menu_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+        </section>
+        {{ form_start(form)}}
 
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.formules) }}
+        {{ form_row(form.images) }}
+
+        <section>
+                <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+        </section>
+        {{ form_end(form)}}
+</main>
 {% endblock %}

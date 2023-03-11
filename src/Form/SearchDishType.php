@@ -34,7 +34,6 @@ class SearchDishType extends AbstractType
                 'expanded' => true,
                 'multiple' => false
             ])
-            ->add('Rechercher', SubmitType::class)
         ;
     }
 

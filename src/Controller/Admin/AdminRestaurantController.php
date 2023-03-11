@@ -48,7 +48,7 @@ class AdminRestaurantController extends AbstractController
     }
 
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editRestaurant(Restaurant $restaurant, Request $request, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(RestaurantType::class, $restaurant);
@@ -66,5 +66,17 @@ class AdminRestaurantController extends AbstractController
         return $this->render('admin/admin_restaurant/editRestaurant.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
+    public function deleteMenu(Restaurant $restaurant, ManagerRegistry $doctrine)
+    {
+        
+        $em = $doctrine->getManager();
+        $em->remove($restaurant);
+        $em->flush(); 
+
+        $this->addFlash('success', 'restaurant supprimé avec succes');
+        return $this->redirectToRoute('admin_restaurant_list');
     }
 }

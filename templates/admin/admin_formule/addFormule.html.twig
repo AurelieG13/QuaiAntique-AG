@@ -1,17 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminFormuleController!{% endblock %}
+{% block title %}Administration - Formules - Ajouter{% endblock %}
 
 {% block body %}
-        <section  class="text-center">
-                <a href="{{ path('admin_formule_list') }}" type="button" class="btn btn-custom btn-lg my-3">Retour</a>
+<main class="container">
+<h1>Ajout d'une formule</h1>
+        <section>
+                <a href="{{ path('admin_formule_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
         </section>
-{{ form_start(form)}}
+        {{ form_start(form)}}
 
-    <section  class="text-center">
-            <button type="submit" class="btn btn-custom btn-lg my-3">Ajouter</button>
-    </section>
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.subtitle) }}
+        {{ form_row(form.price) }}
 
-{{ form_end(form)}}
-
+        <section>
+                <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+        </section>
+        {{ form_end(form)}}
+</main>
 {% endblock %}

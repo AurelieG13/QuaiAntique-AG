@@ -45,7 +45,7 @@ class AdminCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
+    #[Route('/edit/{id<\d+>}', name: 'edit')]
     public function editCategory(Category $category, Request $request, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(CategoryType::class, $category);
@@ -65,7 +65,7 @@ class AdminCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteCategory(Category $category, ManagerRegistry $doctrine)
     {
         
