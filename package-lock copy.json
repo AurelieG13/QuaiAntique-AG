@@ -1205,7 +1205,6 @@
       "dev": true
     },
     "vendor/symfony/ux-live-component/assets": {
-      "name": "@symfony/ux-live-component",
       "version": "1.0.0",
       "dev": true,
       "license": "MIT",
