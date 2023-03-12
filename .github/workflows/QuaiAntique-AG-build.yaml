@@ -48,7 +48,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
-        run: npm ci
+        run: npm i
 
       - name: Setup composer
         uses: php-actions/composer@v6
