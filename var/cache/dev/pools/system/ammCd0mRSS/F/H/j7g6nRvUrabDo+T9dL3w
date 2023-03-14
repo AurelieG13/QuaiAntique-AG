@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255COpeningHours%2523getClosedDinnerHour
+
+return [PHP_INT_MAX, []];
