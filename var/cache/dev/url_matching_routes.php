@@ -21,6 +21,7 @@ return [
         '/admin/category/add' => [[['_route' => 'admin_category_add', '_controller' => 'App\\Controller\\Admin\\AdminCategoryController::addCategory'], null, null, null, false, false, null]],
         '/admin/contact/list' => [[['_route' => 'admin_contact_list', '_controller' => 'App\\Controller\\Admin\\AdminContactController::list'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin_home', '_controller' => 'App\\Controller\\Admin\\AdminController::index'], null, null, null, true, false, null]],
+        '/admin/tototest' => [[['_route' => 'admin_tototest', '_controller' => 'App\\Controller\\Admin\\AdminController::tototest'], null, null, null, false, false, null]],
         '/admin/dish' => [[['_route' => 'admin_dish_list', '_controller' => 'App\\Controller\\Admin\\AdminDishController::index'], null, null, null, true, false, null]],
         '/admin/dish/add' => [[['_route' => 'admin_dish_add', '_controller' => 'App\\Controller\\Admin\\AdminDishController::addDish'], null, null, null, false, false, null]],
         '/admin/formule' => [[['_route' => 'admin_formule_list', '_controller' => 'App\\Controller\\Admin\\AdminFormuleController::listFormule'], null, null, null, true, false, null]],

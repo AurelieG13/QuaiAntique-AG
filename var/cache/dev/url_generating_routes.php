@@ -28,6 +28,7 @@ return [
     'admin_category_delete' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminCategoryController::deleteCategory'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/admin/category/delete']], [], [], []],
     'admin_contact_list' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminContactController::list'], [], [['text', '/admin/contact/list']], [], [], []],
     'admin_home' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminController::index'], [], [['text', '/admin/']], [], [], []],
+    'admin_tototest' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminController::tototest'], [], [['text', '/admin/tototest']], [], [], []],
     'admin_dish_list' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminDishController::index'], [], [['text', '/admin/dish/']], [], [], []],
     'admin_dish_add' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminDishController::addDish'], [], [['text', '/admin/dish/add']], [], [], []],
     'admin_dish_edit' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminDishController::editDish'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/admin/dish/edit']], [], [], []],

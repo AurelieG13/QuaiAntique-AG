@@ -99,6 +99,10 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         // line 35
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/activeHome.js"), "html", null, true);
         echo "\"></script>
+        <script src=\"";
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/fetch.js"), "html", null, true);
+        echo "\"></script>
     </body>
 </html>
 ";
@@ -211,7 +215,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  185 => 28,  172 => 22,  162 => 21,  150 => 18,  142 => 14,  132 => 13,  114 => 7,  100 => 35,  96 => 34,  92 => 33,  88 => 31,  86 => 30,  83 => 29,  81 => 28,  78 => 27,  76 => 26,  72 => 24,  70 => 21,  67 => 20,  65 => 13,  60 => 10,  55 => 7,  47 => 1,);
+        return array (  189 => 28,  176 => 22,  166 => 21,  154 => 18,  146 => 14,  136 => 13,  118 => 7,  104 => 36,  100 => 35,  96 => 34,  92 => 33,  88 => 31,  86 => 30,  83 => 29,  81 => 28,  78 => 27,  76 => 26,  72 => 24,  70 => 21,  67 => 20,  65 => 13,  60 => 10,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -251,6 +255,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         <script src=\"{{ asset('assets/js/script.js')}}\"></script>
         <script src=\"{{ asset('assets/js/images.js')}}\"></script>
         <script src=\"{{ asset('assets/js/activeHome.js')}}\"></script>
+        <script src=\"{{ asset('assets/js/fetch.js')}}\"></script>
     </body>
 </html>
 ", "base.html.twig", "C:\\xampp\\htdocs\\QuaiAntique-AG\\templates\\base.html.twig");

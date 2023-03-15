@@ -7409,6 +7409,13 @@
         <argument key="contactRepository" type="service_closure" id="App\Repository\ContactRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.0i5uNey" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="dish" type="service_closure" id=".errored..service_locator.0i5uNey.App\Entity\Dish"/>
+        <argument key="manager" type="service_closure" id=".errored..service_locator.0i5uNey.Doctrine\Persistence\ObjectManager"/>
+      </argument>
+    </service>
     <service id=".service_locator.jSRi6YF" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7581,7 +7588,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.IZEbDVw" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.48yKMk9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminAllergyController::addAllergy" type="service_closure" id=".service_locator.o6sN0hZ"/>
@@ -7593,6 +7600,7 @@
         <argument key="App\Controller\Admin\AdminCategoryController::editCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController::index" type="service_closure" id=".service_locator.3opkxl5"/>
         <argument key="App\Controller\Admin\AdminContactController::list" type="service_closure" id=".service_locator.RT2MYic"/>
+        <argument key="App\Controller\Admin\AdminController::tototest" type="service_closure" id=".service_locator.0i5uNey"/>
         <argument key="App\Controller\Admin\AdminDishController::activeHome" type="service_closure" id=".service_locator.5Ap4bXn"/>
         <argument key="App\Controller\Admin\AdminDishController::addDish" type="service_closure" id=".service_locator.YKrE6vB"/>
         <argument key="App\Controller\Admin\AdminDishController::deleteDish" type="service_closure" id=".service_locator.5Ap4bXn"/>
@@ -7648,6 +7656,7 @@
         <argument key="App\Controller\Admin\AdminCategoryController:editCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController:index" type="service_closure" id=".service_locator.3opkxl5"/>
         <argument key="App\Controller\Admin\AdminContactController:list" type="service_closure" id=".service_locator.RT2MYic"/>
+        <argument key="App\Controller\Admin\AdminController:tototest" type="service_closure" id=".service_locator.0i5uNey"/>
         <argument key="App\Controller\Admin\AdminDishController:activeHome" type="service_closure" id=".service_locator.5Ap4bXn"/>
         <argument key="App\Controller\Admin\AdminDishController:addDish" type="service_closure" id=".service_locator.YKrE6vB"/>
         <argument key="App\Controller\Admin\AdminDishController:deleteDish" type="service_closure" id=".service_locator.5Ap4bXn"/>
@@ -8745,12 +8754,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.IZEbDVw"/>
+      <argument type="service" id=".service_locator.48yKMk9"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.IZEbDVw"/>
+      <argument type="service" id=".service_locator.48yKMk9"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8772,6 +8781,8 @@
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.Tlo_zg_.App\Entity\Allergy" class="App\Entity\Allergy"/>
     <service id=".errored..service_locator.yy5cnku.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.0i5uNey.App\Entity\Dish" class="App\Entity\Dish"/>
+    <service id=".errored..service_locator.0i5uNey.Doctrine\Persistence\ObjectManager" class="Doctrine\Persistence\ObjectManager"/>
     <service id=".errored..service_locator.d86f.Aj.App\Entity\Dish" class="App\Entity\Dish"/>
     <service id=".errored..service_locator.5Ap4bXn.App\Entity\Dish" class="App\Entity\Dish"/>
     <service id=".errored..service_locator.PEwCPil.App\Entity\Images" class="App\Entity\Images"/>
@@ -9744,7 +9755,7 @@
     <service id="Symfony\UX\LiveComponent\ComponentValidatorInterface" alias="Symfony\UX\LiveComponent\ComponentValidator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.IZEbDVw"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.48yKMk9"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9776,7 +9787,7 @@
     <service id=".service_locator.V6D1oJY" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.DU0GQTc" alias=".service_locator.CVaM7f1"/>
     <service id=".service_locator.i55Vd0x" alias=".service_locator.xVV8u.q"/>
-    <service id=".service_locator.q8ug5FK" alias=".service_locator.IZEbDVw"/>
+    <service id=".service_locator.ecTXAmQ" alias=".service_locator.48yKMk9"/>
     <service id=".service_locator.9XMoc9I" alias=".service_locator.kzegaci"/>
     <service id=".service_locator.i2UnAhx" alias=".service_locator.cEhBhXG"/>
     <service id=".service_locator.kX66lmt" alias=".service_locator.sQxyoRw"/>
@@ -9838,6 +9849,7 @@
     <service id=".service_locator.js1hwUF" alias=".service_locator.3opkxl5"/>
     <service id=".service_locator._Jezb3g" alias=".service_locator.yy5cnku"/>
     <service id=".service_locator.f4t_fZZ" alias=".service_locator.RT2MYic"/>
+    <service id=".service_locator.QD.CRKR" alias=".service_locator.0i5uNey"/>
     <service id=".service_locator.d1DnlJr" alias=".service_locator.jSRi6YF"/>
     <service id=".service_locator.o2k2d6Y" alias=".service_locator.YKrE6vB"/>
     <service id=".service_locator.vA8Truj" alias=".service_locator.d86f.Aj"/>
