@@ -242,6 +242,23 @@ class __TwigTemplate_fd59eecd2c39ac8433f1357258180b54 extends Template
                 </div>
             </div>
         </a>
+
+        <a href=\"";
+        // line 110
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_booking_list");
+        echo "\" class=\"text-decoration-none\">
+            <div class=\"card mt-2\" style=\"width: 18rem;\">
+                <div class=\"card-body text-align\">
+                    <img src=\"";
+        // line 113
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/allergy.svg"), "html", null, true);
+        echo "\" class=\"rounded mx-auto d-block align-middle\" width=\"40\" alt=\"...\">
+                    <h5 class=\"card-title text-center mt-2\">
+                        Administrer les réservations
+                    </h5>
+                </div>
+            </div>
+        </a>
     </section>
 </main>
 ";
@@ -265,7 +282,7 @@ class __TwigTemplate_fd59eecd2c39ac8433f1357258180b54 extends Template
 
     public function getDebugInfo()
     {
-        return array (  237 => 102,  231 => 99,  220 => 91,  214 => 88,  203 => 80,  197 => 77,  186 => 69,  180 => 66,  168 => 57,  162 => 54,  151 => 46,  145 => 43,  134 => 35,  128 => 32,  117 => 24,  111 => 21,  100 => 13,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  254 => 113,  248 => 110,  237 => 102,  231 => 99,  220 => 91,  214 => 88,  203 => 80,  197 => 77,  186 => 69,  180 => 66,  168 => 57,  162 => 54,  151 => 46,  145 => 43,  134 => 35,  128 => 32,  117 => 24,  111 => 21,  100 => 13,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -374,6 +391,17 @@ class __TwigTemplate_fd59eecd2c39ac8433f1357258180b54 extends Template
                     <img src=\"{{ asset('assets/images/allergy.svg') }}\" class=\"rounded mx-auto d-block align-middle\" width=\"40\" alt=\"...\">
                     <h5 class=\"card-title text-center mt-2\">
                         Administrer les allergies
+                    </h5>
+                </div>
+            </div>
+        </a>
+
+        <a href=\"{{ path('admin_booking_list') }}\" class=\"text-decoration-none\">
+            <div class=\"card mt-2\" style=\"width: 18rem;\">
+                <div class=\"card-body text-align\">
+                    <img src=\"{{ asset('assets/images/allergy.svg') }}\" class=\"rounded mx-auto d-block align-middle\" width=\"40\" alt=\"...\">
+                    <h5 class=\"card-title text-center mt-2\">
+                        Administrer les réservations
                     </h5>
                 </div>
             </div>

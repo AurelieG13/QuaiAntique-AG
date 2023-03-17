@@ -148,10 +148,46 @@ class __TwigTemplate_e0fb70a2514838e0549bdd0fa701e1a0 extends Template
                         </div>
                     </section>
                     <hr>
-                    <p>Retrouvez toutes vos réservations passées en cliquant sur <a href=\"";
-        // line 36
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile_home");
-        echo "\">Vos Réservations</a> </p>
+                    <p>Retrouvez toutes vos réservations passées ci-dessous: </p>
+
+                    <table class=\"table table-bordered\">
+    <thead>
+        <tr class=\"text-center\">
+            <td>Date de réservation</td>
+            <td>Heure de réservation</td>
+            <td>Nombre de convives</td>
+        </tr>
+    </thead>
+    <tbody>
+    ";
+        // line 47
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 47, $this->source); })()), "booking", [], "any", false, false, false, 47));
+        foreach ($context['_seq'] as $context["_key"] => $context["booking"]) {
+            // line 48
+            echo "        <tr class=\"text-center\">
+            <td>";
+            // line 49
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "dateBooking", [], "any", false, false, false, 49), "d/m/y"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 50
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "timeBooking", [], "any", false, false, false, 50), "H:i"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "seats", [], "any", false, false, false, 51), "html", null, true);
+            echo "</td>
+        </tr>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['booking'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 54
+        echo "        
+    </tbody>
+</table>
                 </div>
             </main>
         </div>
@@ -180,7 +216,7 @@ class __TwigTemplate_e0fb70a2514838e0549bdd0fa701e1a0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  153 => 36,  146 => 31,  137 => 30,  133 => 29,  123 => 22,  119 => 21,  113 => 20,  104 => 14,  100 => 13,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  188 => 54,  179 => 51,  175 => 50,  171 => 49,  168 => 48,  164 => 47,  146 => 31,  137 => 30,  133 => 29,  123 => 22,  119 => 21,  113 => 20,  104 => 14,  100 => 13,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -220,7 +256,27 @@ class __TwigTemplate_e0fb70a2514838e0549bdd0fa701e1a0 extends Template
                         </div>
                     </section>
                     <hr>
-                    <p>Retrouvez toutes vos réservations passées en cliquant sur <a href=\"{{path('profile_home')}}\">Vos Réservations</a> </p>
+                    <p>Retrouvez toutes vos réservations passées ci-dessous: </p>
+
+                    <table class=\"table table-bordered\">
+    <thead>
+        <tr class=\"text-center\">
+            <td>Date de réservation</td>
+            <td>Heure de réservation</td>
+            <td>Nombre de convives</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for booking in user.booking %}
+        <tr class=\"text-center\">
+            <td>{{ booking.dateBooking|date('d/m/y') }}</td>
+            <td>{{ booking.timeBooking|date('H:i') }}</td>
+            <td>{{ booking.seats }}</td>
+        </tr>
+    {% endfor %}
+        
+    </tbody>
+</table>
                 </div>
             </main>
         </div>

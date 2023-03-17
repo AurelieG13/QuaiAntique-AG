@@ -16,13 +16,4 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/index.html.twig');
     }
-
-    #[Route('/tototest', name: 'tototest')]
-    public function tototest(Dish $dish, ObjectManager $manager): Response
-    {
-        
-        // return $this->render('admin/index2.html.twig');
-        // return new Response("true");
-        return $this->json(['code' => 200, 'message' => 'ok ça marche bien'], 200);
-    }
 }

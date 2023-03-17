@@ -5,8 +5,8 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev</parameter>
+    <parameter key="kernel.build_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\xampp\htdocs\QuaiAntique-AG\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -132,15 +132,15 @@
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\xampp\htdocs\QuaiAntique-AG/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev</parameter>
+    <parameter key="router.cache_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/serialization.php</parameter>
     <parameter key="cache.prefix.seed">_C:\xampp\htdocs\QuaiAntique-AG.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
@@ -150,15 +150,15 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/profiler</parameter>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
     <parameter key="doctrine.data_collector.class">Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector</parameter>
     <parameter key="doctrine.dbal.connection.event_manager.class">Symfony\Bridge\Doctrine\ContainerAwareEventManager</parameter>
@@ -223,7 +223,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -403,6 +403,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.CshazM0.App\Controller\Admin\AdminAllergyController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\AdminBookingController" class="App\Controller\Admin\AdminBookingController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.CshazM0.App\Controller\Admin\AdminBookingController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" public="true" autowire="true" autoconfigure="true">
@@ -742,7 +749,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/http_cache</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -752,7 +759,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -1678,7 +1685,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1697,7 +1704,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1993,7 +2000,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
@@ -3478,7 +3485,7 @@
       <argument type="service" id=".service_locator.ybClHma.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -3571,13 +3578,13 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/annotations.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
       <tag name="container.hot_path"/>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/annotations.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3632,10 +3639,10 @@
           </service>
         </argument>
       </argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/serialization.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/serialization.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3752,7 +3759,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/sessions</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3764,7 +3771,7 @@
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler">
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-          <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/sessions</argument>
+          <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/sessions</argument>
         </service>
       </argument>
     </service>
@@ -3952,10 +3959,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/validation.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/validation.php</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -4347,7 +4354,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/profiler</argument>
+      <argument>file:C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -4394,7 +4401,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/App_KernelDevDebugContainer</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -4903,7 +4910,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -5276,7 +5283,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/twig</argument>
+        <argument key="cache">C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -6949,6 +6956,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminAllergyController" class="App\Controller\Admin\AdminAllergyController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminAllergyController" class="App\Controller\Admin\AdminAllergyController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminAllergyController" class="App\Controller\Admin\AdminAllergyController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminBookingController" class="App\Controller\Admin\AdminBookingController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminBookingController" class="App\Controller\Admin\AdminBookingController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminBookingController" class="App\Controller\Admin\AdminBookingController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminCategoryController" class="App\Controller\Admin\AdminCategoryController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7426,6 +7436,19 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
+    <service id=".service_locator.1qB_0UJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="bookingRepository" type="service_closure" id="App\Repository\BookingRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QQ253Vs" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="booking" type="service_closure" id=".errored..service_locator.QQ253Vs.App\Entity\Booking"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+      </argument>
+    </service>
     <service id=".service_locator.3opkxl5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7443,13 +7466,6 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="contactRepository" type="service_closure" id="App\Repository\ContactRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.0i5uNey" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="dish" type="service_closure" id=".errored..service_locator.0i5uNey.App\Entity\Dish"/>
-        <argument key="manager" type="service_closure" id=".errored..service_locator.0i5uNey.Doctrine\Persistence\ObjectManager"/>
       </argument>
     </service>
     <service id=".service_locator.jSRi6YF" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7624,19 +7640,22 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.SRh2fIu" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n_PH3Uo" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminAllergyController::addAllergy" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\Admin\AdminAllergyController::deleteAllergy" type="service_closure" id=".service_locator.Tlo_zg_"/>
         <argument key="App\Controller\Admin\AdminAllergyController::editAllergy" type="service_closure" id=".service_locator.Tlo_zg_"/>
         <argument key="App\Controller\Admin\AdminAllergyController::index" type="service_closure" id=".service_locator.p3G.R6j"/>
+        <argument key="App\Controller\Admin\AdminBookingController::addBooking" type="service_closure" id=".service_locator.o6sN0hZ"/>
+        <argument key="App\Controller\Admin\AdminBookingController::deleteBooking" type="service_closure" id=".service_locator.QQ253Vs"/>
+        <argument key="App\Controller\Admin\AdminBookingController::editBooking" type="service_closure" id=".service_locator.QQ253Vs"/>
+        <argument key="App\Controller\Admin\AdminBookingController::index" type="service_closure" id=".service_locator.1qB_0UJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController::addCategory" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\Admin\AdminCategoryController::deleteCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController::editCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController::index" type="service_closure" id=".service_locator.3opkxl5"/>
         <argument key="App\Controller\Admin\AdminContactController::list" type="service_closure" id=".service_locator.RT2MYic"/>
-        <argument key="App\Controller\Admin\AdminController::tototest" type="service_closure" id=".service_locator.0i5uNey"/>
         <argument key="App\Controller\Admin\AdminDishController::activeHome" type="service_closure" id=".service_locator.5Ap4bXn"/>
         <argument key="App\Controller\Admin\AdminDishController::addDish" type="service_closure" id=".service_locator.YKrE6vB"/>
         <argument key="App\Controller\Admin\AdminDishController::deleteDish" type="service_closure" id=".service_locator.5Ap4bXn"/>
@@ -7688,12 +7707,15 @@
         <argument key="App\Controller\Admin\AdminAllergyController:deleteAllergy" type="service_closure" id=".service_locator.Tlo_zg_"/>
         <argument key="App\Controller\Admin\AdminAllergyController:editAllergy" type="service_closure" id=".service_locator.Tlo_zg_"/>
         <argument key="App\Controller\Admin\AdminAllergyController:index" type="service_closure" id=".service_locator.p3G.R6j"/>
+        <argument key="App\Controller\Admin\AdminBookingController:addBooking" type="service_closure" id=".service_locator.o6sN0hZ"/>
+        <argument key="App\Controller\Admin\AdminBookingController:deleteBooking" type="service_closure" id=".service_locator.QQ253Vs"/>
+        <argument key="App\Controller\Admin\AdminBookingController:editBooking" type="service_closure" id=".service_locator.QQ253Vs"/>
+        <argument key="App\Controller\Admin\AdminBookingController:index" type="service_closure" id=".service_locator.1qB_0UJ"/>
         <argument key="App\Controller\Admin\AdminCategoryController:addCategory" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\Admin\AdminCategoryController:deleteCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController:editCategory" type="service_closure" id=".service_locator.yy5cnku"/>
         <argument key="App\Controller\Admin\AdminCategoryController:index" type="service_closure" id=".service_locator.3opkxl5"/>
         <argument key="App\Controller\Admin\AdminContactController:list" type="service_closure" id=".service_locator.RT2MYic"/>
-        <argument key="App\Controller\Admin\AdminController:tototest" type="service_closure" id=".service_locator.0i5uNey"/>
         <argument key="App\Controller\Admin\AdminDishController:activeHome" type="service_closure" id=".service_locator.5Ap4bXn"/>
         <argument key="App\Controller\Admin\AdminDishController:addDish" type="service_closure" id=".service_locator.YKrE6vB"/>
         <argument key="App\Controller\Admin\AdminDishController:deleteDish" type="service_closure" id=".service_locator.5Ap4bXn"/>
@@ -8328,6 +8350,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
+    <service id=".service_locator.CshazM0.App\Controller\Admin\AdminBookingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminBookingController"/>
+      <argument>App\Controller\Admin\AdminBookingController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CshazM0" method="withContext"/>
+    </service>
     <service id=".service_locator.CshazM0.App\Controller\Admin\AdminCategoryController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\AdminCategoryController"/>
       <argument>App\Controller\Admin\AdminCategoryController</argument>
@@ -8801,12 +8829,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.SRh2fIu"/>
+      <argument type="service" id=".service_locator.n_PH3Uo"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.SRh2fIu"/>
+      <argument type="service" id=".service_locator.n_PH3Uo"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8827,9 +8855,8 @@
     </service>
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.Tlo_zg_.App\Entity\Allergy" class="App\Entity\Allergy"/>
+    <service id=".errored..service_locator.QQ253Vs.App\Entity\Booking" class="App\Entity\Booking"/>
     <service id=".errored..service_locator.yy5cnku.App\Entity\Category" class="App\Entity\Category"/>
-    <service id=".errored..service_locator.0i5uNey.App\Entity\Dish" class="App\Entity\Dish"/>
-    <service id=".errored..service_locator.0i5uNey.Doctrine\Persistence\ObjectManager" class="Doctrine\Persistence\ObjectManager"/>
     <service id=".errored..service_locator.d86f.Aj.App\Entity\Dish" class="App\Entity\Dish"/>
     <service id=".errored..service_locator.5Ap4bXn.App\Entity\Dish" class="App\Entity\Dish"/>
     <service id=".errored..service_locator.PEwCPil.App\Entity\Images" class="App\Entity\Images"/>
@@ -9563,7 +9590,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>9LyyP5gX6a</argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -9573,7 +9600,7 @@
       <argument>OHCLG3GiqF</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9581,7 +9608,7 @@
       <argument>WPshPzjfQB</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9589,7 +9616,7 @@
       <argument>4QIpjh-9Xj</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9597,7 +9624,7 @@
       <argument>ammCd0mRSS</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9605,14 +9632,14 @@
       <argument>3ACwqKrrzx</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.messenger.restart_workers_signal.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>G-orHlHSEA</argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -9622,7 +9649,7 @@
       <argument>fs8+6oNPsX</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9632,7 +9659,7 @@
       <argument>S+Fe8xO67f</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9640,7 +9667,7 @@
       <argument>yS1CEp8DaN</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/QuaiAntique-AG/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\QuaiAntique-AG\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -9802,7 +9829,7 @@
     <service id="Symfony\UX\LiveComponent\ComponentValidatorInterface" alias="Symfony\UX\LiveComponent\ComponentValidator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.SRh2fIu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.n_PH3Uo"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9834,7 +9861,7 @@
     <service id=".service_locator.V6D1oJY" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.DU0GQTc" alias=".service_locator.CVaM7f1"/>
     <service id=".service_locator.i55Vd0x" alias=".service_locator.xVV8u.q"/>
-    <service id=".service_locator._0laTS_" alias=".service_locator.SRh2fIu"/>
+    <service id=".service_locator.KheYBif" alias=".service_locator.n_PH3Uo"/>
     <service id=".service_locator.9XMoc9I" alias=".service_locator.kzegaci"/>
     <service id=".service_locator.i2UnAhx" alias=".service_locator.cEhBhXG"/>
     <service id=".service_locator.XRfcUYO" alias=".service_locator.tynjrOA"/>
@@ -9893,10 +9920,11 @@
     <service id=".service_locator.HF7Tiho" alias=".service_locator.p3G.R6j"/>
     <service id=".service_locator.eQ296SW" alias=".service_locator.o6sN0hZ"/>
     <service id=".service_locator.dEvrXXc" alias=".service_locator.Tlo_zg_"/>
+    <service id=".service_locator.8tM02U." alias=".service_locator.1qB_0UJ"/>
+    <service id=".service_locator.QsQlIhV" alias=".service_locator.QQ253Vs"/>
     <service id=".service_locator.js1hwUF" alias=".service_locator.3opkxl5"/>
     <service id=".service_locator._Jezb3g" alias=".service_locator.yy5cnku"/>
     <service id=".service_locator.f4t_fZZ" alias=".service_locator.RT2MYic"/>
-    <service id=".service_locator.QD.CRKR" alias=".service_locator.0i5uNey"/>
     <service id=".service_locator.d1DnlJr" alias=".service_locator.jSRi6YF"/>
     <service id=".service_locator.o2k2d6Y" alias=".service_locator.YKrE6vB"/>
     <service id=".service_locator.vA8Truj" alias=".service_locator.d86f.Aj"/>

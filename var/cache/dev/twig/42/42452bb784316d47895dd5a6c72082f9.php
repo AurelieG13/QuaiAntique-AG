@@ -68,10 +68,7 @@ class __TwigTemplate_987165885a9f825c2bab18576a6bd625 extends Template
                             <i class=\"fs-5 bi-speedometer2 text-white\"></i><span class=\"ms-1 d-none d-sm-inline text-white\">Vos informations personnelles</span></a>
                     </li>
                     <li>
-                        <a href=\"";
-        // line 18
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile_home");
-        echo "\" class=\"nav-link px-sm-0 px-2\">
+                        <a href=\"#\" class=\"nav-link px-sm-0 px-2\">
                             <i class=\"fs-5 bi-table text-white\"></i><span class=\"ms-1 d-none d-sm-inline text-white\">Vos réservations</span></a>
                     </li>
                     
@@ -98,7 +95,7 @@ class __TwigTemplate_987165885a9f825c2bab18576a6bd625 extends Template
 
     public function getDebugInfo()
     {
-        return array (  73 => 18,  66 => 14,  58 => 9,  49 => 5,  43 => 1,);
+        return array (  66 => 14,  58 => 9,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -120,7 +117,7 @@ class __TwigTemplate_987165885a9f825c2bab18576a6bd625 extends Template
                             <i class=\"fs-5 bi-speedometer2 text-white\"></i><span class=\"ms-1 d-none d-sm-inline text-white\">Vos informations personnelles</span></a>
                     </li>
                     <li>
-                        <a href=\"{{path('profile_home')}}\" class=\"nav-link px-sm-0 px-2\">
+                        <a href=\"#\" class=\"nav-link px-sm-0 px-2\">
                             <i class=\"fs-5 bi-table text-white\"></i><span class=\"ms-1 d-none d-sm-inline text-white\">Vos réservations</span></a>
                     </li>
                     

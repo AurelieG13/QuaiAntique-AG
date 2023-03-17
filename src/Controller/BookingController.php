@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\User;
 use App\Form\BookingFormType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,18 +19,25 @@ class BookingController extends AbstractController
     public function form(Request $request, EntityManagerInterface $manager): Response
     {
         $booking = new Booking();
+        $userAllergy = [];
         
         if($this->getUser()) {
-            $user = $this->getUser();
-            $booking->setUser($user);
-            // $booking->setName($this->getUser()->getName())
-            //     ->setFirstname($this->getUser()->getFirstname())
-            //     ->setPhoneNumber($this->getUser()->getPhoneNumber())
-            //     ->setEmail($this->getUser()->getEmail())
-            //     ->setSeats($this->getUser()->getGuestBooking())
-            //     // ->addAllergy($this->getUser()->getAllergies())
-            //     ;
+            $user1 = $this->getUser();
+            $booking->setUser($user1);
+            $booking->setName($this->getUser()->getName())
+                ->setFirstname($this->getUser()->getFirstname())
+                ->setPhoneNumber($this->getUser()->getPhoneNumber())
+                ->setEmail($this->getUser()->getEmail())
+                ->setSeats($this->getUser()->getGuestBooking());
+                // ->addAllergy($this->getUser()->getAllergies())
         }
+
+        
+            if($this->getUser()) {
+                $userAllergy = $this->getUser()->getAllergies([]);
+            }
+
+        
 
         $form = $this->createForm(BookingFormType::class, $booking);
 
@@ -45,6 +54,7 @@ class BookingController extends AbstractController
     
         return $this->render('booking/index.html.twig', [
                 'form' => $form->createView(),
+                'userAllergy' => $userAllergy
             ]);
     }
 }

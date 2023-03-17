@@ -35,7 +35,7 @@ class Booking
     private ?User $user = null;
 
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'bookings')]
-    private Collection $allergies;
+    private ?Collection $allergies;
 
     #[ORM\Column(length: 50)]
     private ?string $firstname = null;
@@ -51,6 +51,12 @@ class Booking
         $this->allergies = new ArrayCollection();
         $this->createdAt = new \DateTimeImmutable();
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
 
     public function getId(): ?int

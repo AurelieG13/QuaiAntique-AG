@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Réservations - Ajouter{% endblock %}
+
+{% block body %}
+<main class="container">
+<h1>Ajout d'une réservation</h1>
+        <section>
+                <a href="{{ path('admin_booking_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+        </section>
+        <section class="container">
+                <div class="row">
+                        <div class="class">
+                                {{ form_start(form) }}
+                                <fieldset class="fieldset-register mb-2">
+                                        <legend>Date et heure de la réservation</legend>
+                                        {{ form_row(form.dateBooking) }}
+                                        {{ form_row(form.timeBooking) }}
+
+                                </fieldset>
+
+                                <fieldset class="fieldset-register mb-2">
+                                        <legend>Identité</legend>
+                                        {{ form_row(form.name) }}
+                                        {{ form_row(form.firstname) }}
+                                </fieldset>
+
+                                <fieldset class="fieldset-register mb-2">
+                                        <legend>Coordonnées</legend>
+                                        {{ form_row(form.email) }}
+                                        {{ form_row(form.phoneNumber) }}
+                                </fieldset>
+                                <fieldset class="fieldset-register mb-2">
+                                        <legend>Allergies alimentaires</legend>
+                                        {{ form_row(form.allergies) }}
+                                </fieldset>
+
+                                <fieldset class="fieldset-register mb-2">
+                                        <legend>Informations complémentaires</legend>
+                                        {{ form_row(form.seats) }}
+                                </fieldset>
+
+                                <section>
+                                        <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+                                </section>
+
+                                {{ form_end(form) }}
+                        </div>
+                </div>
+        </section>
+</main>
+{% endblock %}

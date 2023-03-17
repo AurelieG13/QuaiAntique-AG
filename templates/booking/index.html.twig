@@ -3,33 +3,61 @@
 {% block title %}Hello BookingController!{% endblock %}
 
 {% block body %}
+<section class="container">
+        <div class="row">
+            <div class="class">
+                <h1 class="text-center mt-2 mb-3">Réservation d'une table</h1>
+                    {{ form_start(form) }}
+                        <fieldset class="fieldset-register mb-2">
+                            <legend>Date et heure de la réservation souhaitée</legend>
+                            {{ form_row(form.dateBooking) }}
+                            {{ form_row(form.timeBooking) }}
+                            
+                        </fieldset>
+                    
+                        <fieldset class="fieldset-register mb-2">
+                            <legend>Mon identité</legend>
+                            {{ form_row(form.name) }}
+                            {{ form_row(form.firstname) }}
+                            
+                        </fieldset>
 
-    <div class="container">
-            <div class="row">
-                <div class="col-9">
-{% for message in app.flashes('success') %}
-            <div class="alert alert-success" role="alert">{{ message }}</div>
-        {% endfor %}
-        <h1 class="text-center">Formulaire de réservation</h1>
-            {{ form_start(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.firstname) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.phoneNumber) }}
-                {{ form_row(form.seats) }}
-                {{ form_row(form.dateBooking) }}
-                {{ form_row(form.timeBooking) }}
-                {{ form_row(form.allergies) }}
-                <input class="btn btn-custom" type="submit" value="Envoyer">
-            {{ form_end(form)}}
-    </div>
+                        <fieldset class="fieldset-register mb-2">
+                            <legend>Mes coordonnées</legend>
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.phoneNumber) }}
+                        </fieldset>
 
+                        <fieldset class="fieldset-register mb-2">
+                            <legend>Allergies alimentaires</legend>
+                            {{ form_row(form.allergies) }}
+                            {% if is_granted('ROLE_USER') %}
+                                <div>
+                                    <h6>Vos allergies déjà enregistrées</h6>
+                                    <table class="table">
+                                        <tbody>
+                                            {% for allergie in userAllergy %}
+                                                <tr>
+                                                    <td>{{ allergie.name}}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
 
-                </div>
-            </div>    
-    </div>
+                                </div>
+                            {% endif %}
+                        </fieldset>
 
-
-
+                        <fieldset class="fieldset-register mb-2">
+                            <legend>Informations complémentaires</legend>
+                            {{ form_row(form.seats) }}
+                        </fieldset>
+                <section  class="text-center">
+                    <input class="btn btn-custom" type="submit" value="Réserver">
+                </section>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
         
 {% endblock %}

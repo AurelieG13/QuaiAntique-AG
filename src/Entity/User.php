@@ -52,10 +52,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $passwordHasher;
 
     #[ORM\ManyToMany(targetEntity: Allergy::class, inversedBy: 'users')]
-    private Collection $allergies;
+    private ?Collection $allergies;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Booking::class)]
-    private Collection $booking;
+    private ?Collection $booking;
 
 
     public function __construct()
@@ -292,4 +292,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

@@ -71,27 +71,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
 
-    // public function myFindAll()
-    // {
-    //     return $this->createQueryBuilder('user')
-    //         ->select('user.roles')
-    //         ->andWhere('user.roles = :roles')
-    //         // ->andWhere('user.id = :id')
-    //         // ->setParameter('id', $user)
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
-
-    // public function myFindRole($roles)
-    // {
-    //     $qb = $this->createQueryBuilder('u');
-    //     $qb->where('u.roles = :roles')
-    //     ->setParameter('roles', $roles);
-        
-    //     return $qb->getQuery()
-    //         ->getResult();
-    // }
 
     // public function countUser($user)
     //  {
@@ -105,4 +84,5 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     //     echo $query->getDQL(), "\n";
     //     echo $query->getSingleScalarResult();
     //  }
+
 }

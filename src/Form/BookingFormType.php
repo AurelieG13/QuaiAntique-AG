@@ -4,7 +4,9 @@ namespace App\Form;
 
 use App\Entity\Allergy;
 use App\Entity\Booking;
+use App\Entity\User;
 use App\Repository\AllergyRepository;
+use App\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -99,7 +101,7 @@ class BookingFormType extends AbstractType
                     return $er->createQueryBuilder('a')
                         ->orderBy('a.name', 'ASC');
                 },
-                'label' => 'Les allergies connues de vous ou vos convives',
+                'label' => 'Ajouter des allergies connues de vous ou vos convives',
             ])
         ;
     }

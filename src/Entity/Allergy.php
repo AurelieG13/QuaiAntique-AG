@@ -22,7 +22,7 @@ class Allergy
     private ?Collection $users;
 
     #[ORM\ManyToMany(targetEntity: Booking::class, mappedBy: 'allergies')]
-    private Collection $bookings;
+    private ?Collection $bookings;
 
     public function __construct()
     {
