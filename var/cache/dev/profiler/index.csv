@@ -307,3 +307,4 @@ a87c0a,::1,GET,https://localhost:8000/profile/,1679074641,,200
 3d7ceb,::1,POST,https://localhost:8000/booking/,1679074827,,302
 d301db,::1,GET,https://localhost:8000/,1679074828,,200
 b2ec07,::1,GET,https://localhost:8000/profile/,1679074831,,200
+226350,::1,GET,https://localhost:8000/,1679074908,,200
