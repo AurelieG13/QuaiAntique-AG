@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/dish', name: 'admin_dish_')]
 class AdminDishController extends AbstractController
 {
-    #[Route('/', name: 'list')]
+    #[Route('/list', name: 'list')]
     public function index(DishRepository $dishRepository, Request $request): Response
     {
         $dishes = $dishRepository->findBy([], ['name' => 'desc']);

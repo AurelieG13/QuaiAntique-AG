@@ -59,48 +59,56 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         // line 10
         echo "        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css\">
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">
-        
+        <link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css\">
+
         ";
-        // line 13
+        // line 14
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 20
+        // line 21
         echo "
         ";
-        // line 21
+        // line 22
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 24
+        // line 25
         echo "    </head>
     <body>
         ";
-        // line 26
-        $this->loadTemplate("components/_navbar.html.twig", "base.html.twig", 26)->display($context);
         // line 27
-        echo "
-        ";
+        $this->loadTemplate("components/_navbar.html.twig", "base.html.twig", 27)->display($context);
         // line 28
-        $this->displayBlock('body', $context, $blocks);
-        // line 29
         echo "
         ";
+        // line 29
+        $this->displayBlock('body', $context, $blocks);
         // line 30
-        $this->loadTemplate("components/_footer.html.twig", "base.html.twig", 30)->display($context);
+        echo "
+        ";
         // line 31
+        $this->loadTemplate("components/_footer.html.twig", "base.html.twig", 31)->display($context);
+        // line 32
         echo "
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>
+        <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
+        <script src=\"//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js\"></script>
+        <script type=\"text/javascript\" src=\"";
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery-ui.js"), "html", null, true);
+        echo "\"></script>
+
         <script src=\"";
-        // line 33
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/script.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 34
+        // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/images.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 35
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/activeHome.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 36
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/fetch.js"), "html", null, true);
         echo "\"></script>
     </body>
@@ -132,7 +140,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
 
     }
 
-    // line 13
+    // line 14
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -142,7 +150,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 14
+        // line 15
         echo "            ";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_link_tags')->getCallable()("app"), "html", null, true);
         echo "
@@ -150,7 +158,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
             <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
             <link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap\" rel=\"stylesheet\">
             <link rel=\"stylesheet\" href=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
         echo "\">
         ";
@@ -162,7 +170,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
 
     }
 
-    // line 21
+    // line 22
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -172,7 +180,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 22
+        // line 23
         echo "            ";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
@@ -185,7 +193,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
 
     }
 
-    // line 28
+    // line 29
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -215,7 +223,7 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  189 => 28,  176 => 22,  166 => 21,  154 => 18,  146 => 14,  136 => 13,  118 => 7,  104 => 36,  100 => 35,  96 => 34,  92 => 33,  88 => 31,  86 => 30,  83 => 29,  81 => 28,  78 => 27,  76 => 26,  72 => 24,  70 => 21,  67 => 20,  65 => 13,  60 => 10,  55 => 7,  47 => 1,);
+        return array (  197 => 29,  184 => 23,  174 => 22,  162 => 19,  154 => 15,  144 => 14,  126 => 7,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  95 => 36,  89 => 32,  87 => 31,  84 => 30,  82 => 29,  79 => 28,  77 => 27,  73 => 25,  71 => 22,  68 => 21,  66 => 14,  60 => 10,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -231,7 +239,8 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css\">
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">
-        
+        <link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css\">
+
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
@@ -252,6 +261,10 @@ class __TwigTemplate_49eebeaf1812047dd453a4f65365d5b0 extends Template
         {% include \"components/_footer.html.twig\" %}
 
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>
+        <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
+        <script src=\"//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js\"></script>
+        <script type=\"text/javascript\" src=\"{{ asset('assets/js/jquery-ui.js') }}\"></script>
+
         <script src=\"{{ asset('assets/js/script.js')}}\"></script>
         <script src=\"{{ asset('assets/js/images.js')}}\"></script>
         <script src=\"{{ asset('assets/js/activeHome.js')}}\"></script>

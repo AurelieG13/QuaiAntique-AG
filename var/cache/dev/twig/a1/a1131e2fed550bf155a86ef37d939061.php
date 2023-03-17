@@ -135,7 +135,10 @@ class __TwigTemplate_bb94de92afe4577e07c9a038b76ea305 extends Template
         echo "\t\t</section>
 
 \t\t<section class=\"text-center mt-4\">
-\t\t\t\t\t<button class=\"btn btn-custom\" href=\"#\" type=\"button\" aria-expanded=\"false\">Réserver</button>
+\t\t\t\t\t<a class=\"btn btn-custom\" href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking_form");
+        echo "\" type=\"button\" aria-expanded=\"false\">Réserver</a>
 \t\t</section>
 \t\t<hr>
 \t\t";
@@ -253,7 +256,7 @@ class __TwigTemplate_bb94de92afe4577e07c9a038b76ea305 extends Template
 
     public function getDebugInfo()
     {
-        return array (  224 => 84,  217 => 80,  207 => 73,  196 => 65,  189 => 61,  180 => 54,  170 => 46,  163 => 42,  156 => 38,  149 => 34,  143 => 30,  135 => 23,  129 => 22,  125 => 20,  112 => 18,  108 => 17,  105 => 16,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  227 => 84,  220 => 80,  210 => 73,  199 => 65,  192 => 61,  183 => 54,  173 => 46,  166 => 42,  159 => 38,  152 => 34,  146 => 30,  140 => 26,  135 => 23,  129 => 22,  125 => 20,  112 => 18,  108 => 17,  105 => 16,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -283,7 +286,7 @@ class __TwigTemplate_bb94de92afe4577e07c9a038b76ea305 extends Template
 \t\t</section>
 
 \t\t<section class=\"text-center mt-4\">
-\t\t\t\t\t<button class=\"btn btn-custom\" href=\"#\" type=\"button\" aria-expanded=\"false\">Réserver</button>
+\t\t\t\t\t<a class=\"btn btn-custom\" href=\"{{ path('booking_form') }}\" type=\"button\" aria-expanded=\"false\">Réserver</a>
 \t\t</section>
 \t\t<hr>
 \t\t{# vue mobile #}

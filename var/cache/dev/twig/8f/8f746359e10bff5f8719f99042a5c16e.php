@@ -181,7 +181,10 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
         echo "\">Accueil</a>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"#\">Réserver</a>
+\t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"";
+        // line 76
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking_form");
+        echo "\">Réserver</a>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t<li class=\"nav-item \">
 \t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"";
@@ -210,9 +213,12 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 \t</div>
 </nav>
 <div class=\"navbar navbar-expand-lg navbar-light bg-light container-fluid justify-content-center\">
-\t<button class=\"navbar-toggler btn btn-custom\" href=\"#\" type=\"button\" aria-expanded=\"false\">
+\t<a class=\"navbar-toggler btn btn-custom\" href=\"";
+        // line 96
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking_form");
+        echo "\" type=\"button\" aria-expanded=\"false\">
 \t\t<span class=\"navbar-text\">Réserver</span>
-\t</button>
+\t</a>
 </div>
 
 ";
@@ -236,7 +242,7 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 
     public function getDebugInfo()
     {
-        return array (  201 => 85,  195 => 82,  189 => 79,  180 => 73,  170 => 65,  162 => 60,  154 => 55,  151 => 54,  146 => 51,  140 => 49,  138 => 48,  134 => 47,  130 => 46,  115 => 36,  111 => 34,  109 => 33,  96 => 22,  91 => 20,  86 => 19,  82 => 17,  76 => 15,  74 => 14,  70 => 13,  65 => 12,  63 => 11,  54 => 5,  47 => 3,  43 => 1,);
+        return array (  218 => 96,  204 => 85,  198 => 82,  192 => 79,  186 => 76,  180 => 73,  170 => 65,  162 => 60,  154 => 55,  151 => 54,  146 => 51,  140 => 49,  138 => 48,  134 => 47,  130 => 46,  115 => 36,  111 => 34,  109 => 33,  96 => 22,  91 => 20,  86 => 19,  82 => 17,  76 => 15,  74 => 14,  70 => 13,  65 => 12,  63 => 11,  54 => 5,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -316,7 +322,7 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 \t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" aria-current=\"page\" href=\"{{ path('home')}}\">Accueil</a>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"#\">Réserver</a>
+\t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"{{ path('booking_form') }}\">Réserver</a>
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t<li class=\"nav-item \">
 \t\t\t\t\t\t\t\t\t<a class=\"nav-link btn-menu-custom text-center fs-3\" href=\"{{ path('dish_list') }}\">Carte</a>
@@ -336,9 +342,9 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 \t</div>
 </nav>
 <div class=\"navbar navbar-expand-lg navbar-light bg-light container-fluid justify-content-center\">
-\t<button class=\"navbar-toggler btn btn-custom\" href=\"#\" type=\"button\" aria-expanded=\"false\">
+\t<a class=\"navbar-toggler btn btn-custom\" href=\"{{ path('booking_form') }}\" type=\"button\" aria-expanded=\"false\">
 \t\t<span class=\"navbar-text\">Réserver</span>
-\t</button>
+\t</a>
 </div>
 
 ", "components/_navbar.html.twig", "C:\\xampp\\htdocs\\QuaiAntique-AG\\templates\\components\\_navbar.html.twig");

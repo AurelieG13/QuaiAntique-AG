@@ -117,23 +117,21 @@ class __TwigTemplate_42d5fb669e8a65670090f02d10049aa9 extends Template
         // line 16
         if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "request", [], "any", false, false, false, 16), "attributes", [], "any", false, false, false, 16), "get", [0 => "_route"], "method", false, false, false, 16) == "admin_dish_edit")) {
             // line 17
-            echo "                <h2>Images</h2>
-                ";
-            // line 18
+            echo "                ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["dish"]) || array_key_exists("dish", $context) ? $context["dish"] : (function () { throw new RuntimeError('Variable "dish" does not exist.', 18, $this->source); })()), "images", [], "any", false, false, false, 18));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["dish"]) || array_key_exists("dish", $context) ? $context["dish"] : (function () { throw new RuntimeError('Variable "dish" does not exist.', 17, $this->source); })()), "images", [], "any", false, false, false, 17));
             foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-                // line 19
+                // line 18
                 echo "                    <div class=\"mb-3\">
                         <img src=\" ";
-                // line 20
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("assets/uploads/dish/mini/30x30-" . twig_get_attribute($this->env, $this->source, $context["image"], "name", [], "any", false, false, false, 20))), "html", null, true);
+                // line 19
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("assets/uploads/dish/mini/30x30-" . twig_get_attribute($this->env, $this->source, $context["image"], "name", [], "any", false, false, false, 19))), "html", null, true);
                 echo " \" alt=\"Image\" class=\"mt-2\">
                         <a href=\" ";
-                // line 21
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dish_delete_image", ["id" => twig_get_attribute($this->env, $this->source, $context["image"], "id", [], "any", false, false, false, 21)]), "html", null, true);
+                // line 20
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dish_delete_image", ["id" => twig_get_attribute($this->env, $this->source, $context["image"], "id", [], "any", false, false, false, 20)]), "html", null, true);
                 echo " \" data-delete data-token=\" ";
-                echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["image"], "id", [], "any", false, false, false, 21))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["image"], "id", [], "any", false, false, false, 20))), "html", null, true);
                 echo " \" >Supprimer</a>
                     </div>
                 ";
@@ -141,19 +139,19 @@ class __TwigTemplate_42d5fb669e8a65670090f02d10049aa9 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 24
+            // line 23
             echo "            ";
         }
-        // line 25
+        // line 24
         echo "            ";
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "images", [], "any", false, false, false, 25), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 24, $this->source); })()), "images", [], "any", false, false, false, 24), 'row');
         echo "
             <section>
                 <button type=\"submit\" class=\"btn btn-custom my-3\">Modifier</button>
             </section>        
         ";
-        // line 29
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), 'form_end');
+        // line 28
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 28, $this->source); })()), 'form_end');
         echo "
 </main>
 ";
@@ -177,7 +175,7 @@ class __TwigTemplate_42d5fb669e8a65670090f02d10049aa9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  156 => 29,  148 => 25,  145 => 24,  134 => 21,  130 => 20,  127 => 19,  123 => 18,  120 => 17,  118 => 16,  114 => 15,  110 => 14,  106 => 13,  102 => 12,  98 => 11,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  154 => 28,  146 => 24,  143 => 23,  132 => 20,  128 => 19,  125 => 18,  120 => 17,  118 => 16,  114 => 15,  110 => 14,  106 => 13,  102 => 12,  98 => 11,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -198,7 +196,6 @@ class __TwigTemplate_42d5fb669e8a65670090f02d10049aa9 extends Template
             {{ form_row(form.price)}}
             {{ form_row(form.categorie)}}
             {% if app.request.attributes.get('_route') == 'admin_dish_edit' %}
-                <h2>Images</h2>
                 {% for image in dish.images %}
                     <div class=\"mb-3\">
                         <img src=\" {{ asset('assets/uploads/dish/mini/30x30-' ~ image.name ) }} \" alt=\"Image\" class=\"mt-2\">

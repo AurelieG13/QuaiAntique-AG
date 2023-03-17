@@ -91,7 +91,7 @@ class __TwigTemplate_7386661162d9724aac1dc086b00f40e5 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_home");
         echo "\"><img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/arrow-left-circle.svg"), "html", null, true);
-        echo "\" alt=\"\"> panel d'administration</a>
+        echo "\" alt=\"\"> panneau d'administration</a>
   </div>
 
 <h1>Liste des restaurants</h1>
@@ -198,7 +198,7 @@ class __TwigTemplate_7386661162d9724aac1dc086b00f40e5 extends Template
 
 {% block body %}
   <div class=\"mb-4\">
-      <a type=\"button\" class=\"btn btn-custom\" href=\"{{ path('admin_home') }}\"><img src=\"{{ asset('assets/images/arrow-left-circle.svg') }}\" alt=\"\"> panel d'administration</a>
+      <a type=\"button\" class=\"btn btn-custom\" href=\"{{ path('admin_home') }}\"><img src=\"{{ asset('assets/images/arrow-left-circle.svg') }}\" alt=\"\"> panneau d'administration</a>
   </div>
 
 <h1>Liste des restaurants</h1>

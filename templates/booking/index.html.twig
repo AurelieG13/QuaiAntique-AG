@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookingController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+            <div class="row">
+                <div class="col-9">
+{% for message in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+        <h1 class="text-center">Formulaire de réservation</h1>
+            {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.phoneNumber) }}
+                {{ form_row(form.seats) }}
+                {{ form_row(form.dateBooking) }}
+                {{ form_row(form.timeBooking) }}
+                {{ form_row(form.allergies) }}
+                <input class="btn btn-custom" type="submit" value="Envoyer">
+            {{ form_end(form)}}
+    </div>
+
+
+                </div>
+            </div>    
+    </div>
+
+
+
+        
+{% endblock %}

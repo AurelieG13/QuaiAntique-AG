@@ -92,17 +92,17 @@ class __TwigTemplate_b743e1ee6bd1d215b5619977af547dd3 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_home");
         echo "\"><img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/arrow-left-circle.svg"), "html", null, true);
-        echo "\" alt=\"\">panel d'administration</a>
+        echo "\" alt=\"\"> panneau d'administration</a>
     </div>
 
     <h1>Liste des allergies</h1>
     <div class=\"mb-4 mt-4\">
-      <a href=\"";
+        <a href=\"";
         // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_allergy_add");
         echo "\" type=\"button\" class=\"btn btn-custom\">
-        Ajouter une allergie
-      </a>
+            Ajouter une allergie
+        </a>
     </div>
             
 
@@ -185,14 +185,14 @@ class __TwigTemplate_b743e1ee6bd1d215b5619977af547dd3 extends Template
 {% block body %}
 
     <div class=\"mb-4\">
-        <a type=\"button\" class=\"btn btn-custom\" href=\"{{ path('admin_home') }}\"><img src=\"{{ asset('assets/images/arrow-left-circle.svg') }}\" alt=\"\">panel d'administration</a>
+        <a type=\"button\" class=\"btn btn-custom\" href=\"{{ path('admin_home') }}\"><img src=\"{{ asset('assets/images/arrow-left-circle.svg') }}\" alt=\"\"> panneau d'administration</a>
     </div>
 
     <h1>Liste des allergies</h1>
     <div class=\"mb-4 mt-4\">
-      <a href=\"{{ path('admin_allergy_add') }}\" type=\"button\" class=\"btn btn-custom\">
-        Ajouter une allergie
-      </a>
+        <a href=\"{{ path('admin_allergy_add') }}\" type=\"button\" class=\"btn btn-custom\">
+            Ajouter une allergie
+        </a>
     </div>
             
 
