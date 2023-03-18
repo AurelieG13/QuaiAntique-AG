@@ -1,4 +1,8 @@
 ###> symfony/framework-bundle ###
+/.env
+/.deploy-now/
+/.github/
+/public/.htaccess
 /.env.local
 /.env.local.php
 /.env.*.local
