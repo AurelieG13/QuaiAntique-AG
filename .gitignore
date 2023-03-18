@@ -1,8 +1,4 @@
 ###> symfony/framework-bundle ###
-/.env
-/.deploy-now/QuaiAntique-AG/.env.template
-/public/.htaccess
-/.env
 /.env.local
 /.env.local.php
 /.env.*.local
