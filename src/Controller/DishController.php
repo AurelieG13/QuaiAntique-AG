@@ -17,10 +17,10 @@ class DishController extends AbstractController
     public function index(DishRepository $dishRepository, CategoryRepository $catRepository, Request $request): Response
     {
         $dishes = $dishRepository->findBy([], ['name' => 'desc']);
-        $categoryEntree = $dishRepository->findBy(['categorie'=> '103'], ['name' => 'desc']);
-        $categoryPlat = $dishRepository->findBy(['categorie'=> '104'], ['name' => 'desc']);
-        $categoryDessert = $dishRepository->findBy(['categorie'=> '105'], ['name' => 'desc']);
-        $categoryBoisson = $dishRepository->findBy(['categorie'=> '106'], ['name' => 'desc']);
+        $categoryEntree = $dishRepository->findBy(['categorie'=> '1'], ['name' => 'desc']);
+        $categoryPlat = $dishRepository->findBy(['categorie'=> '2'], ['name' => 'desc']);
+        $categoryDessert = $dishRepository->findBy(['categorie'=> '3'], ['name' => 'desc']);
+        $categoryBoisson = $dishRepository->findBy(['categorie'=> '4'], ['name' => 'desc']);
         $form = $this->createForm(SearchDishType::class);
         $chercher = $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
