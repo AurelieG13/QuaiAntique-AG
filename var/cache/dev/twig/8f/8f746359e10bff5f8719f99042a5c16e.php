@@ -42,13 +42,9 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
         // line 1
         echo "<nav class=\"navbar navbar-expand-lg navbar-light bg-light \">
 \t<div class=\"container-fluid nav-custom dropdown-center\">
-\t\t<a class=\"navbar-brand \" href=\"";
-        // line 3
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\"><img class=\"logo-nav d-flex\" src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/Logo.png"), "html", null, true);
-        echo "\" alt=\"Logo Entreprise\"></a>
-\t\t<div class=\"dropdown\">
+\t\t";
+        // line 4
+        echo "\t\t<div class=\"dropdown\">
 \t\t\t<a class=\"navbar-toggler dropdown-toggle\" href=\"";
         // line 5
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("register");
@@ -102,7 +98,7 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 \t\t<div class=\"container-fluid align-item-center\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-8\">
-\t\t\t\t\t<span class=\"navbar-text collapse navbar-collapse justify-content-center title-desktop-custom\">Le Quai Antique</span>
+\t\t\t\t\t<span class=\"navbar-text collapse navbar-collapse justify-content-center title-desktop-custom\">/!\\ENV DE DEV/!\\</span>
 \t\t\t\t</div>
 \t\t\t\t";
         // line 33
@@ -242,14 +238,14 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 
     public function getDebugInfo()
     {
-        return array (  218 => 96,  204 => 85,  198 => 82,  192 => 79,  186 => 76,  180 => 73,  170 => 65,  162 => 60,  154 => 55,  151 => 54,  146 => 51,  140 => 49,  138 => 48,  134 => 47,  130 => 46,  115 => 36,  111 => 34,  109 => 33,  96 => 22,  91 => 20,  86 => 19,  82 => 17,  76 => 15,  74 => 14,  70 => 13,  65 => 12,  63 => 11,  54 => 5,  47 => 3,  43 => 1,);
+        return array (  214 => 96,  200 => 85,  194 => 82,  188 => 79,  182 => 76,  176 => 73,  166 => 65,  158 => 60,  150 => 55,  147 => 54,  142 => 51,  136 => 49,  134 => 48,  130 => 47,  126 => 46,  111 => 36,  107 => 34,  105 => 33,  92 => 22,  87 => 20,  82 => 19,  78 => 17,  72 => 15,  70 => 14,  66 => 13,  61 => 12,  59 => 11,  50 => 5,  47 => 4,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<nav class=\"navbar navbar-expand-lg navbar-light bg-light \">
 \t<div class=\"container-fluid nav-custom dropdown-center\">
-\t\t<a class=\"navbar-brand \" href=\"{{ path('home')}}\"><img class=\"logo-nav d-flex\" src=\"{{ asset('assets/images/Logo.png') }}\" alt=\"Logo Entreprise\"></a>
+\t\t{# <a class=\"navbar-brand \" href=\"{{ path('home')}}\"><img class=\"logo-nav d-flex\" src=\"{{ asset('assets/images/Logo.png') }}\" alt=\"Logo Entreprise\"></a> #}
 \t\t<div class=\"dropdown\">
 \t\t\t<a class=\"navbar-toggler dropdown-toggle\" href=\"{{ path('register')}}\" role=\"button\" type=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
 \t\t\t\t<span class=\"navbar-text\">
@@ -277,7 +273,7 @@ class __TwigTemplate_cfeb19b5cc623e989c6ca75446edbd78 extends Template
 \t\t<div class=\"container-fluid align-item-center\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-8\">
-\t\t\t\t\t<span class=\"navbar-text collapse navbar-collapse justify-content-center title-desktop-custom\">Le Quai Antique</span>
+\t\t\t\t\t<span class=\"navbar-text collapse navbar-collapse justify-content-center title-desktop-custom\">/!\\ENV DE DEV/!\\</span>
 \t\t\t\t</div>
 \t\t\t\t{% if app.user %}
 \t\t\t\t\t<div class=\"col-2 my-auto\">

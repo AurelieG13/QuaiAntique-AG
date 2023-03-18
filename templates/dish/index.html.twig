@@ -9,8 +9,9 @@
 {# {{ form(form) }} #}
     <section class="mt-5 container">
     <a class="btn category-custom p-2 m-1" type="button" href="#entree">ENTREES</a>
-    <a class="btn category-custom" type="button" href="#plat">PLATS</a>
-    <a class="btn category-custom" type="button" href="#dessert">DESSERTS</a>
+    <a class="btn category-custom p-2 m-1" type="button" href="#plat">PLATS</a>
+    <a class="btn category-custom p-2 m-1" type="button" href="#dessert">DESSERTS</a>
+    <a class="btn category-custom p-2 m-1" type="button" href="#boisson">BOISSONS</a>
 
         <div class="category-custom mt-5">
             <h2 id="entree" class="text-center">Entrées</h2>
@@ -64,6 +65,25 @@
                 </div>
                 <div class="col align-self-center">
                     <strong>{{categoryDessert.price}} €</strong>
+                </div>
+            </div>
+        </div>
+        <div class="category-custom-separator"></div>
+        {% endfor %}
+
+        <div class="category-custom mt-5">
+            <h2 id="boisson" class="text-center">Boissons</h2>
+        </div>
+        {% for categoryBoisson in categoryBoisson %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <strong>{{categoryBoisson.name}}</strong>
+                    <br>
+                    <span>{{categoryBoisson.description}}</span>
+                </div>
+                <div class="col align-self-center">
+                    <strong>{{categoryBoisson.price}} €</strong>
                 </div>
             </div>
         </div>

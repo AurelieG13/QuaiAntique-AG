@@ -1,4 +1,5 @@
 * {
+    
     padding: 0;
     margin: 0;
     color: #414754;
@@ -16,6 +17,10 @@
     --color-beige-transparent: rgba(229,215,190, 0.5);
     --color-bg: rgba(233, 241, 242, 0.8);
     --border-color: #82807F;
+}
+
+body {
+    background-color: rgb(224, 142, 127);
 }
 
 h1 {

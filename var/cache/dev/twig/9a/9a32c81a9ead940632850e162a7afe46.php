@@ -92,36 +92,37 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
         // line 10
         echo "    <section class=\"mt-5 container\">
     <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#entree\">ENTREES</a>
-    <a class=\"btn category-custom\" type=\"button\" href=\"#plat\">PLATS</a>
-    <a class=\"btn category-custom\" type=\"button\" href=\"#dessert\">DESSERTS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#plat\">PLATS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#dessert\">DESSERTS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#boisson\">BOISSONS</a>
 
         <div class=\"category-custom mt-5\">
             <h2 id=\"entree\" class=\"text-center\">Entrées</h2>
         </div>
         
         ";
-        // line 19
+        // line 20
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["categoryEntree"]);
         foreach ($context['_seq'] as $context["_key"] => $context["categoryEntree"]) {
-            // line 20
+            // line 21
             echo "        <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-9\">
                     <strong>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "name", [], "any", false, false, false, 23), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "name", [], "any", false, false, false, 24), "html", null, true);
             echo "</strong>
                     <br>
                     <span>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "description", [], "any", false, false, false, 25), "html", null, true);
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "description", [], "any", false, false, false, 26), "html", null, true);
             echo "</span>
                 </div>
                 <div class=\"col align-self-center\">
                     <strong>";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "price", [], "any", false, false, false, 28), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryEntree"], "price", [], "any", false, false, false, 29), "html", null, true);
             echo " €</strong>
                 </div>
             </div>
@@ -132,34 +133,34 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categoryEntree'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "
         <div class=\"category-custom mt-5\">
             <h2 id=\"plat\" class=\"text-center\">Plats</h2>
         </div>
         ";
-        // line 38
+        // line 39
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["categoryPlat"]);
         foreach ($context['_seq'] as $context["_key"] => $context["categoryPlat"]) {
-            // line 39
+            // line 40
             echo "        <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-9\">
                     <strong>";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "name", [], "any", false, false, false, 42), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "name", [], "any", false, false, false, 43), "html", null, true);
             echo "</strong>
                     <br>
                     <span>";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "description", [], "any", false, false, false, 44), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "description", [], "any", false, false, false, 45), "html", null, true);
             echo "</span>
                 </div>
                 <div class=\"col align-self-center\">
                     <strong>";
-            // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "price", [], "any", false, false, false, 47), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryPlat"], "price", [], "any", false, false, false, 48), "html", null, true);
             echo " €</strong>
                 </div>
             </div>
@@ -170,34 +171,34 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categoryPlat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
+        // line 54
         echo "
         <div class=\"category-custom mt-5\">
             <h2 id=\"dessert\" class=\"text-center\">Desserts</h2>
         </div>
         ";
-        // line 57
+        // line 58
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["categoryDessert"]);
         foreach ($context['_seq'] as $context["_key"] => $context["categoryDessert"]) {
-            // line 58
+            // line 59
             echo "        <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col-9\">
                     <strong>";
-            // line 61
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "name", [], "any", false, false, false, 61), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "name", [], "any", false, false, false, 62), "html", null, true);
             echo "</strong>
                     <br>
                     <span>";
-            // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "description", [], "any", false, false, false, 63), "html", null, true);
+            // line 64
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "description", [], "any", false, false, false, 64), "html", null, true);
             echo "</span>
                 </div>
                 <div class=\"col align-self-center\">
                     <strong>";
-            // line 66
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "price", [], "any", false, false, false, 66), "html", null, true);
+            // line 67
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryDessert"], "price", [], "any", false, false, false, 67), "html", null, true);
             echo " €</strong>
                 </div>
             </div>
@@ -208,7 +209,45 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categoryDessert'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 72
+        // line 73
+        echo "
+        <div class=\"category-custom mt-5\">
+            <h2 id=\"boisson\" class=\"text-center\">Boissons</h2>
+        </div>
+        ";
+        // line 77
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($context["categoryBoisson"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["categoryBoisson"]) {
+            // line 78
+            echo "        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-9\">
+                    <strong>";
+            // line 81
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryBoisson"], "name", [], "any", false, false, false, 81), "html", null, true);
+            echo "</strong>
+                    <br>
+                    <span>";
+            // line 83
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryBoisson"], "description", [], "any", false, false, false, 83), "html", null, true);
+            echo "</span>
+                </div>
+                <div class=\"col align-self-center\">
+                    <strong>";
+            // line 86
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categoryBoisson"], "price", [], "any", false, false, false, 86), "html", null, true);
+            echo " €</strong>
+                </div>
+            </div>
+        </div>
+        <div class=\"category-custom-separator\"></div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categoryBoisson'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 92
         echo "    </section>
 ";
         
@@ -231,7 +270,7 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
 
     public function getDebugInfo()
     {
-        return array (  212 => 72,  200 => 66,  194 => 63,  189 => 61,  184 => 58,  180 => 57,  174 => 53,  162 => 47,  156 => 44,  151 => 42,  146 => 39,  142 => 38,  136 => 34,  124 => 28,  118 => 25,  113 => 23,  108 => 20,  104 => 19,  93 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  251 => 92,  239 => 86,  233 => 83,  228 => 81,  223 => 78,  219 => 77,  213 => 73,  201 => 67,  195 => 64,  190 => 62,  185 => 59,  181 => 58,  175 => 54,  163 => 48,  157 => 45,  152 => 43,  147 => 40,  143 => 39,  137 => 35,  125 => 29,  119 => 26,  114 => 24,  109 => 21,  105 => 20,  93 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -247,8 +286,9 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
 {# {{ form(form) }} #}
     <section class=\"mt-5 container\">
     <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#entree\">ENTREES</a>
-    <a class=\"btn category-custom\" type=\"button\" href=\"#plat\">PLATS</a>
-    <a class=\"btn category-custom\" type=\"button\" href=\"#dessert\">DESSERTS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#plat\">PLATS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#dessert\">DESSERTS</a>
+    <a class=\"btn category-custom p-2 m-1\" type=\"button\" href=\"#boisson\">BOISSONS</a>
 
         <div class=\"category-custom mt-5\">
             <h2 id=\"entree\" class=\"text-center\">Entrées</h2>
@@ -302,6 +342,25 @@ class __TwigTemplate_d72f6c9e23b769e4e4f2266a3ee44128 extends Template
                 </div>
                 <div class=\"col align-self-center\">
                     <strong>{{categoryDessert.price}} €</strong>
+                </div>
+            </div>
+        </div>
+        <div class=\"category-custom-separator\"></div>
+        {% endfor %}
+
+        <div class=\"category-custom mt-5\">
+            <h2 id=\"boisson\" class=\"text-center\">Boissons</h2>
+        </div>
+        {% for categoryBoisson in categoryBoisson %}
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-9\">
+                    <strong>{{categoryBoisson.name}}</strong>
+                    <br>
+                    <span>{{categoryBoisson.description}}</span>
+                </div>
+                <div class=\"col align-self-center\">
+                    <strong>{{categoryBoisson.price}} €</strong>
                 </div>
             </div>
         </div>

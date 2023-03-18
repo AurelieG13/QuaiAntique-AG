@@ -88,7 +88,7 @@ class __TwigTemplate_bb94de92afe4577e07c9a038b76ea305 extends Template
         echo "
 \t<main class=\"container like-dish\">
 \t\t<div class=\"col-12 text-center\">
-\t\t\t<h1>Bienvenue Au Quai Antique</h1>
+\t\t\t<h1>Bienvenue Au Quai Antique /!\\ENV DE DEV/!\\</h1>
 \t\t\t<p>Chambéry</p>
 \t\t</div>
 
@@ -269,7 +269,7 @@ class __TwigTemplate_bb94de92afe4577e07c9a038b76ea305 extends Template
 
 \t<main class=\"container like-dish\">
 \t\t<div class=\"col-12 text-center\">
-\t\t\t<h1>Bienvenue Au Quai Antique</h1>
+\t\t\t<h1>Bienvenue Au Quai Antique /!\\ENV DE DEV/!\\</h1>
 \t\t\t<p>Chambéry</p>
 \t\t</div>
 
