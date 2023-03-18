@@ -308,3 +308,13 @@ a87c0a,::1,GET,https://localhost:8000/profile/,1679074641,,200
 d301db,::1,GET,https://localhost:8000/,1679074828,,200
 b2ec07,::1,GET,https://localhost:8000/profile/,1679074831,,200
 226350,::1,GET,https://localhost:8000/,1679074908,,200
+afba6f,::1,GET,https://localhost:8000/,1679136401,,200
+fcc4f8,::1,GET,https://localhost:8000/,1679136493,,200
+812589,::1,GET,https://localhost:8000/,1679136541,,200
+e32f8e,::1,GET,https://localhost:8000/dish/,1679136548,,200
+2dd7db,::1,GET,https://localhost:8000/menu/,1679136550,,200
+9e158e,::1,GET,https://localhost:8000/,1679136551,,200
+bb9c4a,::1,GET,https://localhost:8000/booking/,1679136553,,200
+b522df,::1,GET,https://localhost:8000/booking/,1679136570,,200
+4e1dc2,::1,GET,https://localhost:8000/,1679136573,,200
+0acc74,::1,GET,https://localhost:8000/,1679138746,,200
