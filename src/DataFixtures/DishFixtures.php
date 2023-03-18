@@ -21,6 +21,9 @@ class DishFixtures extends Fixture
         $category = $this->getReference('cat-'. rand(1, 4));
         $dish->setCategorie($category);
 
+        //ref dish
+        $this->setReference('dish-'.$dsh, $dish);
+
         $manager->persist($dish);
         }
 

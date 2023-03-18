@@ -582,6 +582,9 @@
     <service id="App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
+    <service id="App\DataFixtures\ImagesFixtures" class="App\DataFixtures\ImagesFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
     <service id="App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
@@ -7008,6 +7011,10 @@
             <argument key="groups" type="collection"/>
           </argument>
           <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ImagesFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
             <argument key="fixture" type="service" id="App\DataFixtures\RestaurantFixtures"/>
             <argument key="groups" type="collection"/>
           </argument>
@@ -7107,6 +7114,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\FormuleFixtures" class="App\DataFixtures\FormuleFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ImagesFixtures" class="App\DataFixtures\ImagesFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ImagesFixtures" class="App\DataFixtures\ImagesFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" abstract="true"/>
