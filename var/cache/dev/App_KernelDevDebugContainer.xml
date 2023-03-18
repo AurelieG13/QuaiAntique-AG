@@ -567,8 +567,27 @@
         <argument type="service" id=".service_locator.CshazM0.App\Controller\UserController"/>
       </call>
     </service>
-    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+    <service id="App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\DishFixtures" class="App\DataFixtures\DishFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\FormuleFixtures" class="App\DataFixtures\FormuleFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="security.user_password_hasher"/>
     </service>
     <service id="App\EntityListener\UserListener" class="App\EntityListener\UserListener" autowire="true" autoconfigure="true">
       <tag name="doctrine.orm.entity_listener"/>
@@ -6969,7 +6988,31 @@
       <call method="addFixtures">
         <argument type="collection">
           <argument type="collection">
-            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="fixture" type="service" id="App\DataFixtures\AllergyFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\CategoryFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\DishFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\FormuleFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\HoursFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\RestaurantFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\UsersFixtures"/>
             <argument key="groups" type="collection"/>
           </argument>
         </argument>
@@ -7054,8 +7097,20 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\DishFixtures" class="App\DataFixtures\DishFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\DishFixtures" class="App\DataFixtures\DishFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\FormuleFixtures" class="App\DataFixtures\FormuleFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\FormuleFixtures" class="App\DataFixtures\FormuleFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\HoursFixtures" class="App\DataFixtures\HoursFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\RestaurantFixtures" class="App\DataFixtures\RestaurantFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AllergyType" class="App\Form\AllergyType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AllergyType" class="App\Form\AllergyType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\BookingFormType" class="App\Form\BookingFormType" autowire="true" abstract="true"/>

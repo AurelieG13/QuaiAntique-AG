@@ -36,9 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $surname = null;
-
-    #[ORM\Column(length: 50)]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 10, nullable: true)]
@@ -297,23 +294,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    /**
-     * Get the value of surname
-     */ 
-    public function getSurname()
-    {
-        return $this->surname;
-    }
 
-    /**
-     * Set the value of surname
-     *
-     * @return  self
-     */ 
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
 }
