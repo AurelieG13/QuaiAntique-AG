@@ -1,10 +1,17 @@
 <div class=" footer-custom">
 	<footer class=" py-2 my-2  border-top-custom">
-		<div class="row">
-			<div class="col nav text-center justify-content-center">
+		<div class="row align-item-center">
+			<div class="col nav text-center justify-content-center align-item-center">
 				<a href="{{ path('contact_form') }} " class="btn btn-custom btn-footer-custom text-center fs-3 pe-2" type="button">Contact</a>
 			</div>
-			<div class="col nav justify-content-center">
+
+			<div class="col nav text-center justify-content-center align-item-center">
+				<div>
+					{{ component('_hoursComponent') }}
+				</div>
+			</div>
+
+			<div class="col nav justify-content-center align-item-center">
 				<span>
 					<a class="pe-2 btn btn-social-share">
 						<i class="bi bi-facebook icon-custom"></i>
@@ -18,15 +25,6 @@
 				</span>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="col nav text-center justify-content-center ">
-				<div>
-					{{ component('_hoursComponent') }}
-				</div>
-			</div>
-		</div>
-
 
 		<div class="row">
 			<div class="col nav text-center justify-content-center">

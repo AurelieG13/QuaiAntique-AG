@@ -3,27 +3,23 @@
 {% block title %}Admin - Enregistrer un administrateur/Manager{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+        <main class="container">
 
-    <main class="container">
+                <section>
+                        <a href="{{ path('admin_user_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+                </section>
+                {{ form_start(admin_register_form)}}
 
-            <section>
-                    <a href="{{ path('admin_user_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
-            </section>
-            {{ form_start(admin_register_form)}}
+                {{ form_row(admin_register_form.email) }}
+                {{ form_row(admin_register_form.plainPassword) }}
+                {{ form_row(admin_register_form.agreeTerms) }}
 
-            {{ form_row(admin_register_form.email) }}
-            {{ form_row(admin_register_form.plainPassword) }}
-            {{ form_row(admin_register_form.agreeTerms) }}
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-        >
-            <section>
-                    <button type="submit" class="btn btn-custom my-3">Ajouter</button>
-            </section>
-            {{ form_end(admin_register_form)}}
-    </main>
+                <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                >
+                <section>
+                        <button type="submit" class="btn btn-custom my-3">Ajouter</button>
+                </section>
+                {{ form_end(admin_register_form)}}
+        </main>
 {% endblock %}
