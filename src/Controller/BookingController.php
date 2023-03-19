@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
-use App\Entity\User;
 use App\Form\BookingFormType;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,8 +34,6 @@ class BookingController extends AbstractController
             if($this->getUser()) {
                 $userAllergy = $this->getUser()->getAllergies([]);
             }
-
-        
 
         $form = $this->createForm(BookingFormType::class, $booking);
 
