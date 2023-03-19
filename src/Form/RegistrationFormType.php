@@ -31,19 +31,22 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Nom'
+                'label' => 'Nom',
+                "required" => true,
             ])
             ->add('firstname', TypeTextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                "required" => true,
             ])
             ->add('phoneNumber', TypeTextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Téléphone'
+                'label' => 'Téléphone',
+                "required" => true,
             ])
             ->add('guestBooking', IntegerType::class, [
                 'attr' => [
@@ -64,6 +67,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
+                "required" => true,
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

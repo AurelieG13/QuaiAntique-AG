@@ -33,8 +33,10 @@ class BookingFormType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
+                "required" => true,
                 'constraints' => [
-                    new Assert\Length(['min' => 2, 'max' => 50])
+                    new Assert\Length(['min' => 2, 'minMessage' => "le contenu ne doit pas faire moins de 2 caractères", "max" => 50, "maxMessage" => "le contenu ne doit pas faire plus de 50 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
                 ]
             ])
             ->add('firstname', TextType::class, [
@@ -47,8 +49,10 @@ class BookingFormType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
+                "required" => true,
                 'constraints' => [
-                    new Assert\Length(['min' => 2, 'max' => 50])
+                    new Assert\Length(['min' => 2, 'minMessage' => "le contenu ne doit pas faire moins de 2 caractères", "max" => 50, "maxMessage" => "le contenu ne doit pas faire plus de 50 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -57,33 +61,48 @@ class BookingFormType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '180',
                 ],
+                "required" => true,
                 'label' => 'Votre Adresse Email',
                 'label_attr' => [
                     'class' => 'form-label  mt-4'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(),
-                    new Assert\Email(),
-                    new Assert\Length(['min' => 2, 'max' => 180])
+                    new Assert\Length(['min' => 2, 'minMessage' => "le contenu ne doit pas faire moins de 2 caractères", "max" => 180, "maxMessage" => "le contenu ne doit pas faire plus de 180 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"]),
+                    new Assert\Email()
                 ]
             ])
             ->add('phoneNumber', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Votre numéro de téléphone'
+                'label' => 'Votre numéro de téléphone',
+                'placeholder' => '0632859758',
+                "required" => true,
+                'constraints' => [
+                    new Assert\Length(['min' => 10, 'minMessage' => "le contenu ne doit pas faire moins de 10 caractères", "max" => 10, "maxMessage" => "le contenu ne doit pas faire plus de 10 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ]
             ])
             ->add('seats', IntegerType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Le nombre de convives attendu'
+                'label' => 'Le nombre de convives attendu',
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ]
             ])
             ->add('dateBooking', DateType::class, [
                 'label' => 'Date',
                 'widget' => 'single_text',
                 'html5' => true,
-                'format' => 'yyyy-MM-dd'
+                'format' => 'yyyy-MM-dd',
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ]
             ])
             ->add('timeBooking', TimeType::class, [
                 'label' => 'Heure',
@@ -91,6 +110,10 @@ class BookingFormType extends AbstractType
                 'widget'  => 'choice',
                 'hours'   => [12, 13, 19, 20, 21],
                 'minutes' => [00, 15, 30, 45],
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ]
             ])
             ->add('allergies', EntityType::class, [
                 'class' => Allergy::class,

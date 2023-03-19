@@ -24,8 +24,10 @@ class AllergyType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label mt-4'
                 ],
+                "required" => true,
                 'constraints' => [
-                    new Assert\Length(['min' => 2, 'max' => 50])
+                    new Assert\Length(['min' => 2, 'minMessage' => "le contenu ne doit pas faire moins de 2 caractères", "max" => 50, "maxMessage" => "le contenu ne doit pas faire plus de 50 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
                 ]
             ])
             ;

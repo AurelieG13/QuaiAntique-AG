@@ -29,7 +29,8 @@ class ContactType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 50])
-                ]
+                ],
+                "required" => true
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
@@ -43,7 +44,8 @@ class ContactType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 50])
-                ]
+                ],
+                "required" => true,
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
@@ -59,7 +61,8 @@ class ContactType extends AbstractType
                     new Assert\NotBlank(),
                     new Assert\Email(),
                     new Assert\Length(['min' => 2, 'max' => 180])
-                ]
+                ],
+                "required" => true,
             ])
             ->add('subject', TextType::class, [
                 'attr' => [
@@ -73,7 +76,8 @@ class ContactType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 100])
-                ]
+                ],
+                "required" => true,
             ])
             ->add('message', TextareaType::class, [
                 'attr' => [

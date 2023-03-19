@@ -15,6 +15,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class DishType extends AbstractType
 {
@@ -22,13 +23,34 @@ class DishType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '50',
+                ],
+                'label' => 'Nom',
+                'label_attr' => [
+                    'class' => 'form-label mt-4'
+                ],
+                "required" => true,
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'minMessage' => "le contenu ne doit pas faire moins de 2 caractères", "max" => 50, "maxMessage" => "le contenu ne doit pas faire plus de 50 caractères"]),
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ],
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description'
+                'label' => 'Description',
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ],
             ])
             ->add('price', MoneyType::class, [
-                'label' => 'Prix'
+                'label' => 'Prix',
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ],
             ])
             ->add('categorie', EntityType::class, [
                 'class' => Category::class,
@@ -40,6 +62,10 @@ class DishType extends AbstractType
                         ->orderBy('c.name', 'ASC');
                 },
                 'label' => 'Catégories',
+                "required" => true,
+                'constraints' => [
+                    new Assert\NotBlank(["message" => "Le contenu ne doit pas être vide"])
+                ],
                 // 'by_reference' =>false
             ])
             ->add('images', FileType::class, [
