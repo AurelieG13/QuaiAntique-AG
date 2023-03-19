@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/mentions', name: 'admin_mentions_')]
+#[Route('mentions', name: 'mentions_')]
 class MentionsController extends AbstractController
 {
     #[Route('/', name: 'home')]
