@@ -8,7 +8,9 @@
         <div class="col-12">
             <h5>Page non trouvée</h5>
             <p>La page que vous recherchez n'existe pas </p>
-            <a href="{{ path('home') }}">Retour à l'accueil</a>
+            <div class="mb-4">
+                <a type="button" class="btn btn-custom" href="{{ path('home') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> Retour à l'accueil</a>
+            </div>
         </div>
     </section>
 </main>

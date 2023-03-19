@@ -33,6 +33,16 @@ class ProfileController extends AbstractController
         ]);
     }
 
+    #[Route('/booking', name: 'booking')]
+    public function booking(): Response
+    {
+        $user = $this->getUser();
+
+        return $this->render('profile/booking.html.twig', [
+            'user' => $user
+        ]);
+    }
+
     #[Route('/edit/{id<\d+>}', name: 'edit_user')]
     public function editUser(
         Request $request,

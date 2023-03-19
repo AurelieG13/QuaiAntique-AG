@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MenuController!{% endblock %}
+{% block title %}A Propos{% endblock %}
 
 {% block body %}
     <h2 class="text-center mt-3">A Propos</h2>
@@ -69,19 +69,17 @@
     </section>
 
     <div class="separator-custom mt-5"></div>
- {# A terminer #}
     <h2 class="text-center mt-2">Evenements</h2>
     <section class="separator d-flex justify-content-around flex-wrap">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+                <img src="{{ asset('assets/images/ChamberyRestaurant.svg') }}" class="img-fluid rounded-start" alt="Chambery sous la neige">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat pellentesque condimentum. </p>
                 </div>
                 </div>
             </div>
@@ -100,7 +98,7 @@
                         <h6 class="card-text">Un devis pour un évènement ?</h6>
                         <h5 class="card-text">N'hesitez pas, Contactez-nous !</h5>
                             <a href="{{ path('contact_form') }} " class="btn btn-custom  mt-3 mb-3" type="button">Contact</a>
-                        <h5>TELEPHONE</h5>
+                        <h5>Téléphone : 04.42.16.41.26</h5>
                     </div>
                 </div>
             </div>

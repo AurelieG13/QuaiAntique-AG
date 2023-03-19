@@ -28,7 +28,7 @@
 		</div>
 
 
-		{# <div class="row">
+		<div class="row">
 			<div class="col nav text-center justify-content-center">
 				<div class="text-center">
 					<span>Le Quai Antique -&nbsp;</span>
@@ -39,14 +39,14 @@
 			<div class="text-center justify-content-center">
 				<p>Téléphone : 04.42.16.41.26</p>
 			</div>
-		</div> #}
+		</div>
 	</div>
 </div>
 <div class="text-center border-top-custom">
 	<div class="d-flex justify-content-around">
-		<a href="#" class="text-center">Mentions Légales</a>
-		<a href="#" class="text-center">Politique de confidentialité</a>
-		<a href="#" class="text-center">Gestion des cookies</a>
+		<a href="{{ path('admin_mentions_mentionsLegales') }}" class="text-center">Mentions Légales</a>
+		<a href="{{ path('admin_mentions_confidentialite') }}" class="text-center">Politique de confidentialité</a>
+		<a href="{{ path('admin_mentions_cookie') }}" class="text-center">Gestion des cookies</a>
 	</div>
 	<span class="text-center text-muted">© 2022 Company, Inc</span>
 </div></footer></div>

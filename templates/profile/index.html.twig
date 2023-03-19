@@ -36,24 +36,24 @@
                     <p>Retrouvez toutes vos réservations passées ci-dessous: </p>
 
                     <table class="table table-bordered">
-    <thead>
-        <tr class="text-center">
-            <td>Date de réservation</td>
-            <td>Heure de réservation</td>
-            <td>Nombre de convives</td>
-        </tr>
-    </thead>
-    <tbody>
-    {% for booking in user.booking %}
-        <tr class="text-center">
-            <td>{{ booking.dateBooking|date('d/m/y') }}</td>
-            <td>{{ booking.timeBooking|date('H:i') }}</td>
-            <td>{{ booking.seats }}</td>
-        </tr>
-    {% endfor %}
-        
-    </tbody>
-</table>
+                        <thead>
+                            <tr class="text-center">
+                                <td>Date de réservation</td>
+                                <td>Heure de réservation</td>
+                                <td>Nombre de convives</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for booking in user.booking %}
+                            <tr class="text-center">
+                                <td>{{ booking.dateBooking|date('d/m/y') }}</td>
+                                <td>{{ booking.timeBooking|date('H:i') }}</td>
+                                <td>{{ booking.seats }}</td>
+                            </tr>
+                        {% endfor %}
+                            
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>

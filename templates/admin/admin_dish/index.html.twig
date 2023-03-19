@@ -15,13 +15,17 @@
       Ajouter un plat
     </a>
   </div>
-  {{ form_start(form) }}
-    {{ form_row(form.words)}}
-        <section>
-            <button type="submit" class="btn btn-custom btn-lg my-3">Rechercher</button>
-    </section>
-    {{ form_row(form.categorie)}}
-  {{ form_end(form) }}
+    <div>
+    <h4>Rechercher un plat par son nom</h4>
+    {{ form_start(form) }}
+      {{ form_row(form.words)}}
+          <section>
+              <button type="submit" class="btn btn-custom btn-lg my-3">Rechercher</button>
+          </section>
+      {{ form_row(form.categorie)}}
+    {{ form_end(form) }}
+    </div>
+  
   <table class="table table-bordered">
       <thead>
           <tr class="text-center">

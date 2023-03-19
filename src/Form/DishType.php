@@ -43,14 +43,14 @@ class DishType extends AbstractType
                 // 'by_reference' =>false
             ])
             ->add('images', FileType::class, [
-                'label' => false,
+                'label' => 'Ajouter une image',
                 'multiple' => true,
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new All(
                         new Image([
-                            'maxWidth' => 1280,
+                            'maxWidth' => 2048,
                             'maxWidthMessage' => 'L\'image doit faire {{ max_width }} pixels de large au maximum'
                         ])
                     )

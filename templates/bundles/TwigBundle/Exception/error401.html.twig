@@ -6,8 +6,10 @@
 <main class="container">
     <section class="row">
         <div class="col-12">
-            <h5>Vous devez vous identifiez pour acceder à cette page</h5>
-            <a href="{{ path('login') }}">Se connecter</a>
+            <h5>Vous devez vous identifier pour accéder à cette page</h5>
+            <div class="mb-4">
+                <a type="button" class="btn btn-custom" href="{{ path('login') }}"><img src="{{ asset('assets/images/arrow-left-circle.svg') }}" alt=""> Se connecter</a>
+            </div>
         </div>
     </section>
 </main>
