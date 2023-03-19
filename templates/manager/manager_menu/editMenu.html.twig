@@ -6,17 +6,17 @@
 <main class="container">
 <h1>Modification d'un menu</h1>
         <section>
-                <a href="{{ path('admin_menu_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+                <a href="{{ path('manager_menu_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
         </section>
         {{ form_start(form)}}
             {{ form_row(form.name) }}
             {{ form_row(form.description) }}
             {{ form_row(form.formules) }}
-            {% if app.request.attributes.get('_route') == 'admin_menu_edit' %}
+            {% if app.request.attributes.get('_route') == 'manager_menu_edit' %}
                 {% for image in menu.images %}
                     <div>
                         <img src=" {{ asset('assets/uploads/menu/mini/30x30-' ~ image.name ) }} " alt="Image" width="150" class="mt-2">
-                        <a href=" {{ path('admin_menu_delete_image', { id: image.id } ) }} " data-delete data-token=" {{ csrf_token('delete' ~ image.id) }} " >Supprimer</a>
+                        <a href=" {{ path('manager_menu_delete_image', { id: image.id } ) }} " data-delete data-token=" {{ csrf_token('delete' ~ image.id) }} " >Supprimer</a>
                     </div>
                 {% endfor %}
             {% endif %}

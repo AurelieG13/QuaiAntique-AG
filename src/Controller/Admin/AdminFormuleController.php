@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/formule', name: 'admin_formule_')]
+#[Route('/manager/formule', name: 'manager_formule_')]
 class AdminFormuleController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function listFormule(FormuleRepository $formuleRepository): Response
     {
-        return $this->render('admin/admin_formule/index.html.twig', [
+        return $this->render('manager/manager_formule/index.html.twig', [
             'formules' => $formuleRepository->findAll(),
         ]);
     }
@@ -36,11 +36,11 @@ class AdminFormuleController extends AbstractController
             $em->persist($formule);
             $em->flush();
 
-            return $this->redirectToRoute('admin_formule_list');
+            return $this->redirectToRoute('manager_formule_list');
         }
 
 
-        return $this->render('admin/admin_formule/addFormule.html.twig', [
+        return $this->render('manager/manager_formule/addFormule.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -57,10 +57,10 @@ class AdminFormuleController extends AbstractController
             $em->persist($formule);
             $em->flush();
 
-            return $this->redirectToRoute('admin_formule_list');
+            return $this->redirectToRoute('manager_formule_list');
         }
 
-        return $this->render('admin/admin_formule/editFormule.html.twig', [
+        return $this->render('manager/manager_formule/editFormule.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -74,6 +74,6 @@ class AdminFormuleController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'formule supprimée avec succes');
-        return $this->redirectToRoute('admin_formule_list');
+        return $this->redirectToRoute('manager_formule_list');
     }
 }

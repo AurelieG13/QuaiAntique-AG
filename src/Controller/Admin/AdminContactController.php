@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/contact', name: 'admin_contact_')]
+#[Route('manager/contact', name: 'manager_contact_')]
 class AdminContactController extends AbstractController
 {
     #[Route('/list', name: 'list')]
     public function list(ContactRepository $contactRepository): Response
     {
         $contacts = $contactRepository->findAll();
-        return $this->render('admin/admin_contact/index.html.twig', [
+        return $this->render('manager/manager_contact/index.html.twig', [
             'contacts' => $contacts,
         ]);
     }

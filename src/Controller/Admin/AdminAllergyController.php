@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/allergy', name: 'admin_allergy_')]
+#[Route('/manager/allergy', name: 'manager_allergy_')]
 class AdminAllergyController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function index(AllergyRepository $allergyRepository): Response
     {
-        return $this->render('admin/admin_allergy/index.html.twig', [
+        return $this->render('manager/manager_allergy/index.html.twig', [
             'allergies' => $allergyRepository->findAll(),
         ]);
     }
@@ -36,11 +36,11 @@ class AdminAllergyController extends AbstractController
             $em->persist($allergie);
             $em->flush();
 
-            return $this->redirectToRoute('admin_allergy_list');
+            return $this->redirectToRoute('manager_allergy_list');
         }
 
 
-        return $this->render('admin/admin_allergy/addAllergy.html.twig', [
+        return $this->render('manager/manager_allergy/addAllergy.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -57,10 +57,10 @@ class AdminAllergyController extends AbstractController
             $em->persist($allergy);
             $em->flush();
 
-            return $this->redirectToRoute('admin_allergy_list');
+            return $this->redirectToRoute('manager_allergy_list');
         }
 
-        return $this->render('admin/admin_allergy/editAllergy.html.twig', [
+        return $this->render('manager/manager_allergy/editAllergy.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -74,6 +74,6 @@ class AdminAllergyController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'allergie supprimée avec succes');
-        return $this->redirectToRoute('admin_allergy_list');
+        return $this->redirectToRoute('manager_allergy_list');
     }
 }

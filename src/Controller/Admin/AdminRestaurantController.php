@@ -6,18 +6,19 @@ use App\Entity\Restaurant;
 use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/restaurant', name: 'admin_restaurant_')]
+#[Route('/manager/restaurant', name: 'manager_restaurant_')]
 class AdminRestaurantController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function listRestaurant(RestaurantRepository $restaurantRepository): Response
     {
-        return $this->render('admin/admin_restaurant/index.html.twig', [
+        return $this->render('manager/manager_restaurant/index.html.twig', [
             'restaurants' => $restaurantRepository->findAll(),
         ]);
     }
@@ -38,11 +39,11 @@ class AdminRestaurantController extends AbstractController
             $em->persist($restaurant);
             $em->flush();
 
-            return $this->redirectToRoute('admin_restaurant_list');
+            return $this->redirectToRoute('manager_restaurant_list');
         }
 
 
-        return $this->render('admin/admin_restaurant/addRestaurant.html.twig', [
+        return $this->render('manager/manager_restaurant/addRestaurant.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -60,14 +61,15 @@ class AdminRestaurantController extends AbstractController
             $em->persist($restaurant);
             $em->flush();
 
-            return $this->redirectToRoute('admin_restaurant_list');
+            return $this->redirectToRoute('manager_restaurant_list');
         }
 
-        return $this->render('admin/admin_restaurant/editRestaurant.html.twig', [
+        return $this->render('manager/manager_restaurant/editRestaurant.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/delete/{id<\d+>}', name: 'delete')]
     public function deleteMenu(Restaurant $restaurant, ManagerRegistry $doctrine)
     {
@@ -77,6 +79,6 @@ class AdminRestaurantController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'restaurant supprimé avec succes');
-        return $this->redirectToRoute('admin_restaurant_list');
+        return $this->redirectToRoute('manager_restaurant_list');
     }
 }

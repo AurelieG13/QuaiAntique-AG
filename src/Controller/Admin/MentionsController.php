@@ -9,6 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('admin/mentions', name: 'admin_mentions_')]
 class MentionsController extends AbstractController
 {
+    #[Route('/', name: 'home')]
+    public function index(): Response
+    {
+        return $this->render('mentions/index.html.twig');
+    }
+
     #[Route('/mentions', name: 'mentionsLegales')]
     public function mentions(): Response
     {

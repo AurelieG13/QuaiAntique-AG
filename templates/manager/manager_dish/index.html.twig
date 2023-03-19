@@ -11,7 +11,7 @@
   <h1>Liste des plats</h1>
 
   <div class="mb-4 mt-4">
-    <a href="{{ path('admin_dish_add') }}" type="button" class="btn btn-custom">
+    <a href="{{ path('manager_dish_add') }}" type="button" class="btn btn-custom">
       Ajouter un plat
     </a>
   </div>
@@ -59,12 +59,12 @@
               
               </td>
               <td>
-              <a href="{{ path('admin_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-success">
+              <a href="{{ path('manager_dish_edit', {id: dish.id}) }}" type="button" class="btn btn-success">
                   Modifier
               </a>
               </td>
               <td>
-            <a href="{{ path('admin_dish_delete', {id: dish.id}) }}" type="button" class="btn btn-danger">
+            <a href="{{ path('manager_dish_delete', {id: dish.id}) }}" type="button" class="btn btn-danger">
                 Supprimer
             </a>
               </td>

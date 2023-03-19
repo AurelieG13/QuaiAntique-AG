@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/hours', name: 'admin_hours_')]
+#[Route('/manager/hours', name: 'manager_hours_')]
 class AdminHoursController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function index(OpeningHoursRepository $openingHoursRepository): Response
     {
         $hours = $openingHoursRepository->findBy([], ['sortWeek' => 'asc']);
-        return $this->render('admin/admin_hours/index.html.twig', [
+        return $this->render('manager/manager_hours/index.html.twig', [
             'hours' => $hours,
         ]);
     }
@@ -37,10 +37,10 @@ class AdminHoursController extends AbstractController
             $em->persist($hour);
             $em->flush();
 
-            return $this->redirectToRoute('admin_hours_list');
+            return $this->redirectToRoute('manager_hours_list');
         }
 
-        return $this->render('admin/admin_hours/addHours.html.twig', [
+        return $this->render('manager/manager_hours/addHours.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -57,10 +57,10 @@ class AdminHoursController extends AbstractController
             $em->persist($hour);
             $em->flush();
 
-            return $this->redirectToRoute('admin_hours_list');
+            return $this->redirectToRoute('manager_hours_list');
         }
 
-        return $this->render('admin/admin_hours/editHours.html.twig', [
+        return $this->render('manager/manager_hours/editHours.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -74,7 +74,7 @@ class AdminHoursController extends AbstractController
         $em->persist($copyHours);
         $em->flush();
 
-        return $this->redirectToRoute('admin_hours_list');
+        return $this->redirectToRoute('manager_hours_list');
     }
 
     #[Route('/delete/{id<\d+>}', name: 'delete')]
@@ -86,6 +86,6 @@ class AdminHoursController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'horaire supprimé avec succes');
-        return $this->redirectToRoute('admin_hours_list');
+        return $this->redirectToRoute('manager_hours_list');
     }
 }

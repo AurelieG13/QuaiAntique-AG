@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/dish', name: 'admin_dish_')]
+#[Route('/manager/dish', name: 'manager_dish_')]
 class AdminDishController extends AbstractController
 {
     #[Route('/list', name: 'list')]
@@ -33,7 +33,7 @@ class AdminDishController extends AbstractController
             );
         }
 
-        return $this->render('admin/admin_dish/index.html.twig', [
+        return $this->render('manager/manager_dish/index.html.twig', [
             'dishes' => $dishes,
             'form' => $form->createView()
         ]);
@@ -66,10 +66,10 @@ class AdminDishController extends AbstractController
                 $em->persist($dish);
                 $em->flush();
             }
-            return $this->redirectToRoute('admin_dish_list');
+            return $this->redirectToRoute('manager_dish_list');
         }
 
-        return $this->render('admin/admin_dish/addDish.html.twig', [
+        return $this->render('manager/manager_dish/addDish.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -99,10 +99,10 @@ class AdminDishController extends AbstractController
             $em->persist($dish);
             $em->flush();
 
-            return $this->redirectToRoute('admin_dish_list');
+            return $this->redirectToRoute('manager_dish_list');
         }
 
-        return $this->render('admin/admin_dish/editDish.html.twig', [
+        return $this->render('manager/manager_dish/editDish.html.twig', [
             'form' => $form->createView(),
             'dish' => $dish
         ]);
@@ -128,7 +128,7 @@ class AdminDishController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'plat supprimé avec succes');
-        return $this->redirectToRoute('admin_dish_list');
+        return $this->redirectToRoute('manager_dish_list');
     }
 
     #[Route('/delete/image/{id<\d+>}', name: 'delete_image', methods: ['DELETE'])]

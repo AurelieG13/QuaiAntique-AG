@@ -16,13 +16,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/menu', name: 'admin_menu_')]
+#[Route('/manager/menu', name: 'manager_menu_')]
 class AdminMenuController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function listMenu(MenuRepository $menuRepository): Response
     {
-        return $this->render('admin/admin_menu/index.html.twig', [
+        return $this->render('manager/manager_menu/index.html.twig', [
             'menus' => $menuRepository->findAll(),
         ]);
     }
@@ -53,10 +53,10 @@ class AdminMenuController extends AbstractController
                 $em->persist($menu);
                 $em->flush();
             }
-            return $this->redirectToRoute('admin_menu_list');
+            return $this->redirectToRoute('manager_menu_list');
         }
 
-        return $this->render('admin/admin_menu/addMenu.html.twig', [
+        return $this->render('manager/manager_menu/addMenu.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -86,10 +86,10 @@ class AdminMenuController extends AbstractController
             $em->persist($menu);
             $em->flush();
 
-            return $this->redirectToRoute('admin_menu_list');
+            return $this->redirectToRoute('manager_menu_list');
         }
 
-        return $this->render('admin/admin_menu/editMenu.html.twig', [
+        return $this->render('manager/manager_menu/editMenu.html.twig', [
             'form' => $form->createView(),
             'menu' => $menu,
         ]);
@@ -104,7 +104,7 @@ class AdminMenuController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'menu supprimé avec succes');
-        return $this->redirectToRoute('admin_menu_list');
+        return $this->redirectToRoute('manager_menu_list');
     }
 
     #[Route('/delete/image/{id<\d+>}', name: 'delete_image', methods: ['DELETE'])]

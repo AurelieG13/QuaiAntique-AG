@@ -9,10 +9,10 @@
 
   <h1>Liste des menus</h1>
   <div class="mb-4 mt-4">
-    <a href="{{ path('admin_menu_add') }}" type="button" class="btn btn-custom">
+    <a href="{{ path('manager_menu_add') }}" type="button" class="btn btn-custom">
       Ajouter un menu
     </a>
-    <a href="{{ path('admin_formule_list') }}" type="button" class="btn btn-custom">
+    <a href="{{ path('manager_formule_list') }}" type="button" class="btn btn-custom">
       Gérer les formules
     </a>
   </div>
@@ -40,12 +40,12 @@
               {% endfor %}
               </td>
               <td>
-              <a href="{{ path('admin_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-success">
+              <a href="{{ path('manager_menu_edit', {id: menu.id}) }}" type="button" class="btn btn-success">
                   Modifier
               </a>
               </td>
               <td>
-              <a href="{{ path('admin_menu_delete', {id: menu.id}) }}" type="button" class="btn btn-danger">
+              <a href="{{ path('manager_menu_delete', {id: menu.id}) }}" type="button" class="btn btn-danger">
                 Supprimer
             </a>
               </td>

@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/booking', name: 'admin_booking_')]
+#[Route('/manager/booking', name: 'manager_booking_')]
 class AdminBookingController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function index(BookingRepository $bookingRepository): Response
     {
-        return $this->render('admin/admin_booking/index.html.twig', [
+        return $this->render('manager/manager_booking/index.html.twig', [
             'bookings' => $bookingRepository->findAll(),
         ]);
     }
@@ -36,11 +36,11 @@ class AdminBookingController extends AbstractController
             $em->persist($booking);
             $em->flush();
 
-            return $this->redirectToRoute('admin_booking_list');
+            return $this->redirectToRoute('manager_booking_list');
         }
 
 
-        return $this->render('admin/admin_booking/addBooking.html.twig', [
+        return $this->render('manager/manager_booking/addBooking.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -57,10 +57,10 @@ class AdminBookingController extends AbstractController
             $em->persist($booking);
             $em->flush();
 
-            return $this->redirectToRoute('admin_booking_list');
+            return $this->redirectToRoute('manager_booking_list');
         }
 
-        return $this->render('admin/admin_booking/editBooking.html.twig', [
+        return $this->render('manager/manager_booking/editBooking.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -74,6 +74,6 @@ class AdminBookingController extends AbstractController
         $em->flush(); 
 
         $this->addFlash('success', 'réservation supprimée avec succes');
-        return $this->redirectToRoute('admin_booking_list');
+        return $this->redirectToRoute('manager_booking_list');
     }
 }

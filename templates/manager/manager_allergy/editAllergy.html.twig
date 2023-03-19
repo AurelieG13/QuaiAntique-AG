@@ -1,19 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin - Modifier Formules{% endblock %}
+{% block title %}Admin - Modifier allergies{% endblock %}
 
 {% block body %}
 <main class="container">
-<h1>Modification d'une formule</h1>
+<h1>Modification d'une allergie</h1>
         <section>
-                <a href="{{ path('admin_formule_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
+                <a href="{{ path('manager_allergy_list') }}" type="button" class="btn btn-custom my-3">Retour</a>
         </section>
         {{ form_start(form)}}
 
         {{ form_row(form.name) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.subtitle) }}
-        {{ form_row(form.price) }}
         <section>
                 <button type="submit" class="btn btn-custom my-3">Modifier</button>
         </section>

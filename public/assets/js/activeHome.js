@@ -4,7 +4,7 @@ window.onload = () => {
         button.addEventListener("click", function(){
             let xmlhttp = new XMLHttpRequest;
 
-            xmlhttp.open("get", `/admin/dish/activeHome/${this.dataset.id}`)
+            xmlhttp.open("get", `/manager/dish/activeHome/${this.dataset.id}`)
             xmlhttp.send()
         })
     }

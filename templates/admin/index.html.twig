@@ -3,11 +3,12 @@
 {% block title %}Panneau d'administration{% endblock %}
 
 {% block body %}
-<h1>Accuil panneau d'administration</h1>
+<h1>Accueil panneau d'administration</h1>
 <main class="container">
     <section class="d-flex justify-content-around flex-wrap">
 
-        <a href="{{ path('admin_contact_list') }}" class="text-decoration-none">
+    {% if app.user and is_granted('ROLE_MANAGER') %}
+        <a href="{{ path('manager_contact_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/contact.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
@@ -18,7 +19,7 @@
             </div>
         </a>
 
-        <a href="{{ path('admin_dish_list') }}" class="text-decoration-none">
+        <a href="{{ path('manager_dish_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/dish.svg') }}" class="rounded mx-auto d-block align-middle"  width="40" alt="...">
@@ -29,7 +30,7 @@
             </div>
         </a>
 
-        <a href="{{ path('admin_menu_list') }}" class="text-decoration-none">
+        <a href="{{ path('manager_menu_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/menu.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
@@ -40,18 +41,7 @@
             </div>
         </a>
 
-        <a href="{{ path('admin_category_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/categorie.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les catégories
-                    </h5>
-                </div>
-            </div>
-        </a>
-
-        <a href="{{ path('admin_formule_list') }}" class="text-decoration-none">
+        <a href="{{ path('manager_formule_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/formule.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
@@ -63,7 +53,7 @@
         </a>
 
 
-        <a href="{{ path('admin_hours_list') }}" class="text-decoration-none">
+        <a href="{{ path('manager_hours_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/hours.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
@@ -74,12 +64,53 @@
             </div>
         </a>
 
-        <a href="{{ path('admin_restaurant_list') }}" class="text-decoration-none">
+        <a href="{{ path('manager_restaurant_list') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
                     <img src="{{ asset('assets/images/restaurant.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
                     <h5 class="card-title text-center mt-2">
                         Administrer le restaurant
+                    </h5>
+                </div>
+            </div>
+        </a>
+
+
+        <a href="{{ path('manager_allergy_list') }}" class="text-decoration-none">
+            <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body text-align">
+                    <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                    <h5 class="card-title text-center mt-2">
+                        Administrer les allergies
+                    </h5>
+                </div>
+            </div>
+        </a>
+
+        <a href="{{ path('manager_booking_list') }}" class="text-decoration-none">
+            <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body text-align">
+                    <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                    <h5 class="card-title text-center mt-2">
+                        Administrer les réservations
+                    </h5>
+                </div>
+            </div>
+        </a>
+
+    
+    
+    {% endif %}
+
+
+    {% if app.user and is_granted('ROLE_ADMIN') %}
+
+        <a href="{{ path('admin_category_list') }}" class="text-decoration-none">
+            <div class="card mt-2" style="width: 18rem;">
+                <div class="card-body text-align">
+                    <img src="{{ asset('assets/images/categorie.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                    <h5 class="card-title text-center mt-2">
+                        Administrer les catégories
                     </h5>
                 </div>
             </div>
@@ -94,29 +125,20 @@
                     </h5>
                 </div>
             </div>
-        </a>
+        </a>  
 
-        <a href="{{ path('admin_allergy_list') }}" class="text-decoration-none">
+        <a href="{{ path('admin_mentions_home') }}" class="text-decoration-none">
             <div class="card mt-2" style="width: 18rem;">
                 <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                    <img src="{{ asset('assets/images/users.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
                     <h5 class="card-title text-center mt-2">
-                        Administrer les allergies
+                        Administrer les mentions
                     </h5>
                 </div>
             </div>
-        </a>
+        </a>      
+    
+    {% endif %}
+    
 
-        <a href="{{ path('admin_booking_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les réservations
-                    </h5>
-                </div>
-            </div>
-        </a>
-    </section>
-</main>
 {% endblock %}

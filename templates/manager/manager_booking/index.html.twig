@@ -10,7 +10,7 @@
 
     <h1>Liste des réservations</h1>
     <div class="mb-4 mt-4">
-        <a href="{{ path('admin_booking_add') }}" type="button" class="btn btn-custom">
+        <a href="{{ path('manager_booking_add') }}" type="button" class="btn btn-custom">
             Ajouter une réservation 
         </a>
     </div>
@@ -40,12 +40,12 @@
             <td>{{ booking.seats }}</td>
 
             <td>
-            <a href="{{ path('admin_booking_edit', {id: booking.id}) }}" type="button" class="btn btn-success">
+            <a href="{{ path('manager_booking_edit', {id: booking.id}) }}" type="button" class="btn btn-success">
                 Modifier
             </a>
             </td>
             <td>
-            <a href="{{ path('admin_booking_delete', {id: booking.id}) }}" type="button" class="btn btn-danger">
+            <a href="{{ path('manager_booking_delete', {id: booking.id}) }}" type="button" class="btn btn-danger">
                 Supprimer
             </a>
             </td>

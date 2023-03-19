@@ -24,11 +24,7 @@ class AdminUserController extends AbstractController
     public function index(UserRepository $userRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $users = $paginator->paginate(
-            // $userRepository->findBy(['roles' => 'ROLE_ADMIN']),
-            // $userRepository->findBy(['roles' => ['ROLE_USER']]),
             $userRepository->findAll(),
-            // $userRepository->MyFindAll(),
-            // $userRepository->countUser($users),
             $request->query->getInt('page', 1),
             10
         );

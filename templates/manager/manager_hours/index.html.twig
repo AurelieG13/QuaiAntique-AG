@@ -10,7 +10,7 @@
 
   <h1>Liste des horaires</h1>
   <div class="mb-4 mt-4">
-    <a href="{{ path('admin_hours_add') }}" type="button" class="btn btn-custom">
+    <a href="{{ path('manager_hours_add') }}" type="button" class="btn btn-custom">
     Ajouter un horaire
     </a>
   </div>
@@ -38,17 +38,17 @@
               <td>{{ hour.closedDinnerHour|date("H:i")  }}</td>
 
               <td>
-              <a href="{{ path('admin_hours_edit', {id: hour.id}) }}" type="button" class="btn btn-success">
+              <a href="{{ path('manager_hours_edit', {id: hour.id}) }}" type="button" class="btn btn-success">
                   Modifier
               </a>
               </td>
               <td>
-                <a href="{{ path('admin_hours_duplicate', {id: hour.id}) }}" type="button" class="btn btn-warning">
+                <a href="{{ path('manager_hours_duplicate', {id: hour.id}) }}" type="button" class="btn btn-warning">
                     Dupliquer
                 </a>
               </td>
               <td>
-              <a href="{{ path('admin_hours_delete', {id: hour.id}) }}" type="button" class="btn btn-danger">
+              <a href="{{ path('manager_hours_delete', {id: hour.id}) }}" type="button" class="btn btn-danger">
                 Supprimer
             </a>
               </td>
