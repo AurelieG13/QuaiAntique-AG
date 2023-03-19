@@ -62,7 +62,6 @@ class MenuRepository extends ServiceEntityRepository
             ->andWhere('menu.name LIKE :search')
             ->setParameter('search', '%'.$search.'%')
             ->orderBy('menu.name', 'DESC')
-            // ->setMaxResults(10)
             ->getQuery()
             ->getResult();
     }
