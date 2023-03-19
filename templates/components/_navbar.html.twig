@@ -11,7 +11,7 @@
 			{% if app.user %}
 				<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 				<li><a class="dropdown-item" href="{{ path('register')}}">Se déconnecter</a></li>
-				{% if is_granted('ROLE_ADMIN')  %}
+				{% if is_granted('ROLE_MANAGER')  %}
 					<li><a class="dropdown-item" href="{{ path('admin_home')}}">panneau d'administration</a></li>
 				{% endif %}
 				
@@ -45,7 +45,7 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="{{ path('profile_home') }}">Mon compte</a></li>
 							<li><a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a></li>
-						{% if is_granted('ROLE_ADMIN')  %}
+						{% if is_granted('ROLE_MANAGER')  %}
 							<li><a class="dropdown-item" href="{{ path('admin_home')}}">Panneau d'Administration</a></li>
 						{% endif %}
 						</ul>
