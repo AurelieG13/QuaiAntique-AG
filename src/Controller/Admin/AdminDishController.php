@@ -94,7 +94,8 @@ class AdminDishController extends AbstractController
                 $img = new Images();
                 $img->setName($fichier);
                 $dish->addImage($img);
-            }
+                }
+
             $em = $doctrine->getManager();
             $em->persist($dish);
             $em->flush();
