@@ -3,6 +3,9 @@
 {% block title %}Réinitialiser le mot de passe{% endblock %}
 
 {% block body %}
+    {% for flash_error in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
 
     <section class="container">
         <a href="{{ path('profile_home') }}" type="button" class="btn btn-custom btn-lg my-3">Retour</a>

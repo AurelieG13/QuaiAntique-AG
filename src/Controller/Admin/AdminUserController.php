@@ -51,7 +51,7 @@ class AdminUserController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success','le profil a été modifié avec succès');
+            // $this->addFlash('success','le profil a été modifié avec succès');
             return $this->redirectToRoute('admin_user_list');
         }
 
