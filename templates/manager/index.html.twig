@@ -4,103 +4,100 @@
 
 {% block body %}
 <h1>Accueil panneau d'administration</h1>
-<main class="container">
+<div class="container">
     <section class="d-flex justify-content-around flex-wrap">
-
-    {% if app.user and is_granted('ROLE_MANAGER') %}
-        <a href="{{ path('manager_contact_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/contact.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="contact">
-                    <h5 class="card-title text-center mt-2">
-                        Contacts
-                    </h5>
+        {% if app.user and is_granted('ROLE_MANAGER') %}
+            <a href="{{ path('manager_contact_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/contact.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="contact">
+                        <h5 class="card-title text-center mt-2">
+                            Contacts
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="{{ path('manager_dish_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/dish.svg') }}" class="rounded mx-auto d-block align-middle"  width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer la carte
-                    </h5>
+            <a href="{{ path('manager_dish_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/dish.svg') }}" class="rounded mx-auto d-block align-middle"  width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer la carte
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="{{ path('manager_menu_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/menu.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les menus
-                    </h5>
+            <a href="{{ path('manager_menu_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/menu.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer les menus
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="{{ path('manager_formule_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/formule.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les formules
-                    </h5>
+            <a href="{{ path('manager_formule_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/formule.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer les formules
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
 
-        <a href="{{ path('manager_hours_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/hours.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les horaires
-                    </h5>
+            <a href="{{ path('manager_hours_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/hours.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer les horaires
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="{{ path('manager_restaurant_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/restaurant.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer le restaurant
-                    </h5>
+            <a href="{{ path('manager_restaurant_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/restaurant.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer le restaurant
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
 
-        <a href="{{ path('manager_allergy_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les allergies
-                    </h5>
+            <a href="{{ path('manager_allergy_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/allergy.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer les allergies
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="{{ path('manager_booking_list') }}" class="text-decoration-none">
-            <div class="card mt-2" style="width: 18rem;">
-                <div class="card-body text-align">
-                    <img src="{{ asset('assets/images/calendar.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
-                    <h5 class="card-title text-center mt-2">
-                        Administrer les réservations
-                    </h5>
+            <a href="{{ path('manager_booking_list') }}" class="text-decoration-none">
+                <div class="card mt-2" style="width: 18rem;">
+                    <div class="card-body text-align">
+                        <img src="{{ asset('assets/images/calendar.svg') }}" class="rounded mx-auto d-block align-middle" width="40" alt="...">
+                        <h5 class="card-title text-center mt-2">
+                            Administrer les réservations
+                        </h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
-    
-    
-    {% endif %}
+        {% endif %}
 
 
     {% if app.user and is_granted('ROLE_ADMIN') %}
@@ -140,5 +137,5 @@
     
     {% endif %}
     
-
+</div>
 {% endblock %}
