@@ -44,8 +44,8 @@ class BookingController extends AbstractController
             $manager->persist($booking);
             $manager->flush();
 
-            return $this->redirectToRoute('home');
             $this->addFlash('success', 'réservation effectuée avec succès');
+            return $this->redirectToRoute('home');
     }
     
         return $this->render('booking/index.html.twig', [
