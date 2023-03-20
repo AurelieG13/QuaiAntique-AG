@@ -74,10 +74,11 @@ class BookingFormType extends AbstractType
             ])
             ->add('phoneNumber', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => '0632859758',
                 ],
                 'label' => 'Votre numéro de téléphone',
-                'placeholder' => '0632859758',
+                
                 "required" => true,
                 'constraints' => [
                     new Assert\Length(['min' => 10, 'minMessage' => "le contenu ne doit pas faire moins de 10 caractères", "max" => 10, "maxMessage" => "le contenu ne doit pas faire plus de 10 caractères"]),

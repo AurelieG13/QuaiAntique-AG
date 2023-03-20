@@ -480,6 +480,13 @@
         <argument type="service" id=".service_locator.CshazM0.App\Controller\Admin\AdminUserController"/>
       </call>
     </service>
+    <service id="App\Controller\Admin\ManagerController" class="App\Controller\Admin\ManagerController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.CshazM0.App\Controller\Admin\ManagerController"/>
+      </call>
+    </service>
     <service id="App\Controller\BookingController" class="App\Controller\BookingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -522,6 +529,13 @@
         <argument type="service" id=".service_locator.CshazM0.App\Controller\MainController"/>
       </call>
     </service>
+    <service id="App\Controller\MentionsController" class="App\Controller\MentionsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.CshazM0.App\Controller\MentionsController"/>
+      </call>
+    </service>
     <service id="App\Controller\MenuController" class="App\Controller\MenuController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -558,13 +572,6 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.CshazM0.App\Controller\SecurityController"/>
-      </call>
-    </service>
-    <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.CshazM0.App\Controller\UserController"/>
       </call>
     </service>
     <service id="App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" autoconfigure="true">
@@ -4304,7 +4311,7 @@
       <argument type="service" id=".debug.http_client" on-invalid="ignore"/>
     </service>
     <service id="notifier.admin_recipient.0" class="Symfony\Component\Notifier\Recipient\Recipient">
-      <argument>admin@example.com</argument>
+      <argument>ag.admin@lequaiantique.ellipseservices13.fr</argument>
       <argument></argument>
     </service>
     <service id="profiler" class="Symfony\Component\HttpKernel\Profiler\Profiler" public="true">
@@ -5935,6 +5942,13 @@
         <argument>null</argument>
       </call>
       <call method="add">
+        <argument type="service" id=".security.request_matcher.dEIz0xJ"/>
+        <argument type="collection">
+          <argument>ROLE_MANAGER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
         <argument type="service" id=".security.request_matcher.FsQ6U.P"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -6460,6 +6474,14 @@
     <service id=".security.request_matcher.28NqKnb" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
       <argument type="collection">
         <argument type="service" id=".security.request_matcher.obhk0jm"/>
+      </argument>
+    </service>
+    <service id=".security.request_matcher.PmHrPeo" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
+      <argument>^/manager</argument>
+    </service>
+    <service id=".security.request_matcher.dEIz0xJ" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
+      <argument type="collection">
+        <argument type="service" id=".security.request_matcher.PmHrPeo"/>
       </argument>
     </service>
     <service id=".security.request_matcher.92MUXM4" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
@@ -7068,6 +7090,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminUserController" class="App\Controller\Admin\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\ManagerController" class="App\Controller\Admin\ManagerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\ManagerController" class="App\Controller\Admin\ManagerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\ManagerController" class="App\Controller\Admin\ManagerController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7086,6 +7111,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MentionsController" class="App\Controller\MentionsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MentionsController" class="App\Controller\MentionsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MentionsController" class="App\Controller\MentionsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MenuController" class="App\Controller\MenuController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MenuController" class="App\Controller\MenuController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MenuController" class="App\Controller\MenuController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7101,9 +7129,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AllergyFixtures" class="App\DataFixtures\AllergyFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\CategoryFixtures" class="App\DataFixtures\CategoryFixtures" autowire="true" abstract="true"/>
@@ -8505,6 +8530,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
+    <service id=".service_locator.CshazM0.App\Controller\Admin\ManagerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\ManagerController"/>
+      <argument>App\Controller\Admin\ManagerController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CshazM0" method="withContext"/>
+    </service>
     <service id=".service_locator.CshazM0.App\Controller\BookingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BookingController"/>
       <argument>App\Controller\BookingController</argument>
@@ -8541,6 +8572,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
+    <service id=".service_locator.CshazM0.App\Controller\MentionsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MentionsController"/>
+      <argument>App\Controller\MentionsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CshazM0" method="withContext"/>
+    </service>
     <service id=".service_locator.CshazM0.App\Controller\MenuController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MenuController"/>
       <argument>App\Controller\MenuController</argument>
@@ -8568,12 +8605,6 @@
     <service id=".service_locator.CshazM0.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.CshazM0" method="withContext"/>
-    </service>
-    <service id=".service_locator.CshazM0.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\UserController"/>
-      <argument>App\Controller\UserController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.CshazM0" method="withContext"/>
     </service>
