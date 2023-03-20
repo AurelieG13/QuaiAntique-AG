@@ -1421,3 +1421,15 @@ b95ab8,::1,GET,https://localhost:8000/assets/uploads/dish/mini/30x30-C:/Users/Au
 67bff9,::1,GET,https://localhost:8000/assets/uploads/dish/mini/30x30-C:/Users/Aur%C3%A9lie%20GUICHARDON/AppData/Local/Temp/3e26d344f1c70ad0e61e4969b09fc524.png,1679294941,,404
 e21bdf,::1,GET,https://localhost:8000/manager/dish/edit/271,1679294942,,200
 f0cc4d,::1,GET,https://localhost:8000/manager/dish/edit/271,1679294943,,200
+2b753d,::1,GET,https://localhost:8000/booking/,1679296065,,200
+0016d6,::1,GET,https://localhost:8000/manager/,1679296070,ed0559,500
+ed0559,::1,GET,https://localhost:8000/manager/,1679296070,,500
+b7ef18,::1,GET,https://localhost:8000/profile/,1679296073,,200
+72be15,::1,GET,https://localhost:8000/,1679296343,,200
+c1680c,::1,GET,https://localhost:8000/booking/,1679296346,,200
+784e03,::1,GET,https://localhost:8000/,1679300299,,200
+622f0b,::1,GET,https://localhost:8000/booking/,1679302299,,200
+5c7c53,::1,GET,https://localhost:8000/login,1679302302,,200
+b249db,::1,POST,https://localhost:8000/login,1679302305,,302
+8f3f3f,::1,GET,https://localhost:8000/,1679302305,,200
+e9bb6f,::1,GET,https://localhost:8000/booking/,1679302309,,200
