@@ -75,7 +75,7 @@ class BookingFormType extends AbstractType
             ->add('phoneNumber', TextType::class, [
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => '0632859758',
+                    'placeholder' => 'Votre numéro de téléphone',
                 ],
                 'label' => 'Votre numéro de téléphone',
                 
