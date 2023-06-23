@@ -33,7 +33,7 @@ class ContactController extends AbstractController
             $manager->persist($contact);
             $manager->flush();
 
-            $this->addFlash('success', 'message envoyé avec succès');
+            $this->addFlash('success', 'Message envoyé avec succès');
             return $this->redirectToRoute('home');
             
     }
