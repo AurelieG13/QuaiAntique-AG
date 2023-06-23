@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin - Enregistrer un administrateur/Manager{% endblock %}
+{% block title %}Admin - Enregistrer un Administrateur/Manager{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
@@ -17,6 +17,11 @@
             {{ form_row(admin_register_form.email) }}
             {{ form_row(admin_register_form.plainPassword) }}
             {{ form_row(admin_register_form.agreeTerms) }}
+            {{ form_row(admin_register_form.name) }}
+            {{ form_row(admin_register_form.firstname) }}
+            {{ form_row(admin_register_form.phoneNumber) }}
+            {{ form_row(admin_register_form.guestBooking) }}
+            {{ form_row(admin_register_form.allergies) }}
 
             <input type="hidden" name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
