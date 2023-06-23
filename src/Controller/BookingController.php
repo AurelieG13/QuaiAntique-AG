@@ -44,7 +44,7 @@ class BookingController extends AbstractController
             $manager->persist($booking);
             $manager->flush();
 
-            $this->addFlash('success', 'réservation effectuée avec succès');
+            $this->addFlash('success', 'Réservation effectuée avec succès');
             return $this->redirectToRoute('home');
     }
     
