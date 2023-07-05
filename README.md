@@ -33,6 +33,4 @@ ECF 2023 - TITRE PROFESSIONNEL DEVELOPPEUR WEB ET WEB MOBILE
 * panneau d'administration
     - Gérer les utilisateurs ->ajouter un manager
 
-## Déploiement en ligne :
-
 
